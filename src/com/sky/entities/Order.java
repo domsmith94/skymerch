@@ -2,13 +2,10 @@ package com.sky.entities;
 
 import java.util.Date;
 
+import com.sky.enums.Shipping;
 import com.sky.enums.Status;
 
 public class Order {
-	
-
-	
-
 	
 	private int orderId;
 	private Customer orderedBy;
@@ -19,7 +16,9 @@ public class Order {
 	private Date orderTime;
 	private Address deliveryAddress;
 	
-	// Homework - Everyone get a GitHub account
+	public Order(){
+		
+	}
 	
 	
 	
