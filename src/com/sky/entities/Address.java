@@ -8,5 +8,17 @@ public class Address {
 	private String region;
 	private String postcode;
 	private String country;
+	
+	public Address(){
+		
+	}
+	
+	public String getHouseNameNum(){
+		return this.houseNameNum;
+	}
+	
+	
+	
+	
 
 }
