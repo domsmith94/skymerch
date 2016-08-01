@@ -1,19 +1,24 @@
 package com.sky.entities;
 
+public enum Title{
+	Mr., Mrs., Ms., Miss, Dr., Rev.
+}
+
 public class Customer {
 	
 	private int custId;
 	private String firstName;
 	private String middleInit;
 	private String lastName;
-	private enum title
+	private enum t
 	private String email;
 	private String telNum;
 	private List<Address> addressBook = new ArrayList<>; 
 	
 	// PaymentDetails object
 	// Date of Birth field?
-	
+	// Should we have an array of Orders?
+			
 	public void setFirstName(String n){
 		this.firstName = n;
 	}
@@ -61,8 +66,6 @@ public class Customer {
 	
 	
 	
-	// Should we have an array of Orders?
-	// 
 	
 
 }
