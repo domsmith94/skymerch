@@ -2,16 +2,13 @@ package com.sky.entities;
 
 import java.util.Date;
 
+import com.sky.enums.Status;
+
 public class Order {
 	
-	public enum Status {
-		COMPLETE, DELIVERY, RECIEVED, PROCESSING
-		
-	}
+
 	
-	public enum Shipping {
-		STANDARD, PREMIUM
-	}
+
 	
 	private int orderId;
 	private Customer orderedBy;
