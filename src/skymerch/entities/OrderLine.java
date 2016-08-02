@@ -7,7 +7,7 @@ public class OrderLine {
 	private Double orderLinePrice;
 	
 	public OrderLine(Product p, int q)	{ this.product = p;	this.quantity = q;
-	 										this.orderLinePrice = this.product.getPrice() * this.quantity;}
+	 										this.orderLinePrice = p.getPrice() * q;}
 	
 	public void setProduct(Product p)	{ this.product = p;}
 	
