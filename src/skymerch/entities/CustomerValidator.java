@@ -5,7 +5,7 @@ import java.util.regex.*;
 public class CustomerValidator {
 	
 	// static method for validating customer details
-	public static boolean isValid(Customer c){
+	public static boolean validate(Customer c){
 		boolean valid = false;
 		if (nameCheck(c) && emailCheck(c))		// any extra checks can be added here with helper methods written below
 		valid = true;

@@ -48,7 +48,7 @@ public class Customer {
 	public List<Address> getAddressBook(){return this.addressBook; }
 	*/	
 	
-	//public boolean isValid(){			return CustomerValidator.isValid(this); }		// shouldn't be done here
+	//public boolean isValid(){			return CustomerValidator.validate(this); }		// shouldn't be done here
 	
 	
 
