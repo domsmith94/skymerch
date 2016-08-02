@@ -17,7 +17,7 @@ public class OrderLine {
 	
 	public int getQuantity()			{ return this.quantity;}
 	
-	public void setOrderLinePrice(Double d) {this.orderLinePrice = d}
+	public void setOrderLinePrice(Double d) {this.orderLinePrice = d;}
 	
 	public Double getOrderLinePrice()	{return this.orderLinePrice;}	
 	

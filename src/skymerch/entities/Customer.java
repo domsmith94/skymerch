@@ -1,10 +1,8 @@
 package skymerch.entities;
 
+import java.util.List;
+
 public class Customer {
-	
-	public enum Title{
-		Mr., Mrs., Ms., Miss, Dr., Rev.
-	}
 	
 	private int custId;
 	private String firstName;
@@ -13,7 +11,7 @@ public class Customer {
 	private Title title;
 	private String email;
 	private String telNum;
-	private List<Address> addressBook = new ArrayList<>; 
+	private List<Address> addressBook = new ArrayList<>(); 
 	
 	// PaymentDetails object
 	// Date of Birth field?
