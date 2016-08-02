@@ -3,9 +3,7 @@ package skymerch.entities;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.sky.enums.Shipping;
-import com.sky.enums.Status;
+import skymerch.enums.*;
 
 public class Order {
 	
