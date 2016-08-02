@@ -34,6 +34,10 @@ public class Customer {
 	
 	public String getEmail(){			return this.email; }
 	
+	public void setPassword(String p){	this.password = p }
+	
+	public String getPassword(){		return this.password; }
+	
 	//public void setTelNum(String t){	this.telNum = t; }
 	
 	//public String getTelNum(){		return this.telNum; }
