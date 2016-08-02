@@ -34,7 +34,7 @@ public class Customer {
 	
 	public String getEmail(){			return this.email; }
 	
-	public void setPassword(String p){	this.password = p }
+	public void setPassword(String p){	this.password = p; }
 	
 	public String getPassword(){		return this.password; }
 	
