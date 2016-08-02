@@ -10,13 +10,9 @@ public class CustomerValidator {
 				if(c.getEmail().contains("@")){  // this must be improved
 				valid = true;
 		}
-				else {
-					valid = false;
-				}
-		
-		
-	}
 		}
+		}
+		else {valid = false;}
 		return valid;
 	}
 }
