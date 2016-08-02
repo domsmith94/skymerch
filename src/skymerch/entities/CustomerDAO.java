@@ -60,6 +60,7 @@ public class CustomerDAO {
 		}
 		return null;
 	}
+	
 	public Customer findById(int custId){
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -86,7 +87,38 @@ public class CustomerDAO {
 			 */
 
 		}
+		
 		return null;
 	}
+		public Customer findByEmail(String email){
+			try {
+				Class.forName("com.mysql.jdbc.Driver").newInstance();
+				//the name of the database location is TBC
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TBC","root", "root");
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM customer WHERE email = " + email + "");
+
+				if (!rs.next()){
+					System.out.println("No customer found in database with email " + email);
+				}
+
+				while (rs.next()){
+					return this.processResult(rs);
+
+
+				}
+			} catch(Exception e){
+				e.printStackTrace();
+				/*
+				 * add what will happen if a statement in the try block
+				 *(e.g. a username is input incorrectly) fails. 
+				 *TO DO: work on exception strategy
+				 */
+
+			}
+			
+		return null;
+	}
+	
 
 }
