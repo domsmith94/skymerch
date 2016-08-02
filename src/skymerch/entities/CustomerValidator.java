@@ -7,7 +7,7 @@ public class CustomerValidator {
 		boolean valid = false;
 		if (c.getFirstName().length()>0 && c.getFirstName().length()<=30){
 			if (c.getLastName().length()>0 && c.getFirstName().length()<=30){
-				if(c.getEmail().contains("@")){
+				if(c.getEmail().contains("@")){  // this must be improved
 				valid = true;
 		}
 				else {
