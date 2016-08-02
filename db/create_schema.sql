@@ -65,3 +65,5 @@ create table product
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('1', '1', '2.50' , '4', '10.0');
+      
+      -- hello
