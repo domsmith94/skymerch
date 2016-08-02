@@ -11,7 +11,7 @@ import skymerch.external.*;
 
 public class CustomerDAO {
 
-	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/TBC";
+	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/calum.data";
 	private final String DB_USERNAME = "root";
 	private final String DB_PASSWORD = "root";
 
@@ -19,6 +19,7 @@ public class CustomerDAO {
 		Connection con = null;
 
 		try {
+			// create a driver class
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(this.DB_LOCATION, this.DB_USERNAME, this.DB_PASSWORD);
 
@@ -153,12 +154,13 @@ public class CustomerDAO {
 			Statement stmt = con.createStatement();
 			String hashed = BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()); // this is not final location for this, but just for prototype
 			Address addr = customer.getAddress();
-			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) "
+			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, address_line2, city, country, postcode) "
 					+ "values ('" + customer.getFirstName() + "','" + customer.getLastName() + "', '" + customer.getEmail() + "', '" 
-					+ hashed + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "','" 
-					+ addr.getRegion() + "','" + addr.getCountry() + "','" + addr.getPostcode() + "')";
+					+ hashed + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "', '" 
+					+ addr.getRegion() + "', '" + addr.getCountry() + "', '" + addr.getPostcode() + "')";
 			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
 			stmt.executeUpdate(sql);
+
 
 		} catch(Exception e){
 			e.printStackTrace();
@@ -170,5 +172,4 @@ public class CustomerDAO {
 
 		}
 	}
-
 }

@@ -8,7 +8,7 @@ create table customer
        first_name varchar(20) not null,
        last_name varchar(20) not null,
        email varchar(50) not null,
-       user_password varchar(50) not null,   
+       user_password varchar(200) not null,   
        house_no varchar(50) not null, 
        address_line1 varchar(50) not null,
        address_line2 varchar(50) null,

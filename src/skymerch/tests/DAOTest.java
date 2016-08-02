@@ -1,5 +1,6 @@
 package skymerch.tests;
 
+import skymerch.external.*;
 import skymerch.entities.Address;
 import skymerch.enums.*;
 import skymerch.entities.Customer;
@@ -9,6 +10,8 @@ public class DAOTest {
 	
 	public static void main(String[] args) {
 		CustomerDAO dao = new CustomerDAO();
+		
+		// Initialise test customer
 		Customer bel = new Customer();
 		bel.setFirstName("Isobel");
 		bel.setLastName("Forbes");
@@ -24,11 +27,17 @@ public class DAOTest {
 		belsAddr.setPostcode("EH6 4JB");
 		bel.setAddress(belsAddr);
 		dao.addCustomer(bel);
+		
 		//dao.addCustomer(new Customer());
-		Customer customer = dao.findByEmail("adam.morrison@sky.uk");
+		//Customer customer = dao.findByEmail("adam.morrison@sky.uk");
+		Customer customer = dao.findByEmail("belbel@cutemail.com");
 		System.out.println(customer.getFirstName());
+		String pass = "iloveD4da";
+		String hashed = customer.getPassword();
+		if (BCrypt.checkpw(pass, hashed)) {
+			System.out.println("Passwords Match");
+		}
 		
 		
 	}
-
 }
