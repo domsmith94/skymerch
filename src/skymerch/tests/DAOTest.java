@@ -1,4 +1,7 @@
-package skymerch.entities;
+package skymerch.tests;
+
+import skymerch.entities.Customer;
+import skymerch.entities.CustomerDAO;
 
 public class DAOTest {
 	
