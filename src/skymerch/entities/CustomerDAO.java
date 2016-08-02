@@ -60,7 +60,7 @@ public class CustomerDAO {
 		}
 		return null;
 	}
-	
+
 	public Customer findById(int custId){
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -87,38 +87,58 @@ public class CustomerDAO {
 			 */
 
 		}
-		
+
 		return null;
 	}
-		public Customer findByEmail(String email){
-			try {
-				Class.forName("com.mysql.jdbc.Driver").newInstance();
-				//the name of the database location is TBC
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TBC","root", "root");
-				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT * FROM customer WHERE email = " + email + "");
+	public Customer findByEmail(String email){
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			//the name of the database location is TBC
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/skymerch_db","root", "root");
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM customer WHERE email = " + email + "");
 
-				if (!rs.next()){
-					System.out.println("No customer found in database with email " + email);
-				}
+			if (!rs.next()){
+				System.out.println("No customer found in database with email " + email);
+			}
 
-				while (rs.next()){
-					return this.processResult(rs);
+			while (rs.next()){
+				return this.processResult(rs);
 
-
-				}
-			} catch(Exception e){
-				e.printStackTrace();
-				/*
-				 * add what will happen if a statement in the try block
-				 *(e.g. a username is input incorrectly) fails. 
-				 *TO DO: work on exception strategy at a later date
-				 */
 
 			}
-			
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+
+		}
+
 		return null;
 	}
-	
+	public void addCustomer(Customer customer){
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			//the name of the database location is TBC
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/TBC","root", "root");
+			Statement stmt = con.createStatement();
+
+			//String sql = "insert into custoer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('" + customer.getFirstName() + "','" + customer.getLastName() + "', '" + customer.getEmail() + "', '" + customer.getPassword() + "', '" + customer.getAddress().getHouseNameNum() + "', '" + customer.getAddress().getAddressLineOne() + "', '" + customer.getAddress().getAddressLineTwo() + "','" + customer.getAddress().get 'london', 'UK', 'SE2 9LR'";
+			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode)values ('Adam','Morrison', 'adam.morrison@sky.uk', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
+			stmt.executeUpdate(sql);
+		
+	} catch(Exception e){
+		e.printStackTrace();
+		/*
+		 * add what will happen if a statement in the try block
+		 *(e.g. a username is input incorrectly) fails. 
+		 *TO DO: work on exception strategy at a later date
+		 */
+
+	}
+	}
 
 }
