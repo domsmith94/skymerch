@@ -1,7 +1,7 @@
 package skymerch.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 import skymerch.enums.*;
 
 public class Customer {
@@ -12,8 +12,8 @@ public class Customer {
 	private Title title;
 	private String email;
 	private String password;
-	private String telNum;
-	private List<Address> addressBook = new ArrayList<>(); 
+	//private String telNum;	// removed
+	private Address address;   //previously ArrayList<Address>, scope reduced to one address per customer
 	
 	// PaymentDetails object
 	// Should we have an array of Orders?
@@ -34,15 +34,21 @@ public class Customer {
 	
 	public String getEmail(){			return this.email; }
 	
-	public void setTelNum(String t){	this.telNum = t; }
+	//public void setTelNum(String t){	this.telNum = t; }
 	
-	public String getTelNum(){			return this.telNum; }
+	//public String getTelNum(){		return this.telNum; }
 	
-	public void addAddress(Address a){	this.addressBook.add(a); }
+	public void setAddress(Address a){	this.address = a; }
+	
+	public Address getAddress(){		return this.address; }
+	
+	/*//old methods for ArrayList of Address
+	public void addAddress(Address a){	this.addressBook.add(a); }  
 	
 	public List<Address> getAddressBook(){return this.addressBook; }
+	*/	
 	
-	public boolean isValid(){			return CustomerValidator.isValid(this); }
+	//public boolean isValid(){			return CustomerValidator.isValid(this); }		// shouldn't be done here
 	
 	
 
