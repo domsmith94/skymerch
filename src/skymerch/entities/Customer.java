@@ -30,6 +30,10 @@ public class Customer {
 	
 	public String getLastName (){		return this.lastName; }
 	
+	public Title getTitle() {			return title; }
+
+	public void setTitle(Title title) {	this.title = title;	}
+
 	public void setEmail(String e){ 	this.email = e;	}
 	
 	public String getEmail(){			return this.email; }
