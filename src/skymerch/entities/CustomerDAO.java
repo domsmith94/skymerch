@@ -112,7 +112,7 @@ public class CustomerDAO {
 				/*
 				 * add what will happen if a statement in the try block
 				 *(e.g. a username is input incorrectly) fails. 
-				 *TO DO: work on exception strategy
+				 *TO DO: work on exception strategy at a later date
 				 */
 
 			}
