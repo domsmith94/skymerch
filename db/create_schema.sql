@@ -27,7 +27,6 @@ create table product
        warehouse_location char(40) not null,
        product_description varchar(500) not null,
        product_rating integer not null,
-       product_review varchar(200) not null,
        product_price decimal(4,2) not null
      );
      
@@ -58,17 +57,11 @@ create table product
      insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode)
      values ('jeff','Morrison', 'adam.morrison@sky.uk', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR');
        
-     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_review, product_price)
-     values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 5, 'Great', 4.99);
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price)
+     values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99);
 
      insert into customer_order(order_date, delivery_type, order_status, total_price)
      values ('2016-06-02 12:25:24','standard', 'shipped', '14.33');
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('1', '1', '2.50' , '4', '10.0');
-     
-     
-     -- chris's comment
-     
-     
-     
