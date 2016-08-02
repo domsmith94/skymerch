@@ -68,7 +68,7 @@ create table product
       values ('1', '1', '2.50' , '4', '10.0');
      
      
-     -- chris's comment
+     -- chris's comment2
      
      
      
