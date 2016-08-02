@@ -13,7 +13,7 @@ create table customer
        address_line1 varchar(50) not null,
        address_line2 varchar(50) null,
        city varchar(30) not null,
-       county varchar(30) null,
+       region varchar(30) null,
        country varchar(30) not null,
        postcode varchar(30) not null
      );
@@ -34,7 +34,7 @@ create table product
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
        order_date datetime not null,
-       delivery_type char(30) not null,
+       delivery_type ENUM('satndard', 'next day', 'one-day', 'priority', 'nominated day'),
        order_status char(30) not null,
        total_price decimal(4,2) not null
      );
