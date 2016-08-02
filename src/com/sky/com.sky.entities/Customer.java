@@ -1,16 +1,16 @@
 package com.sky.entities;
 
-public enum Title{
-	Mr., Mrs., Ms., Miss, Dr., Rev.
-}
-
 public class Customer {
+	
+	public enum Title{
+		Mr., Mrs., Ms., Miss, Dr., Rev.
+	}
 	
 	private int custId;
 	private String firstName;
 	private String middleInit;
 	private String lastName;
-	private enum t
+	private Title title;
 	private String email;
 	private String telNum;
 	private List<Address> addressBook = new ArrayList<>; 
