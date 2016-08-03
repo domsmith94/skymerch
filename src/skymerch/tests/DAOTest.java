@@ -17,7 +17,7 @@ public class DAOTest {
 		bel.setFirstName("Isobel");
 		bel.setLastName("Forbes");
 		bel.setTitle(Title.MS);
-		bel.setEmail("belbel@cutemail.com");
+		bel.setEmail("belbelbel@cutemail.com");
 		bel.hashPassword("iloveD4da");
 		Address belsAddr = new Address();
 		belsAddr.setHouseNameNum("2/4");
@@ -42,6 +42,7 @@ public class DAOTest {
 		
 		// ~~~ Product reading test ~~~
 		List<Product> products = new ArrayList<Product>();
+		products = pdao.readAll();
 		System.out.println(products.get(0).getProdName());
 		
 	}

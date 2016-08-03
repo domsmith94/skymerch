@@ -44,8 +44,8 @@ public class ProductDAO {
 		double rating = rs.getDouble(7);
 		int ratingCount = rs.getInt(8);
 		double price = rs.getDouble(9);
-		Category category = (Category)(rs.getObject(10));
-
+		Category category = Category.valueOf((rs.getString(10).toUpperCase()));
+		
 		Product product = new Product();
 		product.setProdId(id);
 		product.setProdName(name);
@@ -90,4 +90,95 @@ public class ProductDAO {
 		}
 		return allProducts;
 	}
+	
+	public Product findById(int prodId){
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_id = " + prodId + "");
+
+			if (!rs.next()){
+				System.out.println("No product found in database with ID " + prodId);
+			}
+
+			while (rs.next()){
+				return this.processResult(rs);
+
+
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+
+		}
+		return null;
+	}
+	public Product findByName(String prodName){
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_name = " + prodName + "");
+
+			if (!rs.next()){
+				System.out.println("No product found in database with ID " + prodName);
+			}
+
+			while (rs.next()){
+				return this.processResult(rs);
+
+
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+
+		}
+		return null;
+	}
+	
+	public void addProduct(Product product){
+		try {
+			Connection con = this.getConnection();
+			
+			String sql = " insert into product (product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			
+			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+			
+			stmt.setString(1, product.getProdName());
+			stmt.setInt(2, product.getStockLevel());
+			stmt.setInt(3, product.getReorderLevel());
+			stmt.setString(4, product.getLocation());
+			stmt.setString(5, product.getProdDesc());
+			stmt.setDouble(6, product.getRating());
+			stmt.setInt(7, product.getNumOfRatings());
+			stmt.setDouble(8, product.getPrice());
+			stmt.setString(9, product.getCategory().toString().toLowerCase());
+			
+			stmt.execute();
+
+
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+
+		}
+	}
+	
+		
 }

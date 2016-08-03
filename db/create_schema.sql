@@ -26,7 +26,7 @@ DROP TABLE order_line;
        product_rating Double,
        rating_count integer not null,
        product_price decimal(4,2) not null,
-       Product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
+       product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
      )AUTO_INCREMENT=2000001;
      
      create table customer_order
