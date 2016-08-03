@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CustomerDAO {
 
-	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db";
+	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
 	private final String DB_USERNAME = "root";
 	private final String DB_PASSWORD = "root";
 
