@@ -3,7 +3,7 @@ DROP TABLE product;
 DROP TABLE customer_order;
 DROP TABLE order_line;
 
-create table customer
+      create table customer
      ( customer_id integer unsigned not null auto_increment primary key,
        first_name varchar(20) not null,
        last_name varchar(20) not null,
@@ -14,11 +14,9 @@ create table customer
        address_line2 varchar(50) null,
        town_city varchar(30) not null,
        postcode varchar(10) not null 
-     );
-     ALTER TABLE customer AUTO_INCREMENT=1000001;
+     ) AUTO_INCREMENT=1000001;
      
-
-create table product
+      create table product
      ( product_id integer unsigned not null auto_increment primary key,
        product_name char(50) not null,
        stock_level integer not null,
@@ -28,8 +26,7 @@ create table product
        product_rating integer not null,
        product_price decimal(4,2) not null,
        Product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
-     );
-     ALTER TABLE product AUTO_INCREMENT=2000001;
+     )AUTO_INCREMENT=2000001;
      
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
@@ -37,8 +34,7 @@ create table product
        delivery_type ENUM('standard', 'next day'),
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
        total_price decimal(4,2) not null
-     );
-     ALTER TABLE customer_order AUTO_INCREMENT=3000001;
+     )AUTO_INCREMENT=3000001;
 
       create table order_line
       (order_no integer not null references customer_order,
