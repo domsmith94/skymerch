@@ -2,6 +2,7 @@ package skymerch.tests;
 
 import skymerch.external.*;
 import skymerch.entities.Address;
+import skymerch.entities.BCrypt;
 import skymerch.enums.*;
 import skymerch.entities.Customer;
 import skymerch.entities.CustomerDAO;
