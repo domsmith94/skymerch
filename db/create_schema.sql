@@ -15,6 +15,7 @@ create table customer
        town_city varchar(30) not null,
        postcode varchar(10) not null 
      );
+     ALTER TABLE customer AUTO_INCREMENT=1000001;
      
 
 create table product
@@ -28,6 +29,7 @@ create table product
        product_price decimal(4,2) not null,
        Product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
      );
+     ALTER TABLE product AUTO_INCREMENT=2000001;
      
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
@@ -36,6 +38,7 @@ create table product
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
        total_price decimal(4,2) not null
      );
+     ALTER TABLE customer_order AUTO_INCREMENT=3000001;
 
       create table order_line
       (order_no integer not null references customer_order,
