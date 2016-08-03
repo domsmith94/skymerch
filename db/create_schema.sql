@@ -26,7 +26,7 @@ create table product
        product_description varchar(500) not null,
        product_rating integer not null,
        product_price decimal(4,2) not null,
-       Product_catagory ENUM('household', 'media', 'electronics', 'DVD', 'music') -- will need to be updated
+       Product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
      );
      
      create table customer_order
@@ -56,7 +56,7 @@ create table product
      insert into customer(first_name, last_name, email, user_password, house_no, address_line1, town_city, postcode)
      values ('jeff','Morrison', 'adammorrison@hotmail.com', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
        
-     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price, product_catagory)
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price, product_category)
      values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99, 'household');
 
      insert into customer_order(order_date, delivery_type, order_status, total_price)
