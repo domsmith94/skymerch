@@ -13,7 +13,7 @@ create table customer
        address_line1 varchar(150) not null,
        address_line2 varchar(150) null,
        town_city varchar(30) not null,
-       postcode varchar(30) not null
+       postcode varchar(30) not null 
      );
      
 
