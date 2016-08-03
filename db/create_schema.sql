@@ -34,7 +34,7 @@ create table product
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
        order_date datetime not null,
-       delivery_type ENUM('sandard', 'next day', 'one-day', 'priority', 'nominated day'),
+       delivery_type ENUM('standard', 'next day', 'one-day', 'priority', 'nominated day'),
        order_status ENUM('ordered', 'dispatched', 'delivered'),
        total_price decimal(4,2) not null
      );
@@ -62,9 +62,8 @@ create table product
      values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99, 'household');
 
      insert into customer_order(order_date, delivery_type, order_status, total_price)
-     values ('2016-06-02 12:25:24', 'standard', 'ordered', '14.33'); -- getting an error
+     values ('2016-06-02 12:25:24', 'standard', 'ordered', '14.33'); 
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('1', '1', '2.50' , '4', '10.0');
-      
-      -- hello
+
