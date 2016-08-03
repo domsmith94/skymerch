@@ -13,6 +13,7 @@ public class Product {
 	private List<String> keywords; //ArrayList :)
 	private String location;
 	private Enum category; // enum to limit options
+	private String brand;
 	
 	
 	public Product(){
@@ -74,5 +75,11 @@ public class Product {
 	public void setCategory(Enum category) { this.category = category; }
 	
 	
+	public String getBrand() { return brand; }
+
+
+	public void setBrand(String brand) { this.brand = brand; }
+
+
 
 }
