@@ -12,28 +12,6 @@ public class Product {
 	private Double price;
 	private List<String> keywords; //ArrayList :)
 	private String location;
-	private Double rating; 		
-	private int numOfRatings;
-	public Double getRating() {
-		return rating;
-	}
-
-
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-
-
-	public Double getNumOfRatings() {
-		return numOfRatings;
-	}
-
-
-	public void setNumOfRatings(Double numOfRatings) {
-		this.numOfRatings = numOfRatings;
-	}
-
-
 	private Enum category; // enum to limit options
 	private String brand;
 	
