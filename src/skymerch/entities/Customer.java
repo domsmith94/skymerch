@@ -38,7 +38,9 @@ public class Customer {
 	
 	public String getEmail(){			return this.email; }
 	
-	public void setPassword(String p){	this.password = p; }
+	public void hashPassword(String p){	this.password = BCrypt.hashpw(p, BCrypt.gensalt()); }
+	
+	public void setPassword(String ph){	this.password = ph; }
 	
 	public String getPassword(){		return this.password; }
 	

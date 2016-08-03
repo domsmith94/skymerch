@@ -1,6 +1,5 @@
 package skymerch.tests;
 
-import skymerch.external.*;
 import skymerch.entities.Address;
 import skymerch.entities.BCrypt;
 import skymerch.enums.*;
@@ -18,7 +17,7 @@ public class DAOTest {
 		bel.setLastName("Forbes");
 		bel.setTitle(Title.MS);
 		bel.setEmail("belbel@cutemail.com");
-		bel.setPassword("iloveD4da");
+		bel.hashPassword("iloveD4da");
 		Address belsAddr = new Address();
 		belsAddr.setHouseNameNum("2/4");
 		belsAddr.setAddressLineOne("Great Michael Rise");

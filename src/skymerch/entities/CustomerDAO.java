@@ -152,11 +152,10 @@ public class CustomerDAO {
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
-			String hashed = BCrypt.hashpw(customer.getPassword(), BCrypt.gensalt()); // this is not final location for this, but just for prototype
 			Address addr = customer.getAddress();
 			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, address_line2, city, country, postcode) "
 					+ "values ('" + customer.getFirstName() + "','" + customer.getLastName() + "', '" + customer.getEmail() + "', '" 
-					+ hashed + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "', '" 
+					+ customer.getPassword() + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "', '" 
 					+ addr.getRegion() + "', '" + addr.getCountry() + "', '" + addr.getPostcode() + "')";
 			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
 			stmt.executeUpdate(sql);
