@@ -7,13 +7,13 @@ create table customer
      ( customer_id integer unsigned not null auto_increment primary key,
        first_name varchar(20) not null,
        last_name varchar(20) not null,
-       email varchar(50) not null,
+       email varchar(50) not null UNIQUE,
        user_password varchar(200) not null,   
        house_no varchar(50) not null, 
-       address_line1 varchar(150) not null,
-       address_line2 varchar(150) null,
+       address_line1 varchar(50) not null,
+       address_line2 varchar(50) null,
        town_city varchar(30) not null,
-       postcode varchar(30) not null 
+       postcode varchar(10) not null 
      );
      
 
@@ -54,11 +54,14 @@ create table product
      values ('Adam','Morrison', 'adam.morrison@sky.uk', 'Apricot', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
      
      insert into customer(first_name, last_name, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('jeff','Morrison', 'adam.morrison@sky.uk', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
+     values ('jeff','Morrison', 'adammorrison@hotmail.com', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price, product_catagory)
      values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99, 'household');
 
+     insert into customer_order(order_date, delivery_type, order_status, total_price)
+     values ('2016-06-02 12:25:24', 'standard', 'ordered', '14.33'); 
+     
      insert into customer_order(order_date, delivery_type, order_status, total_price)
      values ('2016-06-02 12:25:24', 'standard', 'ordered', '14.33'); 
      
