@@ -12,9 +12,7 @@ create table customer
        house_no varchar(50) not null, 
        address_line1 varchar(150) not null,
        address_line2 varchar(150) null,
-       city varchar(30) not null,
-       region varchar(30) null,
-       country varchar(30) not null,
+       town_city varchar(30) not null,
        postcode varchar(30) not null
      );
      
@@ -34,8 +32,8 @@ create table product
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
        order_date datetime not null,
-       delivery_type ENUM('standard', 'next day', 'one-day', 'priority', 'nominated day'),
-       order_status ENUM('ordered', 'dispatched', 'delivered'),
+       delivery_type ENUM('standard', 'next day'),
+       order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
        total_price decimal(4,2) not null
      );
 
@@ -52,11 +50,11 @@ create table product
        
        
      
-     insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode)
-     values ('Adam','Morrison', 'adam.morrison@sky.uk', 'Apricot', 5, 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR');
+     insert into customer(first_name, last_name, email, user_password, house_no, address_line1, town_city, postcode)
+     values ('Adam','Morrison', 'adam.morrison@sky.uk', 'Apricot', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
      
-     insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode)
-     values ('jeff','Morrison', 'adam.morrison@sky.uk', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR');
+     insert into customer(first_name, last_name, email, user_password, house_no, address_line1, town_city, postcode)
+     values ('jeff','Morrison', 'adam.morrison@sky.uk', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price, product_catagory)
      values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99, 'household');
