@@ -173,7 +173,7 @@ public class CustomerDAO {
 			stmt.setString(8, addr.getRegion());
 			stmt.setString(9, addr.getPostcode());
 			
-			stmt.execute(sql);
+			stmt.execute();
 
 
 		} catch(Exception e){
