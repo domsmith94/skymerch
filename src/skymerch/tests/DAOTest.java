@@ -30,13 +30,13 @@ public class DAOTest {
 		
 		//dao.addCustomer(new Customer());
 		//Customer customer = dao.findByEmail("adam.morrison@sky.uk");
-		Customer customer = dao.findByEmail("belbel@cutemail.com");
-		System.out.println(customer.getFirstName());
-		String pass = "iloveD4da";
-		String hashed = customer.getPassword();
-		if (BCrypt.checkpw(pass, hashed)) {
-			System.out.println("Passwords Match");
-		}
+		//Customer customer = dao.findByEmail("belbel@cutemail.com");
+		//System.out.println(customer.getFirstName());
+		//String pass = "iloveD4da";
+		//String hashed = customer.getPassword();
+		//if (BCrypt.checkpw(pass, hashed)) {
+			//System.out.println("Passwords Match");
+		//}
 		
 		
 	}

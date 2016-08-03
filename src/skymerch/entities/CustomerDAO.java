@@ -2,6 +2,7 @@ package skymerch.entities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -150,14 +151,29 @@ public class CustomerDAO {
 	public void addCustomer(Customer customer){
 		try {
 			Connection con = this.getConnection();
-			Statement stmt = con.createStatement();
-			Address addr = customer.getAddress();
-			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, address_line2, town_city, postcode) "
-					+ "values ('" + customer.getFirstName() + "','" + customer.getLastName() + "', '" + customer.getEmail() + "', '" 
-					+ customer.getPassword() + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "', '" 
-					+ addr.getRegion() + "', '" + addr.getPostcode() + "')";
+			
+			String sql = " insert into customer (first_name, last_name, email, user_password, house_no, address_line1, address_line2, town_city, postcode)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
+			        + " values (?, ?, ?, ?, ?)";
+			
 			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
-			stmt.executeUpdate(sql);
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+			Address addr = customer.getAddress();
+
+			stmt.setString(1, customer.getFirstName());
+			stmt.setString(2, customer.getLastName());
+			stmt.setString(3, customer.getEmail());
+			stmt.setString(4, customer.getPassword());
+			stmt.setString(5, addr.getHouseNameNum());
+			stmt.setString(6, addr.getAddressLineOne());
+			stmt.setString(7, addr.getAddressLineTwo());
+			stmt.setString(8, addr.getRegion());
+			stmt.setString(9, addr.getPostcode());
+			
+			stmt.execute(sql);
 
 
 		} catch(Exception e){
