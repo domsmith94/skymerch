@@ -23,7 +23,8 @@ DROP TABLE order_line;
        stock_reorder_level integer not null,
        warehouse_location char(40) not null,
        product_description varchar(500) not null,
-       product_rating integer not null,
+       product_rating Double,
+       rating_count integer not null,
        product_price decimal(4,2) not null,
        Product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
      )AUTO_INCREMENT=2000001;
@@ -55,8 +56,8 @@ DROP TABLE order_line;
      insert into customer(first_name, last_name, email, user_password, house_no, address_line1, town_city, postcode)
      values ('jeff','Morrison', 'adammorrison@hotmail.com', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
        
-     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, product_price, product_category)
-     values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9 , 4.99, 'household');
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Shrek Mug', 10, 5, 'Aisle 16', 'This is a Shrek mug', 4.9, 10, 4.99, 'household');
 
      insert into customer_order(order_date, delivery_type, order_status, total_price)
      values ('2016-06-02 12:25:24', 'standard', 'ordered', '14.33'); 
