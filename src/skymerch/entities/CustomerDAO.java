@@ -153,10 +153,10 @@ public class CustomerDAO {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			Address addr = customer.getAddress();
-			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, address_line2, city, country, postcode) "
+			String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, address_line2, town_city, postcode) "
 					+ "values ('" + customer.getFirstName() + "','" + customer.getLastName() + "', '" + customer.getEmail() + "', '" 
 					+ customer.getPassword() + "', '" + addr.getHouseNameNum() + "', '" + addr.getAddressLineOne() + "', '" + addr.getAddressLineTwo() + "', '" 
-					+ addr.getRegion() + "', '" + addr.getCountry() + "', '" + addr.getPostcode() + "')";
+					+ addr.getRegion() + "', '" + addr.getPostcode() + "')";
 			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
 			stmt.executeUpdate(sql);
 
