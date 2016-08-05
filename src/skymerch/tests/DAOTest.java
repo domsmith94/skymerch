@@ -30,23 +30,28 @@ public class DAOTest {
 		cdao.addCustomer(bel);
 		
 		// ~~~ Customer read and password checking test ~~~ 
+		System.out.println("Should output name of customer with given email, then report if password works:");
 		//cdao.addCustomer(new Customer());
 		//Customer customer = cdao.findByEmail("adam.morrison@sky.uk");
-		//Customer customer = cdao.findByEmail("belbel@cutemail.com");
-		//System.out.println(customer.getFirstName());
-		//String pass = "iloveD4da";
-		//String hashed = customer.getPassword();
-		//if (BCrypt.checkpw(pass, hashed)) {
-			//System.out.println("Passwords Match");
-		//}
+		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
+		System.out.println(customer.getFirstName());
+		String pass = "iloveD4da";
+		String hashed = customer.getPassword();
+		if (BCrypt.checkpw(pass, hashed)) {
+			System.out.println("Passwords Match");
+		}
+		System.out.println(" ");
 		
 		// ~~~ Product reading test ~~~
+		System.out.println("Should output name of first product:");
 		List<Product> products = new ArrayList<Product>();
 		products = pdao.readAll();
 		System.out.println(products.get(0).getProdName());
-		
+		System.out.println(" ");
+
 		
 		// ~~~ Product writing test ~~~
+		System.out.println("Should input a product, and return name of second product (which is the one we inputed):");
 		Product gotfig = new Product();
 		//gotfig.setProdId // database should handle this
 		gotfig.setStockLevel(5);
@@ -70,13 +75,16 @@ public class DAOTest {
 		List<Product> products2 = new ArrayList<Product>();
 		products2 = pdao.readAll();
 		System.out.println(products2.get(1).getProdName());
-		
+		System.out.println(" ");
+
 		
 		// ~~~ Product search test ~~~
+		System.out.println("Should search for a product (search term: Arya):");
 		List<Product> products3 = new ArrayList<Product>();
 		products2 = pdao.multiSearch("Arya", null, null);
 		System.out.println(products2.get(0).getProdName());
-		
+		System.out.println(" ");
+
 		
 	}
 }
