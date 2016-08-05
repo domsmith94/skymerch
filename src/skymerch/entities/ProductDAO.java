@@ -61,6 +61,47 @@ public class ProductDAO {
 		return product;
 	}
 	
+	public List<Product> multiSearch(String prodnamequery, String lowerprice, String upperprice){
+		ArrayList<Product> returnedProducts = null;
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			
+			String searchquery = new String("SELECT * FROM product");
+				
+			
+			if (prodnamequery != null){searchquery = searchquery + " WHERE product_name LIKE '%" + prodnamequery + "%'";}
+			if (lowerprice != null){
+				int lowerprice_int = Integer.parseInt(lowerprice);
+				
+			}
+			
+			ResultSet rs = stmt.executeQuery(searchquery);
+			while (rs.next()){
+				Product product = this.processResult(rs);
+
+				//TO DO: add rest of the methods
+				// create array if not existing
+				if (returnedProducts == null){
+					returnedProducts = new ArrayList<Product>();
+				}
+				
+				// add product to array
+				returnedProducts.add(product);
+
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+		}
+		return returnedProducts;
+	}
+	
+	
 	public List<Product> readAll(){
 		ArrayList<Product> allProducts = null;
 		try {

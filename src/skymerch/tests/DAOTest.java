@@ -70,5 +70,13 @@ public class DAOTest {
 		List<Product> products2 = new ArrayList<Product>();
 		products2 = pdao.readAll();
 		System.out.println(products2.get(1).getProdName());
+		
+		
+		// ~~~ Product search test ~~~
+		List<Product> products3 = new ArrayList<Product>();
+		products2 = pdao.multiSearch("Arya", null, null);
+		System.out.println(products2.get(0).getProdName());
+		
+		
 	}
 }
