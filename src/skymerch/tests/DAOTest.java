@@ -45,5 +45,30 @@ public class DAOTest {
 		products = pdao.readAll();
 		System.out.println(products.get(0).getProdName());
 		
+		
+		// ~~~ Product writing test ~~~
+		Product gotfig = new Product();
+		//gotfig.setProdId // database should handle this
+		gotfig.setStockLevel(5);
+		gotfig.setReorderLevel(2);
+		gotfig.setProdName("Game of Thrones - Arya plastic figure");
+		gotfig.setProdDesc("3\" model of Arya");
+		gotfig.setPrice(4.99);
+		
+		List<String> gotfigwords = new ArrayList<String>();
+		gotfigwords.add("got");
+		
+		gotfig.setKeywords(gotfigwords);
+		gotfig.setLocation("Aisle 2");
+		gotfig.setCategory(Category.valueOf("HOUSEHOLD"));
+		gotfig.setBrand("HBO");
+		gotfig.setNumOfRatings(4);
+		gotfig.setRating(5.25);
+		
+		pdao.addProduct(gotfig);
+		
+		List<Product> products2 = new ArrayList<Product>();
+		products2 = pdao.readAll();
+		System.out.println(products2.get(1).getProdName());
 	}
 }
