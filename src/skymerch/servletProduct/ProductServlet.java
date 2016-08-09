@@ -1,7 +1,6 @@
 package skymerch.servletProduct;
 
-//import com.sky.database.stuff.*;
-import dao.*;
+import skymerch.dao.*;
 import skymerch.entities.Product;
 
 import java.io.IOException;

@@ -4,8 +4,8 @@ import skymerch.enums.*;
 
 import java.util.*;
 
-import dao.CustomerDAO;
-import dao.ProductDAO;
+import skymerch.dao.CustomerDAO;
+import skymerch.dao.ProductDAO;
 import skymerch.entities.*;
 
 public class DAOTest {

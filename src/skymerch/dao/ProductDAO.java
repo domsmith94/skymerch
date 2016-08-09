@@ -1,4 +1,4 @@
-package dao;
+package skymerch.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
