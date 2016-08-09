@@ -5,6 +5,9 @@ public class OrderLine {
 	private Product product;
 	private int quantity; 
 	private Double orderLinePrice;
+	private Double itemPrice;
+	
+	public OrderLine(){}
 	
 	public OrderLine(Product p, int q)	{ this.product = p;	this.quantity = q;
 	 										this.orderLinePrice = p.getPrice() * q;}
@@ -19,7 +22,10 @@ public class OrderLine {
 	
 	public void setOrderLinePrice(Double d) {this.orderLinePrice = d;}
 	
-	public Double getOrderLinePrice()	{return this.orderLinePrice;}	
+	public Double getOrderLinePrice()	{return this.orderLinePrice;}
 	
+	public void setItemPrice(Double d)  {this.itemPrice = d;}
+	
+	public Double getItemPrice()        {return this.itemPrice;}
 	
 }
