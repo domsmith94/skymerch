@@ -1,6 +1,6 @@
 package skymerch.servletProduct;
 
-import com.sky.database.stuff.*;
+//import com.sky.database.stuff.*;
 import dao.*;
 import skymerch.entities.Product;
 
@@ -50,7 +50,7 @@ public class ProductServlet extends HttpServlet {
 			session.setAttribute("betterWebsite", betterWebsite);
 			String reasonWhy = request.getParameter("reasonWhy");
 			session.setAttribute("reasonWhy", reasonWhy);
-			
+			/*
 			SalespersonDAO dao = new SalespersonDAO();
 			List<Salesperson> allSalespersons = dao.readAll();
 			
@@ -58,7 +58,7 @@ public class ProductServlet extends HttpServlet {
 			for (Salesperson person: allSalespersons){ i++; }
 			
 			session.setAttribute("salespeople", allSalespersons);
-			session.setAttribute("i", i);
+			session.setAttribute("i", i);*/
 			
 			rd = this.getServletContext().getRequestDispatcher("/ListSalesPerson.jsp");
 		}	else if (formToDisplay.equals("/byebye")){
