@@ -1,12 +1,10 @@
 @CHARSET "ISO-8859-1";
 
-body {
-	background-color: white;
+.sky-font {
 	font-family: SkyTextRegular;
-	font-size: 2em;
 }
 
-h1 {
+.sky-big-text {
 	color: background:-webkit-gradient(linear, left top, right top, color-stop(0%, #f6871f),
 		color-stop(36%, #ed1c24), color-stop(72%, #a43383),
 		color-stop(100%, #0052a4));
@@ -15,7 +13,7 @@ h1 {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-family: SkyTextBold;
-	font-size: 4em;
+	/*font-size: 4em;
 	display: inline-block;
     /* margin-left: 5%;
 	margin-right: 5%;
@@ -35,7 +33,7 @@ h1 {
 	margin-right: 5%;
 }
 */
-.form-control {
+/*.form-control {
 	font-size: 1em;
 }
 
