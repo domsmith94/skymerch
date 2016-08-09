@@ -36,7 +36,7 @@ public class ProductDAO {
 	}
 	
 	private Product processResult(ResultSet rs) throws SQLException{
-
+		// numbers correspond to columns of the CURRENT ROW of database
 		int id = rs.getInt(1);
 		String name = rs.getString(2);
 		int stockLvl = rs.getInt(3);
@@ -63,6 +63,7 @@ public class ProductDAO {
 		return product;
 	}
 	
+	/*  //PREVIOUS ATTEMPT TO SEARCH WITH MULTIPLE ARGUMENTS
 	public List<Product> multiSearch(String prodnamequery, String lowerprice, String upperprice){
 		ArrayList<Product> returnedProducts = null;
 		try {
@@ -98,11 +99,13 @@ public class ProductDAO {
 			 * add what will happen if a statement in the try block
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
-			 */
-		}
+			 *
+		} 
+
+
 		return returnedProducts;
 	}
-	
+*/	
 	
 	public List<Product> readAll(){
 		ArrayList<Product> allProducts = null;
@@ -187,6 +190,79 @@ public class ProductDAO {
 		return null;
 	}
 	
+	//returns a list of products of the category specified
+	public List<Product> findByCat(Category cat){
+		ArrayList<Product> list = null;
+		try {
+		Connection con = this.getConnection();
+		Statement stmt = con.createStatement();
+		String catString = cat.toString().toLowerCase();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_category =" + catString);
+		if (!rs.next()){
+			System.out.println("No product found in database with category" + catString);
+		}	
+		while (rs.next()){
+			if(list == null){
+			list = new ArrayList<>();
+			}
+			Product product = this.processResult(rs);
+			list.add(product);			
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
+	}
+		
+	//returns list of products with price <= than specified max
+	public List<Product> findByMaxPrice(double max){
+		ArrayList<Product> list = null;
+		try {
+		Connection con = this.getConnection();
+		Statement stmt = con.createStatement();			
+		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_price <=" + max);
+		if (!rs.next()){
+			System.out.println("No product found in database with max price" + max);
+			}	
+		while (rs.next()){
+			if(list == null){
+			list = new ArrayList<>();
+			}
+			Product product = this.processResult(rs);
+			list.add(product);			
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;		
+		
+	}
+	//returns a list of products with price >= specified min
+	public List<Product> findByMin(double min){
+		ArrayList<Product> list = null;
+		try {
+		Connection con = this.getConnection();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_price <=" + min);
+		if (!rs.next()){
+			System.out.println("No product found in database with min price" + min);
+			}	
+		while (rs.next()){
+			if(list == null){
+			list = new ArrayList<>();
+				}
+			Product product = this.processResult(rs);
+			list.add(product);			
+		}
+		}
+		catch(Exception e){			
+			e.printStackTrace();
+			}
+		return list;
+		}
+	
 	public void addProduct(Product product){
 		try {
 			Connection con = this.getConnection();
@@ -223,5 +299,19 @@ public class ProductDAO {
 		}
 	}
 	
-		
+	public void removeProduct(int prodID){
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeQuery("DELETE FROM product WHERE product_id =" + prodID);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+		}
+		}	
 }
