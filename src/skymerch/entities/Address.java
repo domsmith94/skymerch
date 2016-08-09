@@ -5,9 +5,8 @@ public class Address {
 	private String houseNameNum;
 	private String addressLineOne;
 	private String addressLineTwo;
-	private String region;
+	private String townOrCity;
 	private String postcode;
-	private String country;
 	
 	public Address(){
 		
@@ -23,19 +22,20 @@ public class Address {
 
 	public String getAddressLineTwo() { return addressLineTwo; }
 
-	public void setAddressLineTwo(String addressLineTwo) { this.addressLineTwo = addressLineTwo; }
+	public void setAddressLineTwo(String addressLineTwo) { 
+		if(addressLineTwo == null){
+			addressLineTwo = "";
+		}
+		this.addressLineTwo = addressLineTwo; }
 
-	public String getRegion() { return region; }
+	public String getTownOrCity() { return this.townOrCity; }
 
-	public void setRegion(String region) { this.region = region; }
+	public void setTownOrCity(String townOrCity) { this.townOrCity = townOrCity; }
 
 	public String getPostcode() { return postcode; }
 
 	public void setPostcode(String postcode) { this.postcode = postcode; }
 
-	public String getCountry() { return country; }
-
-	public void setCountry(String country) { this.country = country; }
 	
 
 }
