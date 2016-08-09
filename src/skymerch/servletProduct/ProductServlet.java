@@ -1,6 +1,8 @@
-package myServlet;
+package skymerch.servletProduct;
 
 import com.sky.database.stuff.*;
+import dao.*;
+import skymerch.entities.Product;
 
 import java.io.IOException;
 import java.util.List.*;
@@ -17,14 +19,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class listSalesperson
  */
-@WebServlet({"/submitBugReportText","/byebye"})
-public class ListSalesperson extends HttpServlet {
+@WebServlet({"/submitBugReportText","/byebye","/showAllProducts"})
+public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListSalesperson() {
+    public ProductServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,6 +64,18 @@ public class ListSalesperson extends HttpServlet {
 		}	else if (formToDisplay.equals("/byebye")){
 			// show basic bye page
 			rd = this.getServletContext().getRequestDispatcher("/MyNewFile2.html");
+		}	else if (formToDisplay.equals("/showAllProducts")){
+			/*SalespersonDAO dao = new SalespersonDAO();
+			List<Salesperson> allSalespersons = dao.readAll();
+			session.setAttribute("salespeople", allSalespersons);
+			*/
+			ProductDAO pdao = new ProductDAO();
+			List<Product> products = new ArrayList<Product>();
+			products = pdao.readAll();
+			session.setAttribute("product_list", products);
+			
+			rd = this.getServletContext().getRequestDispatcher("/ShowAllProducts.jsp");
+			
 		}
 		rd.forward(request, response);
 	}

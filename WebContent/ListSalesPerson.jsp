@@ -27,7 +27,7 @@ the evidence of the lies you said <br />
 
 we hope to have you locked up in 2-4 weeks
 
-<a href="/MyWebsite1/byebye">OK</a>
+<a href="/skymerch/byebye">OK</a>
 
 <p>as a consolation prize pelase have a list fo salesleople innit</p>
 
