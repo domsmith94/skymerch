@@ -65,11 +65,11 @@ public class CustomerDAO {
 	}
 
 	public List<Customer> readAll(){
+		ArrayList<Customer> allCustomers = null;
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM customer");
-			ArrayList<Customer> allCustomers = null;
 			while (rs.next()){
 				Customer customer = this.processResult(rs);
 
@@ -90,7 +90,7 @@ public class CustomerDAO {
 			 */
 
 		}
-		return null;
+		return allCustomers;
 	}
 
 	public Customer findById(int custId){
@@ -105,9 +105,8 @@ public class CustomerDAO {
 
 			while (rs.next()){
 				return this.processResult(rs);
-
-
 			}
+			
 		} catch(Exception e){
 			e.printStackTrace();
 			/*
@@ -199,6 +198,16 @@ public class CustomerDAO {
 			 *TO DO: work on exception strategy at a later date
 			 */
 
+		}
+	}
+	
+	public void emptyDb() {
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("DELETE FROM customer");
+		} catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 }
