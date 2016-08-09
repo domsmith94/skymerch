@@ -38,9 +38,10 @@ public class CustomerDAO {
 
 
 	private Customer processResult(ResultSet rs) throws SQLException{
-		// Added general method here so we can reuse it. If we want to add additional fields to
-		// customer we can add it here rather than duplicating it 
-
+		// This method takes a result set containing a customer table entry and extracts the data,
+		// storing it in a customer object and returning it for further use
+		
+		// First, save each column to a relevant variable
 		int custId = rs.getInt(1);
 		String firstName = rs.getString(2);
 		String lastName = rs.getString(3);
@@ -49,6 +50,7 @@ public class CustomerDAO {
 
 		//TO DO: Add address values here
 
+		// next, fill a customer object's fields with these temporary variables
 		Customer customer = new Customer();
 		customer.setCustId(custId);
 		customer.setFirstName(firstName);
@@ -57,7 +59,7 @@ public class CustomerDAO {
 		customer.setPassword(password);
 
 		//TO DO: Add address values 
-
+		// return the completed customer object
 		return customer;
 
 	}
@@ -153,19 +155,26 @@ public class CustomerDAO {
 
 	public void addCustomer(Customer customer){
 		try {
+			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
+			
+			// initialise connection
 			Connection con = this.getConnection();
 			
+			// Next we generate the script string using a Prepared Statement. 
+			// Syntax: each '?' is a placeholder for a value which will be subsequently added
+			
+			// initialise String for general structure
 			String sql = " insert into customer (first_name, last_name, email, user_password, house_no, address_line1, address_line2, town_city, postcode)"
 					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
-			String query = " insert into users (first_name, last_name, date_created, is_admin, num_points)"
-			        + " values (?, ?, ?, ?, ?)";
-			
+			// TEMPLATE - IGNORE //
 			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
 			
+			// generate a prepared statement using sql string
 			PreparedStatement stmt = con.prepareStatement(sql);
 			Address addr = customer.getAddress();
 
+			// assign required String data to each slot in the prepared statement (each '?')
 			stmt.setString(1, customer.getFirstName());
 			stmt.setString(2, customer.getLastName());
 			stmt.setString(3, customer.getEmail());
@@ -176,7 +185,10 @@ public class CustomerDAO {
 			stmt.setString(8, addr.getRegion());
 			stmt.setString(9, addr.getPostcode());
 			
+			// execute the prepared statement (run in SQL)
 			stmt.execute();
+			
+			// TO DO - extract auto-generated customer ID from db
 
 
 		} catch(Exception e){

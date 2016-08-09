@@ -33,22 +33,21 @@ public class DAOTest {
 		
 		// ~~~ Customer read and password checking test ~~~ 
 		System.out.println("Should output name of customer with given email, then report if password works:");
-		//cdao.addCustomer(new Customer());
-		//Customer customer = cdao.findByEmail("adam.morrison@sky.uk");
-		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
-		System.out.println(customer.getFirstName());
+		//cdao.addCustomer(new Customer()); // call DAO method to add test customer to db
+		Customer customer = cdao.findByEmail("belbelbel@cutemail.com"); // extract customer from db with DAO email search method
+		System.out.println(customer.getFirstName()); // print retreived customer name to test success
 		String pass = "iloveD4da";
 		String hashed = customer.getPassword();
-		if (BCrypt.checkpw(pass, hashed)) {
+		if (BCrypt.checkpw(pass, hashed)) { // check original password against hashed password to test equality
 			System.out.println("Passwords Match");
 		}
 		System.out.println(" ");
 		
 		// ~~~ Product reading test ~~~
 		System.out.println("Should output name of first product:");
-		List<Product> products = new ArrayList<Product>();
-		products = pdao.readAll();
-		System.out.println(products.get(0).getProdName());
+		List<Product> products = new ArrayList<Product>(); // initialise array of product objects
+		products = pdao.readAll(); // fill product array using productDAO readAll function
+		System.out.println(products.get(0).getProdName()); // print name of first retreived product to test success
 		System.out.println(" ");
 
 		
