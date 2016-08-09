@@ -22,6 +22,8 @@ public class OrderLine {
 	
 	public void setOrderLinePrice(Double d) {this.orderLinePrice = d;}
 	
+	public void setOrderLinePrice() {this.orderLinePrice = this.itemPrice * this.quantity; }
+	
 	public Double getOrderLinePrice()	{return this.orderLinePrice;}
 	
 	public void setItemPrice(Double d)  {this.itemPrice = d;}

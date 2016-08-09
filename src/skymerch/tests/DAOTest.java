@@ -43,6 +43,7 @@ public class DAOTest {
 			System.out.println("Passwords Match");
 		}
 		System.out.println(" ");
+		cdao.emptyDb();
 		
 		// ~~~ Product reading test ~~~
 		System.out.println("Should output name of first product:");
@@ -90,7 +91,14 @@ public class DAOTest {
 		//products2 = pdao.multiSearch("Arya", null, null);
 		System.out.println(products2.get(0).getProdName());
 		System.out.println(" ");
-
 		
+		// ~~~ Order add and read test ~~~
+		OrderLine line = new OrderLine();
+		line.setProduct(gotfig);
+		line.setItemPrice(gotfig.getPrice());
+		line.setQuantity(5);
+		line.setOrderLinePrice();
+		
+		// TBC
 	}
 }
