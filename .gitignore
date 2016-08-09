@@ -47,8 +47,3 @@ local.properties
 
 # Code Recommenders
 .recommenders/
-
-*.class
-
-.project
-.project
