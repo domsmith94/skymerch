@@ -51,7 +51,11 @@ public class DAOTest {
 		System.out.println(products.get(0).getProdName());
 		System.out.println(" ");
 
-		
+		Product product = pdao.findById(2000001);
+		System.out.println("prod search result:" + product.getProdName());
+		product = pdao.findByName("Game of Thrones - Arya plastic figure");
+		System.out.println("prod search result:" + product.getProdName());
+
 		// ~~~ Product writing test ~~~
 		System.out.println("Should input a product, and return name of second product (which is the one we inputed):");
 		Product gotfig = new Product();
@@ -83,7 +87,7 @@ public class DAOTest {
 		// ~~~ Product search test ~~~
 		System.out.println("Should search for a product (search term: Arya):");
 		List<Product> products3 = new ArrayList<Product>();
-		products2 = pdao.multiSearch("Arya", null, null);
+		//products2 = pdao.multiSearch("Arya", null, null);
 		System.out.println(products2.get(0).getProdName());
 		System.out.println(" ");
 

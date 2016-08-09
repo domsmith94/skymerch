@@ -146,12 +146,7 @@ public class ProductDAO {
 			if (!rs.next()){
 				System.out.println("No product found in database with ID " + prodId);
 			}
-
-			while (rs.next()){
-				return this.processResult(rs);
-
-
-			}
+			return this.processResult(rs);
 		} catch(Exception e){
 			e.printStackTrace();
 			/*
@@ -159,25 +154,25 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-
+			return null;
 		}
-		return null;
+		
 	}
 	public Product findByName(String prodName){
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_name = " + prodName + "");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_name = '" + prodName + "'");
 
 			if (!rs.next()){
 				System.out.println("No product found in database with ID " + prodName);
 			}
 
-			while (rs.next()){
+			//while (rs.next()){
 				return this.processResult(rs);
 
 
-			}
+			//}
 		} catch(Exception e){
 			e.printStackTrace();
 			/*
@@ -185,9 +180,9 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
+			return null;
 
 		}
-		return null;
 	}
 	
 	//returns a list of products of the category specified
