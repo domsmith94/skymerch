@@ -19,7 +19,7 @@ public class ProductValidator {
 	       // static method for validating customer details
 	             public static boolean validate(Product c){
 	                    boolean valid = false;
-	                    if (nameCheck(c) && descCheck(c) && priceCheck(c) && levelCheck(c)) {    // any extra checks can be added here with helper methods written below
+	                    if (nameCheck(c) && descCheck(c) && priceCheck(c) && levelCheck(c) && locationCheck(c)) {    // any extra checks can be added here with helper methods written below
 	                           valid = true;
 	                    } 
 	                    return valid;
@@ -35,11 +35,15 @@ public class ProductValidator {
 	             }
 	             
 	             private static boolean priceCheck(Product c){
-	                    return (c.getPrice()>0 && c.getPrice()<=100000);
+	                    return (c.getPrice()>0.00 && c.getPrice()<=9999.99);
 	             }
 
 	             private static boolean levelCheck(Product c){
 	                    return (c.getStockLevel()>=0 && c.getReorderLevel()>=0);
+	             }
+	             
+	             private static boolean locationCheck(Product c){
+	            	 	return (c.getLocation() != null);
 	             }
 	             
 	             

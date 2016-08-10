@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skymerch.entities.Product;
+import skymerch.entities.ProductValidator;
 import skymerch.enums.*;
 
 public class ProductDAO {
@@ -116,8 +117,7 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-			return null;
-		}
+			}
 		return allProducts;
 	}
 	
@@ -149,12 +149,14 @@ public class ProductDAO {
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
+			if (prodName != null){
 			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_name = '" + prodName + "'");
 			if (rs.next()){
 				p =  this.processResult(rs);				
 			}
 			else{
 				System.out.println("No product found in database with name " + prodName);
+			}
 			}
 		} catch(Exception e){
 			e.printStackTrace();
@@ -173,6 +175,7 @@ public class ProductDAO {
 		try {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();
+		if (cat != null){
 		String catString = cat.toString().toLowerCase();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_category = '" + catString + "'");
 		if (rs.next()){
@@ -185,6 +188,7 @@ public class ProductDAO {
 		else{
 			System.out.println("No product found in database with category" + catString);
 		}	
+		}
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -199,15 +203,15 @@ public class ProductDAO {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();			
 		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_price <=" + max);
-		if (!rs.next()){
-			System.out.println("No product found in database with max price" + max);
-			}	
 		while (rs.next()){
-			if(returnedProducts == null){
-			returnedProducts = new ArrayList<>();
-			}
 			Product product = this.processResult(rs);
-			returnedProducts.add(product);			
+			//TO DO: add rest of the methods
+			// create array if not existing
+			if (returnedProducts == null){
+				returnedProducts = new ArrayList<Product>();
+			}
+			// add product to array
+			returnedProducts.add(product);
 		}
 		}
 		catch(Exception e){
@@ -222,16 +226,16 @@ public class ProductDAO {
 		try {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_price <=" + min);
-		if (!rs.next()){
-			System.out.println("No product found in database with min price" + min);
-			}	
+		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_price >=" + min);
 		while (rs.next()){
-			if(returnedProducts == null){
-			returnedProducts = new ArrayList<>();
-				}
 			Product product = this.processResult(rs);
-			returnedProducts.add(product);			
+			//TO DO: add rest of the methods
+			// create array if not existing
+			if (returnedProducts == null){
+				returnedProducts = new ArrayList<Product>();
+			}
+			// add product to array
+			returnedProducts.add(product);		
 		}
 		}
 		catch(Exception e){			
@@ -241,6 +245,7 @@ public class ProductDAO {
 		}
 	
 	public void addProduct(Product product){
+		if (ProductValidator.validate(product)){		
 		try {
 			Connection con = this.getConnection();
 			
@@ -268,7 +273,7 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy at a later date
 			 */
-
+		}
 		}
 	}
 	
@@ -276,7 +281,23 @@ public class ProductDAO {
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
-			stmt.executeQuery("DELETE FROM product WHERE product_id =" + prodID);
+			stmt.executeUpdate("DELETE FROM product WHERE product_id = '" + prodID + "'");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+		}
+		}	
+	
+	public void removeProduct(String prodName){
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("DELETE FROM product WHERE product_name = '" + prodName + "'");
 		}
 		catch(Exception e){
 			e.printStackTrace();

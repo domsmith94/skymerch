@@ -14,7 +14,7 @@ public class Product {
 	private Double price;
 	//private List<String> keywords; //not currently used
 	private String location; //location in warehouse
-	private Double rating;
+	private double rating;
 	private int numOfRatings;
 
 	
