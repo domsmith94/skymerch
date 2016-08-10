@@ -26,7 +26,7 @@ DROP TABLE order_line;
        product_description varchar(500) not null,
        product_rating Double,
        rating_count integer not null,
-       product_price decimal(4,2) not null,
+       product_price decimal(6,2) not null,
        product_category ENUM('household', 'media', 'electronics', 'clothing', 'toys') -- will need to be updated
      )AUTO_INCREMENT=2000001;
      
@@ -69,7 +69,7 @@ DROP TABLE order_line;
      
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Shrek Mug', 10, 5, 3, 'This is a Shrek mug', 4.9, 10, 4.99, 'household');
+     values('Shrek Mug', 10, 5, 3, 'This is a Shrek mug', 4.9, 10, 99.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Shrek DVD', 6, 3, 16, 'This is a shrek DVD', 4.9, 8, 3.99, 'media');
@@ -78,7 +78,7 @@ DROP TABLE order_line;
      values('Game of Thrones hat', 8, 4, 8, 'This is a GoT hat.', 4.9, 8, 9.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Minions radio', 3, 3, 4, 'This is a minions radio clock', 2.9, 6, 29.99, 'electronics');
+     values('Minions radio', 3, 3, 4, 'This is a minions radio clock', 2.9, 6, 1129.99, 'electronics');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('simpsons teddy', 6, 8, 9, 'This is a bart teddy', 7.9, 9, 19.99, 'toys');
