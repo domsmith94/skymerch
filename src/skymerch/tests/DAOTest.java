@@ -5,6 +5,7 @@ import skymerch.enums.*;
 import java.util.*;
 
 import skymerch.dao.CustomerDAO;
+import skymerch.dao.OrderDAO;
 import skymerch.dao.ProductDAO;
 import skymerch.entities.*;
 
@@ -13,6 +14,7 @@ public class DAOTest {
 	public static void main(String[] args) {
 		CustomerDAO cdao = new CustomerDAO();
 		ProductDAO pdao = new ProductDAO();
+		OrderDAO odao = new OrderDAO();
 		
 		// Initialise test customer
 		Customer bel = new Customer();
@@ -38,10 +40,10 @@ public class DAOTest {
 		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
 		System.out.println(customer.getFirstName());
 		String pass = "iloveD4da";
-		String hashed = customer.getPassword();
-		//if (BCrypt.checkpw(pass, hashed)) {
-		//	System.out.println("Passwords Match");
-		//}
+//		String hashed = customer.getPassword();
+//		if (BCrypt.checkpw(pass, hashed)) {
+//			System.out.println("Passwords Match");
+//		}
 		System.out.println(" ");
 		cdao.emptyDb();
 		
@@ -52,9 +54,9 @@ public class DAOTest {
 		System.out.println(products.get(0).getProdName());
 		System.out.println(" ");
 
-		Product product = pdao.findById(2000003);
-		System.out.println("prod search resultid:" + product.getProdName());
-		product = pdao.findByName("Game of Thrones - Arya plastic figure");
+		Product product = pdao.findById(2000001);
+		System.out.println("prod search result:" + product.getProdName());
+		product = pdao.findByName("Game of Thrones hat");
 		System.out.println("prod search result:" + product.getProdName());
 
 		// ~~~ Product writing test ~~~
@@ -92,13 +94,33 @@ public class DAOTest {
 		System.out.println(products2.get(0).getProdName());
 		System.out.println(" ");
 		
+		
 		// ~~~ Order add and read test ~~~
+		Product testProd = pdao.findById(2000001);
+		System.out.println("Should return the time of our test order:");
 		OrderLine line = new OrderLine();
-		line.setProduct(gotfig);
-		line.setItemPrice(gotfig.getPrice());
+		line.setProduct(testProd);
+		line.setItemPrice(testProd.getPrice());
 		line.setQuantity(5);
 		line.setOrderLinePrice();
 		
-		// TBC
+		List<OrderLine> lineList = new ArrayList<OrderLine>();
+		lineList.add(line);
+		
+		Order testOrder = new Order();
+		testOrder.setCustomerId(1000001);
+		testOrder.setOrderLines(lineList);
+		testOrder.setOrderTime(java.time.LocalDateTime.now());
+		testOrder.setShippingType(Shipping.valueOf("NEXT_DAY"));
+		testOrder.setStatus(Status.valueOf("PROCESSING"));
+		testOrder.setTotalCost();
+		
+		// add the order
+		odao.addOrder(testOrder);
+		
+		// search for the order
+		Order foundOrder = odao.findById(3000007);
+		System.out.println(foundOrder.getOrderTime());
 	}
 }
+

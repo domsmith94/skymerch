@@ -1,7 +1,6 @@
 package skymerch.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,19 +42,23 @@ public class OrderDAO {
 		
 		// First, save each column to a relevant variable
 		int orderId = rs.getInt(1);
-		Date orderDate = rs.getDate(2);
-		Shipping deliveryType = Shipping.valueOf(rs.getString(3).toUpperCase());
-		Status orderStatus = Status.valueOf(rs.getString(4).toUpperCase());
-		Double totalCost = rs.getDouble(5);
+		int custId = rs.getInt(2);
+		java.sql.Timestamp sqlTimestamp = rs.getTimestamp(3);
+		java.time.LocalDateTime goodDateTime = sqlTimestamp.toLocalDateTime();
+		Shipping deliveryType = Shipping.valueOf(rs.getString(4).toUpperCase());
+		Status orderStatus = Status.valueOf(rs.getString(5).toUpperCase());
+		Double totalCost = rs.getDouble(6);
 		List<OrderLine> lines = getOrderLines(orderId);
 
 		// next, fill an order object's fields with these temporary variables
 		Order order = new Order();
 		order.setOrderId(orderId);
-		order.setOrderTime(orderDate);
+		order.setCustomerId(custId);
+		order.setOrderTime(goodDateTime);
 		order.setShippingType(deliveryType);
 		order.setStatus(orderStatus);
 		order.setTotalCost(totalCost);
+		order.setOrderLines(lines);
 
 		// return the completed order object
 		return order;
@@ -144,18 +147,16 @@ public class OrderDAO {
 			// Syntax: each '?' is a placeholder for a value which will be subsequently added
 			
 			// initialise String for general structure
-			String sql = " insert into customer_order (order_no, order_date, delivery_type, order_status, total_price)"
+			String sql = " insert into customer_order (customer_id, order_date, delivery_type, order_status, total_price)"
 					+ " values (?, ?, ?, ?, ?)";
 			
-			// TEMPLATE - IGNORE //
-			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
-			
 			// generate a prepared statement using sql string
-			PreparedStatement stmt = con.prepareStatement(sql);
+			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			// assign required String data to each slot in the prepared statement (each '?')
-			stmt.setInt(1, order.getOrderId());
-			stmt.setDate(2, order.getOrderTime());
+			stmt.setInt(1, order.getCustomerId());
+			java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(order.getOrderTime());
+			stmt.setTimestamp(2, timestamp);
 			stmt.setString(3, order.getShippingType().toString().toLowerCase());
 			stmt.setString(4, order.getStatus().toString().toLowerCase());
 			stmt.setDouble(5, order.getTotalCost());
@@ -163,12 +164,20 @@ public class OrderDAO {
 			// execute the prepared statement (run in SQL)
 			stmt.execute();
 			
+			// get orderId
+			ResultSet rs = stmt.getGeneratedKeys();
+			int orderId = 0;
+			if (rs.next()) {
+				orderId = rs.getInt(1);
+			}
+			
 			// add orderlines to database in a loop
 			List<OrderLine> orderLines = order.getOrderLines();
 			int length = orderLines.size();
 			
+			// passes orderId into orderline through 'getGeneratedKeys' method
 			for (int i = 0; i < length; i++) {
-				addOrderLine(orderLines.get(i), order.getOrderId());
+				addOrderLine(orderLines.get(i), orderId);
 			}
 			
 		} catch(Exception e) {
