@@ -75,6 +75,7 @@ public class SignIn extends HttpServlet {
 			if (BCrypt.checkpw(pass, hashed)) {
 				System.out.println("Passwords Match");
 				loginSuccess = true;
+				session.setAttribute("signedin_customer", customer);
 			} 
 		}
 		
@@ -84,6 +85,7 @@ public class SignIn extends HttpServlet {
 		} else if (loginSuccess==false){
 			rd = this.getServletContext().getRequestDispatcher("/sign-up");
 		}
+		
 		
 		
 		rd.forward(request, response);

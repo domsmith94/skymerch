@@ -43,17 +43,24 @@
         </ul>
     </nav>
 
+<%  
+Customer LoggedInCustomer = (Customer)session.getAttribute("signedin_customer"); 
+
+if (LoggedInCustomer != null){ %>
+
+Welcome, <%= LoggedInCustomer.getFirstName() %>
+
+<%}
+	%>
+
+
 
 <%  
 	List<Product> allProducts = (ArrayList<Product>)session.getAttribute("product_list"); 
 	for (Product p: allProducts){  %>
 	<br />
 	
-	
 	<a href= "product?id=<%= p.getProdId() %>"><%= p.getProdName() %> 	</a>
-	
-	
-	
 	
 <% } %>
 
