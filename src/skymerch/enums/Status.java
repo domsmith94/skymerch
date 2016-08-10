@@ -2,6 +2,6 @@ package skymerch.enums;
 
 public enum Status {
 	
-		COMPLETE, DELIVERY, RECIEVED, PROCESSING
+		ORDERED, PROCESSING, DISPATCHED, DELIVERED
 		
 }
