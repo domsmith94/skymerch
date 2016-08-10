@@ -14,10 +14,10 @@ Testing
 Integer productId = (Integer)session.getAttribute("id"); 
 
 Product product = (Product)session.getAttribute("product");
-boolean result = ProductValidator.validate(product);
+//boolean result = ProductValidator.validate(product);
 %>
 <%= productId %>
-<%= result %>
+<%= product.getProdDesc() %>
 
 
 

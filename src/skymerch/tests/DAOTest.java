@@ -25,11 +25,11 @@ public class DAOTest {
 		belsAddr.setHouseNameNum("2/4");
 		belsAddr.setAddressLineOne("Great Michael Rise");
 		belsAddr.setAddressLineTwo("Newhaven");
-		belsAddr.setRegion("Edinburgh");
-		belsAddr.setCountry("Scotland");
+		//belsAddr.setRegion("Edinburgh");
+		//belsAddr.setCountry("Scotland");
 		belsAddr.setPostcode("EH6 4JB");
 		bel.setAddress(belsAddr);
-		cdao.addCustomer(bel);
+		//cdao.addCustomer(bel);
 		
 		// ~~~ Customer read and password checking test ~~~ 
 		System.out.println("Should output name of customer with given email, then report if password works:");
