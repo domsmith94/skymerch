@@ -42,26 +42,7 @@ public class ProductServlet extends HttpServlet {
 		
 		String formToDisplay = request.getServletPath();
 		
-		if (formToDisplay.equals("/submitBugReportText")){
-			// we'll put data in the session here...
-			String userName = request.getParameter("userName");
-			session.setAttribute("userName", userName);
-			String betterWebsite = request.getParameter("betterWebsite");
-			session.setAttribute("betterWebsite", betterWebsite);
-			String reasonWhy = request.getParameter("reasonWhy");
-			session.setAttribute("reasonWhy", reasonWhy);
-			/*
-			SalespersonDAO dao = new SalespersonDAO();
-			List<Salesperson> allSalespersons = dao.readAll();
-			
-			Integer i=0;
-			for (Salesperson person: allSalespersons){ i++; }
-			
-			session.setAttribute("salespeople", allSalespersons);
-			session.setAttribute("i", i);*/
-			
-			rd = this.getServletContext().getRequestDispatcher("/ListSalesPerson.jsp");
-		}	else if (formToDisplay.equals("/byebye")){
+		if (formToDisplay.equals("/byebye")){
 			// show basic bye page
 			rd = this.getServletContext().getRequestDispatcher("/MyNewFile2.html");
 		}	else if (formToDisplay.equals("/showAllProducts")){
