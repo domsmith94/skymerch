@@ -25,7 +25,6 @@ public class ProductDAO {
 			// create a driver class
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = DriverManager.getConnection(this.DB_LOCATION, this.DB_USERNAME, this.DB_PASSWORD);
-
 			// TO DO: We should move this out to another class so if we want to change database we only
 			// have to change it once in the code base. 
 		} catch (Exception e) {
@@ -36,7 +35,7 @@ public class ProductDAO {
 	}
 	
 	private Product processResult(ResultSet rs) throws SQLException{
-		// numbers correspond to columns of the CURRENT ROW of database
+		// numbers correspond to columns of the CURRENT ROW of database table
 		int id = rs.getInt(1);
 		String name = rs.getString(2);
 		int stockLvl = rs.getInt(3);
@@ -106,7 +105,6 @@ public class ProductDAO {
 		return returnedProducts;
 	}
 */	
-	
 	public List<Product> readAll(){
 		ArrayList<Product> allProducts = null;
 		try {
@@ -115,16 +113,13 @@ public class ProductDAO {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM product");
 			while (rs.next()){
 				Product product = this.processResult(rs);
-
 				//TO DO: add rest of the methods
 				// create array if not existing
 				if (allProducts == null){
 					allProducts = new ArrayList<Product>();
 				}
-				
 				// add product to array
 				allProducts.add(product);
-
 			}
 		} catch(Exception e){
 			e.printStackTrace();
@@ -133,20 +128,23 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
+			return null;
 		}
 		return allProducts;
 	}
 	
 	public Product findById(int prodId){
+		Product p = null;
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_id = " + prodId + "");
-
-			if (!rs.next()){
+			if (rs.next()){
+				p = this.processResult(rs);
+				}
+			else{
 				System.out.println("No product found in database with ID " + prodId);
-			}
-			return this.processResult(rs);
+				}
 		} catch(Exception e){
 			e.printStackTrace();
 			/*
@@ -154,25 +152,22 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-			return null;
-		}
-		
+			}
+		return p;
 	}
+
 	public Product findByName(String prodName){
+		Product p = null;
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_name = '" + prodName + "'");
-
-			if (!rs.next()){
-				System.out.println("No product found in database with ID " + prodName);
+			if (rs.next()){
+				p =  this.processResult(rs);				
 			}
-
-			//while (rs.next()){
-				return this.processResult(rs);
-
-
-			//}
+			else{
+				System.out.println("No product found in database with name " + prodName);
+			}
 		} catch(Exception e){
 			e.printStackTrace();
 			/*
@@ -180,9 +175,8 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-			return null;
-
-		}
+					}
+		return p;
 	}
 	
 	//returns a list of products of the category specified
