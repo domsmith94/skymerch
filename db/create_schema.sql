@@ -32,7 +32,7 @@ DROP TABLE order_line;
      
      create table customer_order
      ( order_no integer unsigned not null auto_increment primary key,
-       customer_id integer unsigned not null,
+       customer_id integer unsigned not null references customer,
        order_date datetime not null,
        delivery_type ENUM('standard', 'next day'),
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
