@@ -62,35 +62,25 @@ public class ProductDAO {
 		return product;
 	}
 	
-	/*  //PREVIOUS ATTEMPT TO SEARCH WITH MULTIPLE ARGUMENTS
+	  //search with multiple arguments
 	public List<Product> multiSearch(String prodnamequery, String lowerprice, String upperprice){
 		ArrayList<Product> returnedProducts = null;
 		try {
 			Connection con = this.getConnection();
-			Statement stmt = con.createStatement();
-			
-			String searchquery = new String("SELECT * FROM product");
-				
-			
-			if (prodnamequery != null){searchquery = searchquery + " WHERE product_name LIKE '%" + prodnamequery + "%'";}
-			if (lowerprice != null){
-				int lowerprice_int = Integer.parseInt(lowerprice);
-				
-			}
-			
-			ResultSet rs = stmt.executeQuery(searchquery);
+			Statement stmt = con.createStatement();			
+			StringBuilder searchquery = new StringBuilder("SELECT * FROM product WHERE 1=1");
+			if (prodnamequery != null){searchquery.append(" AND product_name LIKE '%" + prodnamequery + "%'");}
+			if (lowerprice != null){searchquery.append(" AND product_price >= '" + Double.parseDouble(lowerprice) + "'");}
+			if (upperprice != null){searchquery.append(" AND product_price <= '" + Double.parseDouble(upperprice) + "'");}
+			ResultSet rs = stmt.executeQuery(searchquery.toString());
 			while (rs.next()){
 				Product product = this.processResult(rs);
-
-				//TO DO: add rest of the methods
 				// create array if not existing
 				if (returnedProducts == null){
 					returnedProducts = new ArrayList<Product>();
 				}
-				
 				// add product to array
 				returnedProducts.add(product);
-
 			}
 		} catch(Exception e){
 			e.printStackTrace();
@@ -98,13 +88,11 @@ public class ProductDAO {
 			 * add what will happen if a statement in the try block
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
-			 *
+			 */
 		} 
-
-
 		return returnedProducts;
 	}
-*/	
+	
 	public List<Product> readAll(){
 		ArrayList<Product> allProducts = null;
 		try {
@@ -175,38 +163,38 @@ public class ProductDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-					}
+			}
 		return p;
 	}
 	
 	//returns a list of products of the category specified
 	public List<Product> findByCat(Category cat){
-		ArrayList<Product> list = null;
+		ArrayList<Product> returnedProducts = null;
 		try {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();
 		String catString = cat.toString().toLowerCase();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_category =" + catString);
-		if (!rs.next()){
+		ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_category = '" + catString + "'");
+		if (rs.next()){
+			if(returnedProducts == null){
+				returnedProducts = new ArrayList<>();
+				}
+			Product product = this.processResult(rs);
+			returnedProducts.add(product);
+		}
+		else{
 			System.out.println("No product found in database with category" + catString);
 		}	
-		while (rs.next()){
-			if(list == null){
-			list = new ArrayList<>();
-			}
-			Product product = this.processResult(rs);
-			list.add(product);			
-		}
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		return list;
+		return returnedProducts;
 	}
 		
 	//returns list of products with price <= than specified max
 	public List<Product> findByMaxPrice(double max){
-		ArrayList<Product> list = null;
+		ArrayList<Product> returnedProducts = null;
 		try {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();			
@@ -215,22 +203,22 @@ public class ProductDAO {
 			System.out.println("No product found in database with max price" + max);
 			}	
 		while (rs.next()){
-			if(list == null){
-			list = new ArrayList<>();
+			if(returnedProducts == null){
+			returnedProducts = new ArrayList<>();
 			}
 			Product product = this.processResult(rs);
-			list.add(product);			
+			returnedProducts.add(product);			
 		}
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		return list;		
+		return returnedProducts;		
 		
 	}
 	//returns a list of products with price >= specified min
-	public List<Product> findByMin(double min){
-		ArrayList<Product> list = null;
+	public List<Product> findByMinPrice(double min){
+		ArrayList<Product> returnedProducts = null;
 		try {
 		Connection con = this.getConnection();
 		Statement stmt = con.createStatement();
@@ -239,17 +227,17 @@ public class ProductDAO {
 			System.out.println("No product found in database with min price" + min);
 			}	
 		while (rs.next()){
-			if(list == null){
-			list = new ArrayList<>();
+			if(returnedProducts == null){
+			returnedProducts = new ArrayList<>();
 				}
 			Product product = this.processResult(rs);
-			list.add(product);			
+			returnedProducts.add(product);			
 		}
 		}
 		catch(Exception e){			
 			e.printStackTrace();
 			}
-		return list;
+		return returnedProducts;
 		}
 	
 	public void addProduct(Product product){
@@ -258,10 +246,7 @@ public class ProductDAO {
 			
 			String sql = " insert into product (product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)"
 					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			
-			
-			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
-			
+												
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
 			stmt.setString(1, product.getProdName());
@@ -275,9 +260,8 @@ public class ProductDAO {
 			stmt.setString(9, product.getCategory().toString().toLowerCase());
 			
 			stmt.execute();
-
-
-		} catch(Exception e){
+		} 
+		catch(Exception e){
 			e.printStackTrace();
 			/*
 			 * add what will happen if a statement in the try block
