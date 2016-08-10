@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class listSalesperson
  */
-@WebServlet({"/submitBugReportText","/byebye","/showAllProducts","/product"})
+@WebServlet({"/submitBugReportText","/byebye","/browse","/product"})
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +45,7 @@ public class ProductServlet extends HttpServlet {
 		if (formToDisplay.equals("/byebye")){
 			// show basic bye page
 			rd = this.getServletContext().getRequestDispatcher("/MyNewFile2.html");
-		}	else if (formToDisplay.equals("/showAllProducts")){
+		}	else if (formToDisplay.equals("/browse")){
 			/*SalespersonDAO dao = new SalespersonDAO();
 			List<Salesperson> allSalespersons = dao.readAll();
 			session.setAttribute("salespeople", allSalespersons);
@@ -56,7 +56,7 @@ public class ProductServlet extends HttpServlet {
 			session.setAttribute("product_list", products);
 			
 			
-			rd = this.getServletContext().getRequestDispatcher("/ShowAllProducts.jsp");
+			rd = this.getServletContext().getRequestDispatcher("/browse.jsp");
 			
 		}else if (formToDisplay.equals("/product")){
 			

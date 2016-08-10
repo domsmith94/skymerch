@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-import = "java.util.*,skymerch.entities.*;" 
-pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import = "java.util.*,skymerch.entities.*;" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,17 +42,20 @@ pageEncoding="ISO-8859-1"%>
             </li>
         </ul>
     </nav>
-<%
 
-Integer productId = (Integer)session.getAttribute("id"); 
 
-Product product = (Product)session.getAttribute("product");
-//boolean result = ProductValidator.validate(product);
-%>
-<%= productId %>
-<%= product.getProdDesc() %>
+<%  
+	List<Product> allProducts = (ArrayList<Product>)session.getAttribute("product_list"); 
+	for (Product p: allProducts){  %>
+	<br />
+	
+	
+	<a href= "product?id=<%= p.getProdId() %>"><%= p.getProdName() %> 	</a>
+	
+	
+	
+	
+<% } %>
+
 </body>
 </html>
-
-
-
