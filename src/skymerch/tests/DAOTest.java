@@ -69,10 +69,9 @@ public class DAOTest {
 		List<String> gotfigwords = new ArrayList<String>();
 		gotfigwords.add("got");
 		
-		gotfig.setKeywords(gotfigwords);
+		//gotfig.setKeywords(gotfigwords);
 		gotfig.setLocation("Aisle 2");
 		gotfig.setCategory(Category.valueOf("HOUSEHOLD"));
-		gotfig.setBrand("HBO");
 		gotfig.setNumOfRatings(4);
 		gotfig.setRating(5.25);
 		

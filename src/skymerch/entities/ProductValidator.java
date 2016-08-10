@@ -19,7 +19,7 @@ public class ProductValidator {
 	       // static method for validating customer details
 	             public static boolean validate(Product c){
 	                    boolean valid = false;
-	                    if (nameCheck(c) && brandCheck(c) && descCheck(c) && priceCheck(c) && levelCheck(c)) {    // any extra checks can be added here with helper methods written below
+	                    if (nameCheck(c) && descCheck(c) && priceCheck(c) && levelCheck(c)) {    // any extra checks can be added here with helper methods written below
 	                           valid = true;
 	                    } 
 	                    return valid;
@@ -28,10 +28,6 @@ public class ProductValidator {
 	             // ensures names are within acceptable lengths
 	             private static boolean nameCheck(Product c){
 	                    return (c.getProdName().length()>0 && c.getProdName().length()<=100);
-	             }
-	             
-	             private static boolean brandCheck(Product c){
-	                    return (c.getBrand().length()>0 && c.getBrand().length()<=30);
 	             }
 	             
 	             private static boolean descCheck(Product c){
