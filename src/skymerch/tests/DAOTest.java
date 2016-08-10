@@ -25,11 +25,11 @@ public class DAOTest {
 		belsAddr.setHouseNameNum("2/4");
 		belsAddr.setAddressLineOne("Great Michael Rise");
 		belsAddr.setAddressLineTwo("Newhaven");
-		//belsAddr.setRegion("Edinburgh");
+		belsAddr.setTownOrCity("Edinburgh");
 		//belsAddr.setCountry("Scotland");
 		belsAddr.setPostcode("EH6 4JB");
 		bel.setAddress(belsAddr);
-		//cdao.addCustomer(bel);
+		cdao.addCustomer(bel);
 		
 		// ~~~ Customer read and password checking test ~~~ 
 		System.out.println("Should output name of customer with given email, then report if password works:");
@@ -39,9 +39,9 @@ public class DAOTest {
 		System.out.println(customer.getFirstName());
 		String pass = "iloveD4da";
 		String hashed = customer.getPassword();
-		if (BCrypt.checkpw(pass, hashed)) {
-			System.out.println("Passwords Match");
-		}
+		//if (BCrypt.checkpw(pass, hashed)) {
+		//	System.out.println("Passwords Match");
+		//}
 		System.out.println(" ");
 		cdao.emptyDb();
 		
@@ -52,8 +52,8 @@ public class DAOTest {
 		System.out.println(products.get(0).getProdName());
 		System.out.println(" ");
 
-		Product product = pdao.findById(2000001);
-		System.out.println("prod search result:" + product.getProdName());
+		Product product = pdao.findById(2000003);
+		System.out.println("prod search resultid:" + product.getProdName());
 		product = pdao.findByName("Game of Thrones - Arya plastic figure");
 		System.out.println("prod search result:" + product.getProdName());
 
