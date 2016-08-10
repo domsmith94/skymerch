@@ -6,7 +6,6 @@ public class Address {
 	private String addressLineOne;
 	private String addressLineTwo;
 	private String townOrCity;
-	private String region;
 	private String postcode;
 	
 	public Address(){
@@ -32,10 +31,6 @@ public class Address {
 	public String getTownOrCity() { return this.townOrCity; }
 
 	public void setTownOrCity(String townOrCity) { this.townOrCity = townOrCity; }
-	
-	public String getRegion() { return this.region; }
-
-	public void setRegion(String region) { this.region = region; }
 
 	public String getPostcode() { return postcode; }
 

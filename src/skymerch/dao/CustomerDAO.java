@@ -11,6 +11,8 @@ import java.util.List;
 
 import skymerch.entities.Address;
 import skymerch.entities.Customer;
+import skymerch.enums.Category;
+import skymerch.enums.Title;
 
 public class CustomerDAO {
 
@@ -45,20 +47,33 @@ public class CustomerDAO {
 		int custId = rs.getInt(1);
 		String firstName = rs.getString(2);
 		String lastName = rs.getString(3);
+		Title title = Title.valueOf((rs.getString(4).toUpperCase()));
 		String email = rs.getString(5);
 		String password = rs.getString(6);
+		String houseNameNum = rs.getString(7);
+		String addrL1 = rs.getString(8);
+		String addrL2 = rs.getString(9);
+		String townCity = rs.getString(10);
+		String postcode = rs.getString(11);
 
-		//TO DO: Add address values here
+		Address address = new Address();
+		address.setHouseNameNum(houseNameNum);
+		address.setAddressLineOne(addrL1);
+		address.setAddressLineTwo(addrL2);
+		address.setTownOrCity(townCity);
+		address.setPostcode(postcode);
+		
 
 		// next, fill a customer object's fields with these temporary variables
 		Customer customer = new Customer();
 		customer.setCustId(custId);
 		customer.setFirstName(firstName);
 		customer.setLastName(lastName);
+		customer.setTitle(title);
 		customer.setEmail(email);
 		customer.setPassword(password);
+		customer.setAddress(address);
 
-		//TO DO: Add address values 
 		// return the completed customer object
 		return customer;
 
@@ -163,11 +178,8 @@ public class CustomerDAO {
 			// Syntax: each '?' is a placeholder for a value which will be subsequently added
 			
 			// initialise String for general structure
-			String sql = " insert into customer (first_name, last_name, email, user_password, house_no, address_line1, address_line2, town_city, postcode)"
-					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			
-			// TEMPLATE - IGNORE //
-			//String sql = "insert into customer(first_name, last_name, email, user_password, house_no, address_line1, city, country, postcode) values ('Adam','Morrison', 'adam.morrison', 'Apricot', '5', 'brimpsfield close abbeywood', 'london', 'UK', 'SE2 9LR')";
+			String sql = " insert into customer (first_name, last_name, title, email, user_password, house_no, address_line1, address_line2, town_city, postcode)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			// generate a prepared statement using sql string
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -176,13 +188,14 @@ public class CustomerDAO {
 			// assign required String data to each slot in the prepared statement (each '?')
 			stmt.setString(1, customer.getFirstName());
 			stmt.setString(2, customer.getLastName());
-			stmt.setString(3, customer.getEmail());
-			stmt.setString(4, customer.getPassword());
-			stmt.setString(5, addr.getHouseNameNum());
-			stmt.setString(6, addr.getAddressLineOne());
-			stmt.setString(7, addr.getAddressLineTwo());
-			stmt.setString(8, addr.getTownOrCity());
-			stmt.setString(9, addr.getPostcode());
+			stmt.setString(3, customer.getTitle().toString().toLowerCase());
+			stmt.setString(4, customer.getEmail());
+			stmt.setString(5, customer.getPassword());
+			stmt.setString(6, addr.getHouseNameNum());
+			stmt.setString(7, addr.getAddressLineOne());
+			stmt.setString(8, addr.getAddressLineTwo());
+			stmt.setString(9, addr.getTownOrCity());
+			stmt.setString(10, addr.getPostcode());
 			
 			// execute the prepared statement (run in SQL)
 			stmt.execute();

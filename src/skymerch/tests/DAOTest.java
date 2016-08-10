@@ -20,7 +20,7 @@ public class DAOTest {
 		Customer bel = new Customer();
 		bel.setFirstName("Isobel");
 		bel.setLastName("Forbes");
-		bel.setTitle(Title.MS);
+		bel.setTitle(Title.valueOf("MS"));
 		bel.setEmail("belbelbel@cutemail.com");
 		bel.hashPassword("iloveD4da");
 		Address belsAddr = new Address();
@@ -28,15 +28,12 @@ public class DAOTest {
 		belsAddr.setAddressLineOne("Great Michael Rise");
 		belsAddr.setAddressLineTwo("Newhaven");
 		belsAddr.setTownOrCity("Edinburgh");
-		//belsAddr.setCountry("Scotland");
 		belsAddr.setPostcode("EH6 4JB");
 		bel.setAddress(belsAddr);
 		cdao.addCustomer(bel);
 		
 		// ~~~ Customer read and password checking test ~~~ 
-		System.out.println("Should output name of customer with given email, then report if password works:");
-		//cdao.addCustomer(new Customer());
-		//Customer customer = cdao.findByEmail("adam.morrison@sky.uk");
+		System.out.println("Should output name of customer with given email, then report if password works:");	
 		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
 		System.out.println(customer.getFirstName());
 		String pass = "iloveD4da";

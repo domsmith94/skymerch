@@ -7,7 +7,7 @@ DROP TABLE order_line;
      ( customer_id integer unsigned not null auto_increment primary key,
        first_name varchar(20) not null,
        last_name varchar(20) not null,
-       title ENUM('Mr', 'Miss', 'Mrs', 'Ms'),
+       title ENUM('mr', 'miss', 'mrs', 'ms'),
        email varchar(50) not null UNIQUE,
        user_password varchar(200) not null,   
        house_no varchar(50) not null, 
