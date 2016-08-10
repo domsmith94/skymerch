@@ -34,7 +34,7 @@ DROP TABLE order_line;
      ( order_no integer unsigned not null auto_increment primary key,
        customer_id integer unsigned not null references customer,
        order_date datetime not null,
-       delivery_type ENUM('standard', 'next day'),
+       delivery_type ENUM('standard', 'next_day'),
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
        total_price decimal(4,2) not null
      )AUTO_INCREMENT=3000001;
@@ -87,19 +87,19 @@ DROP TABLE order_line;
      values ('1000001', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000002', '2016-06-03 13:27:34', 'next day', 'dispatched', 15.33); 
+     values ('1000002', '2016-06-03 13:27:34', 'next_day', 'dispatched', 15.33); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
      values ('1000003', '2016-07-04 09:28:24', 'standard', 'ordered', 14.33); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000004', '2016-07-17 08:18:54', 'next day', 'processing', 11.83); 
+     values ('1000004', '2016-07-17 08:18:54', 'next_day', 'processing', 11.83); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
      values ('1000005', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000001', '2016-06-02 16:25:24', 'next day', 'delivered', 35.93); 
+     values ('1000001', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93); 
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('3000001', '2000001', 4.99 , 4, 19.96);
