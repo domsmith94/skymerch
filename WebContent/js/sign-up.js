@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	$("#btnSubmit").click(function(){
-		alert("button");
+		var title = $("#title").val();
+		var firstName = $("#firstName").val();
+
+		alert(firstName);
 	});
 
 });
