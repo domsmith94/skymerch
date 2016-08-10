@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import skymerch.dao.*;
+import skymerch.entities.*;
+
 /**
  * Servlet implementation class SignIn
  */
@@ -45,7 +48,45 @@ public class SignIn extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		// signin is POST so this is what happens when a user signs in.
+		
 		//doGet(request, response);
+		
+		RequestDispatcher rd = null;
+		String urlPattern = request.getServletPath();
+		HttpSession session = request.getSession();
+		
+		boolean loginSuccess = false;
+		
+		// here we will have checks for whether their details are okay.
+		
+		String email = request.getParameter("email");
+		CustomerDAO cdao = new CustomerDAO();
+		Customer customer = new Customer();
+		
+		
+		customer = cdao.findByEmail(email);
+		
+		if(customer != null){
+			
+			String pass = request.getParameter("password");
+			String hashed = customer.getPassword();
+			if (BCrypt.checkpw(pass, hashed)) {
+				System.out.println("Passwords Match");
+				loginSuccess = true;
+			} 
+		}
+		
+		// 
+		if (loginSuccess==true){
+		rd = this.getServletContext().getRequestDispatcher("/browse");
+		} else if (loginSuccess==false){
+			rd = this.getServletContext().getRequestDispatcher("/sign-up");
+		}
+		
+		
+		rd.forward(request, response);
 	}
 
 }
