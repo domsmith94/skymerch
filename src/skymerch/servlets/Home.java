@@ -35,7 +35,7 @@ public class Home extends HttpServlet {
 		
 		System.out.println("Received GET request on /sign-in route");
 		System.out.println("Serving static sign-in.html page to user");
-		rd = this.getServletContext().getRequestDispatcher("/nav_template.html");
+		rd = this.getServletContext().getRequestDispatcher("/home.html");
 		
 		rd.forward(request, response);
 	}

@@ -48,7 +48,9 @@ Integer productId = (Integer)session.getAttribute("id");
 Product product = (Product)session.getAttribute("product");
 //boolean result = ProductValidator.validate(product);
 %>
-<%= productId %>
+<%= productId %><br />
+<h1> <%= product.getProdName() %> £<%= product.getPrice() %> </h1>
+<img src="images/placeholder.jpg"><br />
 <%= product.getProdDesc() %>
 </body>
 </html>

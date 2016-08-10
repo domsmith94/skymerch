@@ -45,8 +45,8 @@ public class CustomerDAO {
 		int custId = rs.getInt(1);
 		String firstName = rs.getString(2);
 		String lastName = rs.getString(3);
-		String email = rs.getString(4);
-		String password = rs.getString(5);
+		String email = rs.getString(5);
+		String password = rs.getString(6);
 
 		//TO DO: Add address values here
 
@@ -75,7 +75,7 @@ public class CustomerDAO {
 
 				//TO DO: add rest of the methods
 				if (allCustomers == null){
-					allCustomers = new ArrayList();
+					allCustomers = new ArrayList<Customer>();
 
 				}
 				allCustomers.add(customer);
