@@ -181,7 +181,7 @@ public class CustomerDAO {
 			stmt.setString(5, addr.getHouseNameNum());
 			stmt.setString(6, addr.getAddressLineOne());
 			stmt.setString(7, addr.getAddressLineTwo());
-			stmt.setString(8, addr.getRegion());
+			stmt.setString(8, addr.getTownOrCity());
 			stmt.setString(9, addr.getPostcode());
 			
 			// execute the prepared statement (run in SQL)
