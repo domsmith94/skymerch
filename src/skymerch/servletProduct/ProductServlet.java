@@ -1,6 +1,7 @@
 package skymerch.servletProduct;
 
-import skymerch.dao.*;
+//import com.sky.database.stuff.*;
+import dao.*;
 import skymerch.entities.Product;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class listSalesperson
  */
-@WebServlet({"/submitBugReportText","/byebye","/showAllProducts"})
+@WebServlet({"/submitBugReportText","/byebye","/showAllProducts","/product"})
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -73,8 +74,24 @@ public class ProductServlet extends HttpServlet {
 			products = pdao.readAll();
 			session.setAttribute("product_list", products);
 			
+			
 			rd = this.getServletContext().getRequestDispatcher("/ShowAllProducts.jsp");
 			
+		}else if (formToDisplay.equals("/product")){
+			
+			int id = Integer.parseInt(request.getParameter("id"));
+			session.setAttribute("id", id);
+			
+			ProductDAO pdao = new ProductDAO();
+			Product product = new Product();
+			product = pdao.findById(id);
+			
+			
+			session.setAttribute("product", product);
+			
+			
+			
+			rd = this.getServletContext().getRequestDispatcher("/DisplayProductDetails.jsp");
 		}
 		rd.forward(request, response);
 	}
