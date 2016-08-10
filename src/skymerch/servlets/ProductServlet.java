@@ -1,4 +1,4 @@
-package skymerch.servletProduct;
+package skymerch.servlets;
 
 //import com.sky.database.stuff.*;
 import skymerch.dao.ProductDAO;
