@@ -40,10 +40,10 @@ public class DAOTest {
 		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
 		System.out.println(customer.getFirstName());
 		String pass = "iloveD4da";
-//		String hashed = customer.getPassword();
-//		if (BCrypt.checkpw(pass, hashed)) {
-//			System.out.println("Passwords Match");
-//		}
+		String hashed = customer.getPassword();
+		if (BCrypt.checkpw(pass, hashed)) {
+			System.out.println("Passwords Match");
+		}
 		System.out.println(" ");
 		cdao.emptyDb();
 		
