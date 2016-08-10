@@ -9,9 +9,7 @@ $(document).ready(function() {
 		var confirmPassword = $("#confirmPassword").val();
 		
 		if (password != confirmPassword) {
-			alert("Passwords don't match");
-		}
-		alert(firstName + " is" );
-	});
+			alert("Password didn't quite match, try again!");
+		});
 
 });
