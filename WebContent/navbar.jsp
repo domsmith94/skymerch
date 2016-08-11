@@ -6,13 +6,13 @@
 
 		<div class="navbar-header"></div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Browse</a></li>
-			<li><a href="#">Orders</a></li>
+			<li><a href="home">Home</a></li>
+			<li><a href="browse">Browse</a></li>
+			<li><a href="orders">Orders</a></li>
 
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span
+			<li><a href="basket"><span
 					class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
 			<li><a href="sign-up.html"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
