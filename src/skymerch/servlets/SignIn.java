@@ -38,10 +38,28 @@ public class SignIn extends HttpServlet {
 		
 		System.out.println("Received GET request on /sign-in route");
 		System.out.println("Serving static sign-in.html page to user");
-		rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
+		
+		// check if already logged in. if logged in, send to browse (no need to log in again).
+		// if not logged in or test fails, send to sign-in
+		try{
+			
+			boolean auth = (boolean) session.getAttribute("auth");
+			if (auth){
+				rd = this.getServletContext().getRequestDispatcher("/browse");
+				
+			} else {
+				rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
+			}
+			
+		} catch (Exception e){
+			
+			rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
+			
+		}
+		
 		
 		rd.forward(request, response);
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -63,10 +81,7 @@ public class SignIn extends HttpServlet {
 		
 		String email = request.getParameter("email");
 		CustomerDAO cdao = new CustomerDAO();
-		Customer customer = new Customer();
-		
-		
-		customer = cdao.findByEmail(email);
+		Customer customer = cdao.findByEmail(email);
 		
 		if(customer != null){
 			
@@ -76,6 +91,7 @@ public class SignIn extends HttpServlet {
 				System.out.println("Passwords Match");
 				loginSuccess = true;
 				session.setAttribute("signedin_customer", customer);
+				session.setAttribute("auth", true);
 			} 
 		}
 		
