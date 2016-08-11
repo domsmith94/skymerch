@@ -13,6 +13,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-family: SkyTextBold;
+	display: inline-block;
 }
 
 .top-buffer { margin-top:20px; }
