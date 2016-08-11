@@ -26,27 +26,33 @@
 
 <%  
 	Basket basket = new Basket();
-	List<Product> productsInBasket = new ArrayList<Product>();
+	List<BasketLine> linesInBasket = new ArrayList<BasketLine>();
 	try{
 		basket = (Basket)session.getAttribute("basket"); 
-		productsInBasket = basket.getBasketProducts();
+		linesInBasket = basket.getBasketLines();
 	} catch(Exception e){
 		// nothing
 	}
 	
 	
-	
-	for (Product p: productsInBasket){  
+	Double totalPrice = 0.0;
+	for (BasketLine bl: linesInBasket){  
 	%>
 	<br />
 	
 	
- 	<a href= "product?id=<%= p.getProdId() %>"><%= p.getProdName() %> 	</a> 
+ 	<a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> 
+	
+	Quantity: <%= bl.getQuantity() %>
+	Item Price: <%= bl.getProduct().getPrice() %>
+	Price: <%= bl.getQuantity()*bl.getProduct().getPrice() %>
 	
 	
+<% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
+
+	} %>
 	
-	
-<% } %>
+	Total Price: = <%= totalPrice %>
 
 </body>
 </html>

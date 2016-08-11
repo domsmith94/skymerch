@@ -58,20 +58,21 @@ public class BasketManager extends HttpServlet {
 		
 		// get the product id from the page
 				int id = Integer.parseInt(request.getParameter("id"));
-		
+				int quantity = Integer.parseInt(request.getParameter("quantity"));
+				
 		// get the product from id
 				ProductDAO pdao = new ProductDAO();
 				Product idProd = pdao.findById(id);
 		try{
 			Basket basket = (Basket) session.getAttribute("basket");
 			//basket = (Basket) session.getAttribute("basket");
-			basket.addProductToBasket(idProd);
+			basket.addProductToBasket(idProd,quantity);
 			session.setAttribute("basket", basket);
 		} catch(Exception e){
 			Basket basket = new Basket();
 			//Basket basket = new Basket();
 			//session.setAttribute("basket", basket);
-			basket.addProductToBasket(idProd);
+			basket.addProductToBasket(idProd,quantity);
 			session.setAttribute("basket", basket);
 		}
 		

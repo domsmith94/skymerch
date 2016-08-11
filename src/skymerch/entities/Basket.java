@@ -7,19 +7,33 @@ public class Basket {
 	
 	// THIS IS AN EARLY WORKING PROOF OF CONCEPT AND NOT THE FINAL VERSION 11/08 
 	
-	private List<Product> basketProducts = new ArrayList<Product>();
+	private List<BasketLine> basketLines = new ArrayList<BasketLine>();
 	// QUANTITY?
 	
-	public List<Product> getBasketProducts() {
-		return basketProducts;
+	public List<BasketLine> getBasketLines() {
+		return basketLines;
 	}
 
-	public void addProductToBasket(Product newProduct) {
-		this.basketProducts.add(newProduct);
+	public void addProductToBasket(Product newProduct, int quantity) {
+		boolean alreadyExists = false;
+		for (BasketLine b:this.basketLines){
+			if (newProduct.getProdId() == b.getProduct().getProdId()){
+				// add "quantity" to the quantity because item already exists
+				b.increaseQuantity(quantity);
+				alreadyExists = true;
+				break;
+			}
+		}
+		
+		if (alreadyExists == false){
+			// add new basketline.
+			basketLines.add(new BasketLine(newProduct, quantity));
+		}
+		
 	}
 
-	public void removeProductFromBasket(Product productToRemove) {
-		this.basketProducts.remove(productToRemove);
+	public void removeLineFromBasket(BasketLine productToRemove) {
+		this.basketLines.remove(productToRemove);
 	}
 
 }

@@ -69,7 +69,7 @@ Product product = (Product)session.getAttribute("product");
                     <input type="hidden" name="id" value="<%= productId %>">
                         <div class="row top-buffer">
                             <div class="col-md-6 col-md-offset-3">
-                                    <select class="form-control" name="title" id="title">
+                                    <select class="form-control" name="quantity" id="quantity">
                                         <option selected="selected">Select quantity</option>
                                         <option>1</option>
                                         <option>2</option>
