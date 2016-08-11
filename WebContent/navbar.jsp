@@ -49,8 +49,8 @@
 				<%=name%></a></li>
 
 		<li>
-			<form method="post" action="/sign-out">
-				<input type="hidden" name="action" value="logout">
+			<form method="POST" action="sign-out" class="form-horizontal" role="form">
+				<!-- <input type="hidden" name="action" value="logout"> -->
 				<button class="btn btn-link navbar-btn nounderline" type="submit"> Sign Out </button>
 			</form>
 		</li>
