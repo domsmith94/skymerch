@@ -36,7 +36,7 @@ DROP TABLE order_line;
        order_date datetime not null,
        delivery_type ENUM('standard', 'next_day'),
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
-       total_price decimal(4,2) not null,
+       total_price decimal(12,2) not null,
        house_no varchar(50) not null, 
        address_line1 varchar(50) not null,
        address_line2 varchar(50) null,
@@ -47,9 +47,9 @@ DROP TABLE order_line;
       create table order_line
       (order_no integer not null references customer_order,
        product_id integer not null references product,
-       item_price decimal (4,2) not null,
+       item_price decimal (12,2) not null,
        quantity_ordered integer not null,
-       total_price decimal (4,2) not null,
+       total_price decimal (12,2) not null,
        primary key (order_no, product_id)
        );
        

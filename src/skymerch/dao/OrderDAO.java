@@ -48,12 +48,11 @@ public class OrderDAO {
 		Shipping deliveryType = Shipping.valueOf(rs.getString(4).toUpperCase());
 		Status orderStatus = Status.valueOf(rs.getString(5).toUpperCase());
 		Double totalCost = rs.getDouble(6);
-		String password = rs.getString(7);
-		String houseNameNum = rs.getString(8);
-		String addrL1 = rs.getString(9);
-		String addrL2 = rs.getString(10);
-		String townCity = rs.getString(11);
-		String postcode = rs.getString(12);
+		String houseNameNum = rs.getString(7);
+		String addrL1 = rs.getString(8);
+		String addrL2 = rs.getString(9);
+		String townCity = rs.getString(10);
+		String postcode = rs.getString(11);
 		List<OrderLine> lines = getOrderLines(orderId);
 
 		// next, fill an order object's fields with these temporary variables

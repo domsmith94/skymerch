@@ -118,13 +118,14 @@ public class DAOTest {
 		addr.setAddressLineTwo("Newhaven");
 		addr.setTownOrCity("Edinburgh");
 		addr.setPostcode("EH6 4JB");
+		testOrder.setDeliveryAddress(addr);
 		
 		// add the order
-//		odao.addOrder(testOrder);
+		odao.addOrder(testOrder);
 		
 		// search for the order
-//		Order foundOrder = odao.findById(3000007);
-//		System.out.println(foundOrder.getOrderTime());
+		Order foundOrder = odao.findById(3000007);
+		System.out.println(foundOrder.getOrderTime());
 		
 		// ~~~ Manual password hashing ~~~ //
 		
