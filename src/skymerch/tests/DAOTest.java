@@ -21,7 +21,7 @@ public class DAOTest {
 		bel.setFirstName("Isobel");
 		bel.setLastName("Forbes");
 		bel.setTitle(Title.valueOf("MS"));
-		bel.setEmail("belbelbel@cutemail.com");
+		bel.setEmail("belbel@cutemail.com");
 		bel.hashPassword("iloveD4da");
 		Address belsAddr = new Address();
 		belsAddr.setHouseNameNum("2/4");
@@ -41,6 +41,7 @@ public class DAOTest {
 		if (BCrypt.checkpw(pass, hashed)) {
 			System.out.println("Passwords Match");
 		}
+		
 		System.out.println(" ");
 		cdao.emptyDb();
 		
@@ -123,6 +124,8 @@ public class DAOTest {
 		// search for the order
 		Order foundOrder = odao.findById(3000007);
 		System.out.println(foundOrder.getOrderTime());
+		
 	}
+	
 }
 
