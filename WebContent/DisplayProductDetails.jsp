@@ -25,7 +25,7 @@ pageEncoding="ISO-8859-1"%>
         </div>
         <div class="navbar-header"></div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#">Browse</a></li>
             <li><a href="#">Orders</a></li>
         </ul>
@@ -48,12 +48,72 @@ Integer productId = (Integer)session.getAttribute("id");
 Product product = (Product)session.getAttribute("product");
 //boolean result = ProductValidator.validate(product);
 %>
-<%= productId %><br />
-<h1> <%= product.getProdName() %> £<%= product.getPrice() %> </h1>
-<img src="images/placeholder.jpg"><br />
-<%= product.getProdDesc() %>
+
+
+
+
+<div class="container">
+        <div class="col-md-10 col-md-offset-1">
+            <div class = "col-md-6">
+               
+                    <div class="col-md-12">
+                        <div class="thumbnail">
+                            <img src="images/placeholder.jpg" alt="Shrek Mug Picture">
+                            <div class="caption">
+                                <p> <%= product.getProdDesc() %></p>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+                    <div class="col-md-6">
+                    	<div class="page-header">
+                        	<h1 class="text-center"><%= product.getProdName() %></h1>
+                        </div>
+                        <h4 class="text-center">Product ID: <%= productId %></h4>
+                            <div class="row top-buffer">
+                                 <h3 class = "text-center">£<%= product.getPrice() %></h3>
+                            </div>
+                                <div class="row top-buffer">
+                                     <div class = "text-center">
+                                     		<% if (product.getStockLevel()>=5){%>
+                                     		
+                                           <h4> <span class="glyphicon glyphicon-ok"></span> <span class="label label-success">Item in stock</span></h4> 
+                                           <% } else if (product.getStockLevel()>0 && product.getStockLevel()<=4){ %>
+                                           <h4> <span class="glyphicon glyphicon-hourglass"></span> <span class="label label-warning">Only <%= product.getStockLevel() %> left!</span></h4>
+                                           <% } else if (product.getStockLevel()==0){ %>
+                                           <h4> <span class="glyphicon glyphicon-remove"></span> <span class="label label-danger">Item is out of stock</span></h4>
+                                           <% } else  { %> stock error <% } %>
+                                    </div>  
+                                </div>
+                    <form name="productsOrdered" method="POST" action="/skymerch/addToBasket">
+                    <input type="hidden" name="id" value="<%= productId %>">
+                        <div class="row top-buffer">
+                            <div class="col-md-6 col-md-offset-3">
+                                    <select class="form-control" name="title" id="title">
+                                        <option selected="selected">Select quantity</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                            </div>
+    					</div>
+							<div class="row top-buffer">
+								<div class="text-center">
+									<button type="submit" class="btn btn-default">Add to basket</button>
+								</div>
+							</div>
+                    </form>
+				</div>
+		</div>			
+	</div>
 </body>
 </html>
-
 
 
