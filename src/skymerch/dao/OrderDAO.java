@@ -48,10 +48,17 @@ public class OrderDAO {
 		Shipping deliveryType = Shipping.valueOf(rs.getString(4).toUpperCase());
 		Status orderStatus = Status.valueOf(rs.getString(5).toUpperCase());
 		Double totalCost = rs.getDouble(6);
+		String password = rs.getString(7);
+		String houseNameNum = rs.getString(8);
+		String addrL1 = rs.getString(9);
+		String addrL2 = rs.getString(10);
+		String townCity = rs.getString(11);
+		String postcode = rs.getString(12);
 		List<OrderLine> lines = getOrderLines(orderId);
 
 		// next, fill an order object's fields with these temporary variables
 		Order order = new Order();
+		Address address = new Address();
 		order.setOrderId(orderId);
 		order.setCustomerId(custId);
 		order.setOrderTime(goodDateTime);
@@ -59,6 +66,12 @@ public class OrderDAO {
 		order.setStatus(orderStatus);
 		order.setTotalCost(totalCost);
 		order.setOrderLines(lines);
+		address.setHouseNameNum(houseNameNum);
+		address.setAddressLineOne(addrL1);
+		address.setAddressLineTwo(addrL2);
+		address.setTownOrCity(townCity);
+		address.setPostcode(postcode);
+		order.setDeliveryAddress(address);
 
 		// return the completed order object
 		return order;
@@ -147,11 +160,12 @@ public class OrderDAO {
 			// Syntax: each '?' is a placeholder for a value which will be subsequently added
 			
 			// initialise String for general structure
-			String sql = " insert into customer_order (customer_id, order_date, delivery_type, order_status, total_price)"
-					+ " values (?, ?, ?, ?, ?)";
+			String sql = " insert into customer_order (customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, address_line2, town_city, postcode)"
+					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			// generate a prepared statement using sql string
 			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			Address addr = order.getDeliveryAddress();
 
 			// assign required String data to each slot in the prepared statement (each '?')
 			stmt.setInt(1, order.getCustomerId());
@@ -160,6 +174,11 @@ public class OrderDAO {
 			stmt.setString(3, order.getShippingType().toString().toLowerCase());
 			stmt.setString(4, order.getStatus().toString().toLowerCase());
 			stmt.setDouble(5, order.getTotalCost());
+			stmt.setString(6, addr.getHouseNameNum());
+			stmt.setString(7, addr.getAddressLineOne());
+			stmt.setString(8, addr.getAddressLineTwo());
+			stmt.setString(9, addr.getTownOrCity());
+			stmt.setString(10, addr.getPostcode());
 			
 			// execute the prepared statement (run in SQL)
 			stmt.execute();

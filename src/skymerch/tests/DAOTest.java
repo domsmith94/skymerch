@@ -104,12 +104,18 @@ public class DAOTest {
 		lineList.add(line);
 		
 		Order testOrder = new Order();
+		Address addr = new Address();
 		testOrder.setCustomerId(1000001);
 		testOrder.setOrderLines(lineList);
 		testOrder.setOrderTime(java.time.LocalDateTime.now());
 		testOrder.setShippingType(Shipping.valueOf("NEXT_DAY"));
 		testOrder.setStatus(Status.valueOf("PROCESSING"));
 		testOrder.setTotalCost();
+		addr.setHouseNameNum("2/4");
+		addr.setAddressLineOne("Great Michael Rise");
+		addr.setAddressLineTwo("Newhaven");
+		addr.setTownOrCity("Edinburgh");
+		addr.setPostcode("EH6 4JB");
 		
 		// add the order
 		odao.addOrder(testOrder);

@@ -9,7 +9,7 @@ DROP TABLE order_line;
        last_name varchar(20) not null,
        title ENUM('mr', 'miss', 'mrs', 'ms'),
        email varchar(50) not null UNIQUE,
-       user_password varchar(200) not null,   
+       user_password varchar(200) not null,
        house_no varchar(50) not null, 
        address_line1 varchar(50) not null,
        address_line2 varchar(50) null,
@@ -36,7 +36,12 @@ DROP TABLE order_line;
        order_date datetime not null,
        delivery_type ENUM('standard', 'next_day'),
        order_status ENUM('ordered', 'processing', 'dispatched', 'delivered'),
-       total_price decimal(4,2) not null
+       total_price decimal(4,2) not null,
+       house_no varchar(50) not null, 
+       address_line1 varchar(50) not null,
+       address_line2 varchar(50) null,
+       town_city varchar(30) not null,
+       postcode varchar(10) not null 
      )AUTO_INCREMENT=3000001;
 
       create table order_line
@@ -83,23 +88,23 @@ DROP TABLE order_line;
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('simpsons teddy', 6, 8, 9, 'This is a bart teddy', 7.9, 9, 19.99, 'toys');
 
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000001', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000001', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000002', '2016-06-03 13:27:34', 'next_day', 'dispatched', 15.33); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000002', '2016-06-03 13:27:34', 'next_day', 'dispatched', 15.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000003', '2016-07-04 09:28:24', 'standard', 'ordered', 14.33); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000003', '2016-07-04 09:28:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000004', '2016-07-17 08:18:54', 'next_day', 'processing', 11.83); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000004', '2016-07-17 08:18:54', 'next_day', 'processing', 11.83, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000005', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000005', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
-     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price)
-     values ('1000001', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93); 
+     insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
+     values ('1000001', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('3000001', '2000001', 4.99 , 4, 19.96);
