@@ -10,6 +10,6 @@ $(document).ready(function() {
 		
 		if (password != confirmPassword) {
 			alert("Password didn't quite match, try again!");
-		});
+		}
 
 });
