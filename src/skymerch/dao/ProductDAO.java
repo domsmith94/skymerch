@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import skymerch.entities.Product;
 import skymerch.entities.ProductValidator;
@@ -93,6 +94,42 @@ public class ProductDAO {
 		} 
 		return returnedProducts;
 	}
+	
+	//OVERLOADED multisearch method for use by browse page
+		public List<Product> multiSearch(Set<Category> catSet, String lowerprice, String upperprice){
+			ArrayList<Product> returnedProducts = null;
+			try {
+				Connection con = this.getConnection();
+				Statement stmt = con.createStatement();
+				StringBuilder searchquery = new StringBuilder("SELECT * FROM product");
+				if (catSet != null && catSet.size() > 0) {
+					for (Category c : catSet) {
+						searchquery.append(" WHERE category = '" + String.valueOf(c).toLowerCase() + "'");
+				}
+				}				
+				if (lowerprice != null){searchquery.append(" AND product_price >= '" + Double.parseDouble(lowerprice) + "'");}
+				if (upperprice != null){searchquery.append(" AND product_price <= '" + Double.parseDouble(upperprice) + "'");}
+				ResultSet rs = stmt.executeQuery(searchquery.toString());
+				while (rs.next()){
+					Product product = this.processResult(rs);
+					// create array if not existing
+					if (returnedProducts == null){
+						returnedProducts = new ArrayList<Product>();
+					}
+					// add product to array
+					returnedProducts.add(product);
+				}
+			
+			} catch(Exception e){
+				e.printStackTrace();
+				/*
+				 * add what will happen if a statement in the try block
+				 *(e.g. a username is input incorrectly) fails. 
+				 *TO DO: work on exception strategy
+				 */
+			} 
+			return returnedProducts;
+		}
 	
 	public List<Product> readAll(){
 		ArrayList<Product> allProducts = null;
