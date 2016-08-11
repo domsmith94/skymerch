@@ -7,7 +7,7 @@
 		<div class="navbar-header"></div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Browse</a></li>
+			<li><a href="browse">Browse</a></li>
 			<li><a href="#">Orders</a></li>
 
 		</ul>
