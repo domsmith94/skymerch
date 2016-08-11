@@ -74,19 +74,49 @@ DROP TABLE order_line;
      
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Shrek Mug', 10, 5, 3, 'This is a Shrek mug', 4.9, 10, 99.99, 'household');
+     values('James Bond Top Trumps', 10, 5, 3, 'The names Bond, James Bond. This pack needs no introduction, its simply the Best of Bond. Villains, Henchman all the Bonds and a few glamorous women thrown in for good measure, it's the greatest adventure ever, so pay attention 007. Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.9, 10, 2.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Shrek DVD', 6, 3, 16, 'This is a shrek DVD', 4.9, 8, 3.99, 'media');
+     values('Shrek Mug', 6, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 4.9, 8, 3.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Game of Thrones hat', 8, 4, 8, 'This is a GoT hat.', 4.9, 8, 9.99, 'clothing');
+     values('Despicable Me Minion Bag', 8, 4, 8, 'If your little one can't get enough of the Minions, they'll adore this fun backpack featuring their favourite characters. With a colourful blue and yellow Minions design, this backpack has one large zip pocket for storage with adjustable shoulder straps for comfort!', 4.9, 8, 15.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Minions radio', 3, 3, 4, 'This is a minions radio clock', 2.9, 6, 1129.99, 'electronics');
+     values('Ghostbusters Hat', 3, 3, 4, 'A hat perfect for fans of the iconic Ghostbusters movie. Based on the highly popular film it features a high quality embroidered logo and text design. The cap also features an adjustable fastener and is made using high quality materials ensuring it is comfortable. Ideal for fans of the popular movies.', 2.9, 6, 15.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('simpsons teddy', 6, 8, 9, 'This is a bart teddy', 7.9, 9, 19.99, 'toys');
+     values('Game of Thrones Pin', 6, 8, 9, 'Become part of the Game Of Thrones story with this awesome Hand of the King pin! Beautifully crafted this Hand of The King Pin is a replica of the one seen within the hit HBO series Game of Thrones. An ideal gift for any fan this Game of thrones Hand Of The king pin measures 3-inches long x 1.1.4 inches wide.', 6.3, 4, 5.99, 'toys');
+
+	 insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Game of Thrones Babygrow', 4, 4, 5, 'This funny and unique Game of Thrones baby grow would make the perfect gift. It has an envelope neck opening with narrow self-bound neck and sleeve ends. the Game of Thrones print is on high quality cotton, the quirky design makes for an funny, adorable little baby outfit.', 6.7, 7, 22.99, 'clothing'); 
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Team Sky Jersey and Shorts', 7, 8, 2, 'Accept no compromises when supporting your favourite team. A jersey that proudly sports the 2016 colours of Team Sky, made from a breathable and wicking fabric.', 8.7, 1, 69.99, 'clothing');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Sky Remote', 12, 7, 10, 'If you’re a Sky+HD box and TV customer, this popular Sky remote control will put stunning high definition back at your fingertips.', 7.5, 8, 19.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Ghostbusters Phonecase', 6, 5, 6, 'Pefect for all ghostbusters fans! This original case gives you the perfect way to protect your mobile device as it is both flexible and impact-resistant..', 6.5, 3, 9.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Shrek Ogre Ears Headband', 10, 3, 7, 'Ideal fancy dress accessory for the characters Shrek and Princess Fiona.', 6.8, 4, 3.99, 'clothing');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Despicable Me Minion Bowling Set', 5, 3, 1, 'The Minions in this Despicable Me Bowling Set were made to be knocked over! Set up the six pins and go head-to-head with friends to see who`s got the strongest bowling arm. Each pin features a quirky Minion face so wind up and aim for a strike! This sporty set is ideal for indoor or outdoors play and any number of players. A great gift for three years and up.', 8.6, 6, 14.99, 'toys');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Game of Thrones Monopoly', 6, 3, 15, 'Game of Thrones meets monopoly with this number 1 property board game based on the hit TV series. Play with your favourite characters from the show, trade and invest in the locations, collect your monopoly money and take your place on the Iron Throne. Contents include: Game board, 6 x collectable tokens, 28 x title deed cards, 16 x Valar Morghulis cards, 16 x Iron Throne cards, 2 x dice, 32 x villages, 12 x keeps, 1 x pack of custom GOT money and rules.', 7.6, 7, 23.99, 'toys');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Despicable Me Minions Watch', 9, 3, 12, 'Fun minions LCD watch with Minions graphics on straps.', 9.2, 6, 24.99, 'media');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Disney Frozen Digital Camera', 8, 7, 14, 'Capture every fun moment and relive great memories with this Frozen Digital Camera. Compact size means you can take it anywhere - parties, days out, or hanging out with friends. ', 8.1, 4, 29.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Disney Frozen Backpack', 9, 3, 13, 'Our Frozen light up backpack adds sparkle and fun to any adventure! This gorgeous design includes a PVC panel over a blue glitter background with character artwork and twinkling lights.', 7.3, 2, 19.99, 'clothing');
 
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
      values ('1000001', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
