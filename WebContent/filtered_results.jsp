@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"
+    import = "java.util.*,skymerch.entities.*;" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
@@ -18,28 +21,9 @@
 
 <body>
     <div class = "sky-font">
-        <nav class="navbar navbar-default">
-            <div class="col-sm-1 col-sm-offset-0">
-                <img src="images/logo.png" class="img-responsive" alt="Logo" width="70px" height="70px">
-            </div>
-            <div class="navbar-header"></div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Browse</a></li>
-                <li><a href="#">Orders</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span
-                        class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
-                <li><a href="sign-up.html"><span
-                        class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="sign-in.html"><span class="glyphicon glyphicon-log-in"></span>
-                        Sign In</a></li>
-                <li>
-                    <a></a>
-                </li>
-            </ul>
-        </nav>
+   
+<%@ include file="navbar.jsp" %>
+<form method="POST" action="/skymerch/filtered_results">
         <div class="container">
             <div class="col-md-2">
                 <h3> Filters </h3>
@@ -47,55 +31,72 @@
                     <h4>Category</h4>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">Household</label>
+                            <input type="checkbox" name="HOUSEHOLD" <%if(request.getParameter("HOUSEHOLD") != null){%>checked="checked"<%} %>>Household</label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">Media</label>
+                            <input type="checkbox" name="MEDIA" <%if(request.getParameter("MEDIA") != null){%>checked="checked"<%} %>>Media</label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">Electronics</label>
+                            <input type="checkbox" name="ELECTRONICS" <%if(request.getParameter("ELECTRONICS") != null){%>checked="checked"<%} %>>Electronics</label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">Clothing</label>
+                            <input type="checkbox" name="CLOTHING" <%if(request.getParameter("CLOTHING") != null){%>checked="checked"<%} %>>Clothing</label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">Toys</label>
+                            <input type="checkbox" name="TOYS" <%if(request.getParameter("TOYS") != null){%>checked="checked"<%} %>>Toys</label>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <h4>Price</h4>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£0- Â£5</label>
+                            <input type="radio" name="optradio" value="0-5" <%if(request.getParameter("optradio").equals("0-5")){%>checked="checked"<%} %>>£0- £5</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£5- Â£10</label>
+                            <input type="radio" name="optradio" value="5-10" <%if(request.getParameter("optradio").equals("5-10")){%>checked="checked"<%} %>>£5- £10</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£10- Â£20</label>
+                            <input type="radio" name="optradio" value="10-20" <%if(request.getParameter("optradio").equals("10-20")){%>checked="checked"<%} %>>£10- £20</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£20- Â£30</label>
+                            <input type="radio" name="optradio" value="20-30" <%if(request.getParameter("optradio").equals("20-30")){%>checked="checked"<%} %>>£20- £30</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£30- Â£40</label>
+                            <input type="radio" name="optradio" value="30-40" <%if(request.getParameter("optradio").equals("30-40")){%>checked="checked"<%} %>>£30- £50</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio">Â£50+</label>
+                            <input type="radio" name="optradio" value="50-10000000000" <%if(request.getParameter("optradio").equals("50-10000000000")){%>checked="checked"<%} %>>£50+</label>
                     </div>
+                    
+             
                 </div>
                 <div class="col-xs-12 text-center">
-                    <button type="button" class="btn btn-default">Filter</button>
+                    <button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
+               </form>
+               <form action="/skymerch/browse.jsp">
+               <button id="btnSubmit" type="submit" class="btn btn-default">Refresh</button>
+               </form>
+               <%  if (session.getAttribute("resultsToDisplay") != null ){
+		List<Product> allProducts = (ArrayList<Product>)session.getAttribute("resultsToDisplay");
+			for (Product p: allProducts){  %>
+		<br />
+		<a href= "product?id=<%= p.getProdId() %>"><%= p.getProdName() + " £" + p.getPrice() %> </a>
+	
+<% } }else { %> <br /><p>There are no products to display</p> <%} 
+	 %>
                 </div>
+                                
+                
+                
             </div>
             <div class="col-md-10">
                 <div class="page-header">
@@ -107,7 +108,7 @@
                             <img src="images/product/product10.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Ghostbusters Phone Case</h3>
-                                <h4>Â£6.99</h4>
+                                <h4>£6.99</h4>
 
                             </div>
                         </div>
@@ -117,7 +118,7 @@
                             <img src="images/product/product2.jpeg" alt="...">
                             <div class="caption">
                                 <h3>James Bond Top Trumps</h3>
-                                <h4>Â£2.99</h4>
+                                <h4>£2.99</h4>
 
                             </div>
                         </div>
@@ -127,7 +128,7 @@
                             <img src="images/product/product3.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Shrek Mug</h3>
-                                <h4>Â£4.99</h4>
+                                <h4>£4.99</h4>
 
                             </div>
                         </div>
@@ -137,7 +138,7 @@
                             <img src="images/product/product4.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Minion Bag</h3>
-                                <h4>Â£9.99</h4>
+                                <h4>£9.99</h4>
 
                             </div>
                         </div>
@@ -147,7 +148,7 @@
                             <img src="images/product/product5.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Ghostbusters Hat</h3>
-                                <h4>Â£12.99</h4>
+                                <h4>£12.99</h4>
 
                             </div>
                         </div>
@@ -157,7 +158,7 @@
                             <img src="images/product/product6.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Game of Thrones Pin</h3>
-                                <h4>Â£2.99</h4>
+                                <h4>£2.99</h4>
 
                             </div>
                         </div>
@@ -167,7 +168,7 @@
                             <img src="images/product/product7.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Game of Thrones Babygrow</h3>
-                                <h4>Â£14.99</h4>
+                                <h4>£14.99</h4>
 
                             </div>
                         </div>
@@ -177,7 +178,7 @@
                             <img src="images/product/product8.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Sky Cycling Jersey</h3>
-                                <h4>Â£59.99</h4>
+                                <h4>£59.99</h4>
 
                             </div>
                         </div>
@@ -187,7 +188,7 @@
                             <img src="images/product/product9.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Sky Remote</h3>
-                                <h4>Â£24.99</h4>
+                                <h4>£24.99</h4>
                             </div>
 
                         </div>
@@ -197,7 +198,7 @@
                             <img src="images/product/product9.jpeg" alt="...">
                             <div class="caption">
                                 <h3>Sky Remote</h3>
-                                <h4>Â£24.99</h4>
+                                <h4>£24.99</h4>
                             </div>
 
                         </div>
@@ -209,3 +210,4 @@
 </body>
     <script src="js/browse.js"></script>
 </html>
+    

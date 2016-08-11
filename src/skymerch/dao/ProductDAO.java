@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -72,8 +73,8 @@ public class ProductDAO {
 			Statement stmt = con.createStatement();			
 			StringBuilder searchquery = new StringBuilder("SELECT * FROM product WHERE 1=1");
 			if (prodnamequery != null){searchquery.append(" AND product_name LIKE '%" + prodnamequery + "%'");}
-			if (lowerprice != null){searchquery.append(" AND product_price >= '" + Double.parseDouble(lowerprice) + "'");}
-			if (upperprice != null){searchquery.append(" AND product_price <= '" + Double.parseDouble(upperprice) + "'");}
+			if (lowerprice != null){searchquery.append(" AND product_price >= '" + lowerprice + "'");}
+			if (upperprice != null){searchquery.append(" AND product_price <= '" + upperprice + "'");}
 			ResultSet rs = stmt.executeQuery(searchquery.toString());
 			while (rs.next()){
 				Product product = this.processResult(rs);
@@ -101,14 +102,21 @@ public class ProductDAO {
 			try {
 				Connection con = this.getConnection();
 				Statement stmt = con.createStatement();
-				StringBuilder searchquery = new StringBuilder("SELECT * FROM product");
+				StringBuilder searchquery = new StringBuilder("SELECT * FROM product WHERE 1+1");
 				if (catSet != null && catSet.size() > 0) {
-					for (Category c : catSet) {
-						searchquery.append(" WHERE category = '" + String.valueOf(c).toLowerCase() + "'");
-				}
-				}				
-				if (lowerprice != null){searchquery.append(" AND product_price >= '" + Double.parseDouble(lowerprice) + "'");}
-				if (upperprice != null){searchquery.append(" AND product_price <= '" + Double.parseDouble(upperprice) + "'");}
+					searchquery.append(" AND product_category IN (");
+					Iterator<Category> iterator = catSet.iterator();
+					while (iterator.hasNext()) {
+						searchquery.append("'" + String.valueOf(iterator.next()).toLowerCase() + "', ");
+						}
+						searchquery.replace(searchquery.length()-2, searchquery.length(), ")");
+							
+								}
+				if (lowerprice == null) {lowerprice = "0.0"; }
+				if (upperprice == null) {upperprice = "10000000000.0"; }
+															
+				searchquery.append(" AND product_price BETWEEN '" + lowerprice + "' AND '" + upperprice + "'");			
+				System.out.println(searchquery);		
 				ResultSet rs = stmt.executeQuery(searchquery.toString());
 				while (rs.next()){
 					Product product = this.processResult(rs);

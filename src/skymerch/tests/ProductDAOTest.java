@@ -1,6 +1,8 @@
 package skymerch.tests;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import skymerch.dao.ProductDAO;
 import skymerch.entities.Product;
@@ -18,6 +20,16 @@ public class ProductDAOTest {
 	for (Product p : multiResults){
 		System.out.println("Product: " + p.getProdName() + " £" + p.getPrice());
 	}
+	
+	System.out.println("***MULTISEARCH BROWSE RESULTS");
+	Set<Category> test = new TreeSet<>();
+	test.add(Category.HOUSEHOLD);
+	test.add(Category.ELECTRONICS);
+	List<Product> browseResults = dao.multiSearch(test, "50.00", "10000000.00");
+	for (Product p : multiResults){
+		System.out.println("Product: " + p.getProdName() + " £" + p.getPrice());
+	}
+	
 	
 	//readAll() test
 	System.out.println("***READ ALL RESULTS");
@@ -72,7 +84,7 @@ public class ProductDAOTest {
 	//addProduct() test
 		Product p = new Product();
 		p.setProdName("Billions leather waistcoat");
-		p.setPrice(99.00);
+		p.setPrice(999.00);
 		p.setCategory(Category.CLOTHING);
 		p.setStockLevel(10);
 		p.setReorderLevel(2);

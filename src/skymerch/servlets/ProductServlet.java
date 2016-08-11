@@ -5,8 +5,8 @@ import skymerch.dao.ProductDAO;
 import skymerch.entities.Product;
 
 import java.io.IOException;
-import java.util.List.*;
-import java.util.*;
+//import java.util.List.*;
+//import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class listSalesperson
  */
-@WebServlet({"/submitBugReportText","/byebye","/browse","/product"})
+@WebServlet({"/submitBugReportText","/byebye","/product"})
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,7 +41,7 @@ public class ProductServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String formToDisplay = request.getServletPath();
-		
+		/*
 		if (formToDisplay.equals("/byebye")){
 			// show basic bye page
 			rd = this.getServletContext().getRequestDispatcher("/MyNewFile2.html");
@@ -49,16 +49,16 @@ public class ProductServlet extends HttpServlet {
 			/*SalespersonDAO dao = new SalespersonDAO();
 			List<Salesperson> allSalespersons = dao.readAll();
 			session.setAttribute("salespeople", allSalespersons);
-			*/
+			
 			ProductDAO pdao = new ProductDAO();
 			List<Product> products = new ArrayList<Product>();
 			products = pdao.readAll();
 			session.setAttribute("product_list", products);
 			
 			
-			rd = this.getServletContext().getRequestDispatcher("/browse.jsp");
-			
-		}else if (formToDisplay.equals("/product")){
+			rd = this.getServletContext().getRequestDispatcher("filtered_results.jsp");
+			*/
+		if (formToDisplay.equals("/product")){
 			
 			int id = Integer.parseInt(request.getParameter("id"));
 			session.setAttribute("id", id);
