@@ -6,12 +6,12 @@
 
 		<div class="navbar-header"></div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="home">Home</a></li>
+			<li><a href="home">Home</a></li>
 			<li><a href="browse">Browse</a></li>
 			<li><a href="orders">Orders</a></li>
 			<form method="POST" action="/skymerch/searchresults">
 <input type="text" name="searchString" placeholder="Search...">
-<input type="submit" value="Go">
+<input type="submit" value="Go"></form>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="basket"><span
