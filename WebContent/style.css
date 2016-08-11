@@ -4,6 +4,10 @@
 	font-family: SkyTextRegular;
 }
 
+.sky-medium-font {
+	font-size: 1.5em;
+}
+
 .sky-big-text {
 	color: background:-webkit-gradient(linear, left top, right top, color-stop(0%, #f6871f),
 		color-stop(36%, #ed1c24), color-stop(72%, #a43383),
@@ -17,6 +21,16 @@
 }
 
 .top-buffer { margin-top:20px; }
+
+.big-top-buffer { margin-top:30px; }
+
+.huge-top-buffer { margin-top:100px; }
+
+.fixed-table-container{border: 0px;}
+
+.borderless td, .borderless th {
+    border: none;
+}
 
 	/*font-size: 4em;
 	display: inline-block;
