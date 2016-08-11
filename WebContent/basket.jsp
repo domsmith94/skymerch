@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import = "java.util.*,skymerch.entities.*;" %>
+    import = "java.util.*,skymerch.entities.*,java.text.DecimalFormat;" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +34,9 @@
 		// nothing
 	}
 	
-	
+	DecimalFormat df = new DecimalFormat();
+	df.setMaximumFractionDigits(2);
+	df.setMinimumFractionDigits(2);
 	Double totalPrice = 0.0;
 	for (BasketLine bl: linesInBasket){  
 	%>
@@ -44,15 +46,15 @@
  	<a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> 
 	
 	Quantity: <%= bl.getQuantity() %>
-	Item Price: <%= bl.getProduct().getPrice() %>
-	Price: <%= bl.getQuantity()*bl.getProduct().getPrice() %>
+	Item Price: £<%= bl.getProduct().getPrice() %>
+	Price: £<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %>
 	
 	
 <% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
 
 	} %>
-	
-	Total Price: = <%= totalPrice %>
+	<br />
+	Total Price: = £<%= df.format(totalPrice) %>
 
 </body>
 </html>
