@@ -91,6 +91,7 @@ public class SignUp extends HttpServlet {
 			registerSuccess = true;
 			System.out.println(registerSuccess);
 			session.setAttribute("signedin_customer", customer);
+			session.setAttribute("auth", true);
 		}
 
 		if (registerSuccess) {
