@@ -58,19 +58,19 @@ DROP TABLE order_line;
        
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('Adam','Morrison', 'Mr', 'adam.morrison@sky.uk', 'Apricot', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR');
+     values ('Adam','Morrison', 'Mr', 'adam.morrison@sky.uk', '$2a$10$gpHTQlrd4GIssPPXkTFV3upgkhhv.Vsl4899ofcmhPPfTckyrdV3y', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); -- passwd Apricot5
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('John','Bloggs', 'Mr', 'john.bloggs@sky.uk', 'Car66', 103, 'what way erith', 'london', 'SE3 9HY');
+     values ('John','Bloggs', 'Mr', 'john.bloggs@sky.uk', '$2a$10$gkrY9A6F02LlYLdjeOWZfOyTEvFamkZKM.QudDKboaDtv3llF3V2u', 103, 'what way erith', 'london', 'SE3 9HY'); -- passwd Car666
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('Jeff','Joans', 'Mr', 'jeff.joans@sky.uk', 'orange78', 83, 'long street', 'wrotham', 'TN15 9HY');
+     values ('Jeff','Joans', 'Mr', 'jeff.joans@sky.uk', '$2a$10$W/dpQ4PgWFDczuqD7sk27uNYY8zmaW4g9EU/o9tvdoorsoCGyrPDC', 83, 'long street', 'wrotham', 'TN15 9HY'); -- passwd Orange78
      
-     insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('Jess','Joans', 'Miss', 'jess.joans@sky.uk', 'lemon88', 22, 'short street', 'woolwich', 'se18 9UV');
-     
-     insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('April','Bennett', 'Mrs', 'april.bennett@sky.uk', 'Apple98', 32, 'round street', 'Greenwich', 'se16 9UV');
+--      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
+--      values ('Jess','Joans', 'Miss', 'jess.joans@sky.uk', 'lemon88', 22, 'short street', 'woolwich', 'se18 9UV');
+--      
+--      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
+--      values ('April','Bennett', 'Mrs', 'april.bennett@sky.uk', 'Apple98', 32, 'round street', 'Greenwich', 'se16 9UV');
      
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
@@ -98,10 +98,10 @@ DROP TABLE order_line;
      values ('1000003', '2016-07-04 09:28:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
-     values ('1000004', '2016-07-17 08:18:54', 'next_day', 'processing', 11.83, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
+     values ('1000002', '2016-07-17 08:18:54', 'next_day', 'processing', 11.83, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
-     values ('1000005', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
+     values ('1000003', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
      values ('1000001', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 

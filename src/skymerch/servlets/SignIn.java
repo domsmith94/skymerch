@@ -87,6 +87,7 @@ public class SignIn extends HttpServlet {
 			
 			String pass = request.getParameter("password");
 			String hashed = customer.getPassword();
+			System.out.println(hashed);
 			if (BCrypt.checkpw(pass, hashed)) {
 				System.out.println("Passwords Match");
 				loginSuccess = true;
@@ -96,9 +97,9 @@ public class SignIn extends HttpServlet {
 		}
 		
 		// 
-		if (loginSuccess==true){
+		if (loginSuccess){
 		rd = this.getServletContext().getRequestDispatcher("/browse");
-		} else if (loginSuccess==false){
+		} else {
 			rd = this.getServletContext().getRequestDispatcher("/sign-up");
 		}
 		

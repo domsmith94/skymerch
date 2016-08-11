@@ -30,11 +30,12 @@ public class DAOTest {
 		belsAddr.setTownOrCity("Edinburgh");
 		belsAddr.setPostcode("EH6 4JB");
 		bel.setAddress(belsAddr);
+		System.out.println("Validation result: " + CustomerValidator.validate(bel));
 		cdao.addCustomer(bel);
 		
 		// ~~~ Customer read and password checking test ~~~ 
 		System.out.println("Should output name of customer with given email, then report if password works:");	
-		Customer customer = cdao.findByEmail("belbelbel@cutemail.com");
+		Customer customer = cdao.findByEmail("belbel@cutemail.com");
 		System.out.println(customer.getFirstName());
 		String pass = "iloveD4da";
 		String hashed = customer.getPassword();
@@ -119,11 +120,16 @@ public class DAOTest {
 		addr.setPostcode("EH6 4JB");
 		
 		// add the order
-		odao.addOrder(testOrder);
+//		odao.addOrder(testOrder);
 		
 		// search for the order
-		Order foundOrder = odao.findById(3000007);
-		System.out.println(foundOrder.getOrderTime());
+//		Order foundOrder = odao.findById(3000007);
+//		System.out.println(foundOrder.getOrderTime());
+		
+		// ~~~ Manual password hashing ~~~ //
+		
+//		String manhash = BCrypt.hashpw("Apricot5", BCrypt.gensalt());
+//		System.out.println(manhash);
 		
 	}
 	
