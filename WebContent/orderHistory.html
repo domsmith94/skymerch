@@ -1,57 +1,276 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="js/jquery-3.1.0.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <meta charset="ISO-8859-1">
-    <title>Product - Sky Merchandise</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='https://assets.sky.com/dist/latest/css/fonts.css' rel='stylesheet'>
+<script src="js/jquery-3.1.0.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<title>Product - Sky Merchandise</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='https://assets.sky.com/dist/latest/css/fonts.css'
+	rel='stylesheet'>
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="col-sm-1 col-sm-offset-0">
-            <img src="images/logo.png" class="img-responsive" alt="Logo" width="70px" height="70px">
-        </div>
-        <div class="navbar-header"></div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Browse</a></li>
-            <li><a href="#">Orders</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span
+	<nav class="navbar navbar-default">
+		<div class="col-sm-1 col-sm-offset-0">
+			<img src="images/logo.png" class="img-responsive" alt="Logo"
+				width="70px" height="70px">
+		</div>
+		<div class="navbar-header"></div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Browse</a></li>
+			<li><a href="#">Orders</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#"><span
 					class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
-            <li><a href="sign-up.html"><span
+			<li><a href="sign-up.html"><span
 					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="sign-in.html"><span class="glyphicon glyphicon-log-in"></span>
-					Sign In</a></li>
-            <li>
-                <a></a>
-            </li>
-        </ul>
-    </nav>
+			<li><a href="sign-in.html"><span
+					class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+			<li><a></a></li>
+		</ul>
+	</nav>
 
- <div class="container col-sm-10 col-sm-offset-1">
-	<div class="list-group">
-		<a href="#" class="list-group-item list-group-item-action active">
-			<h5 class="list-group-item-heading">Order 123</h5>
-			<div class="container col-sm-8 col-sm-offset-0">
-			<p class="list-group-item-text">View order history here hello.
-			</div>
-			<div class="container col-sm-4 col-sm-offset-0">
-			<p class="list-group-item-text">View order history here <br/> hello.
-			</div>
-			</a>
+	<div class="container col-sm-10 col-sm-offset-1">
+		<div class="page-header">
+			<h1>Order History</h1>
+		</div>
+		<div class="text-right">
+		<button onclick="myFunction()">Print Order History</button>
+
+		<script>
+			function myFunction() {
+				window.print();
+			}
+		</script>
+		</div>
 		
+		<div><br /></div>
+		
+
+		<div class="panel panel-default">
+			<div class="panel-heading col-sm-9 col-sm-offset-0">
+				<th><p>
+						<em>Order Number: #12345</em>
+					</p>
+					<p>
+						<em>Order Date: 11/08/2016</em>
+					</p></th>
+			</div>
+			<div class="panel-heading col-sm-3 col-sm-offset-0">
+				<th><p>
+						<em>Delivery Method: Standard</em>
+					</p>
+					<p>
+						<em>Order Status: Shipped</em>
+					</p></th>
+			</div>
+
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
+						<th>Product ID</th>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td>
+						<td>Shrek Mug</td>
+						<td>1</td>
+						<td>£4.99</td>
+					</tr>
+					<tr>
+						<td>002</td>
+						<td>Game of Thrones T-Shirt</td>
+						<td>1</td>
+						<td>£9.99</td>
+					</tr>
+					<tr>
+						<td>003</td>
+						<td>Ghostbusters Top Trumps</td>
+						<td>1</td>
+						<td>£5.99</td>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><p>
+								<b>Sub total:</b>
+							</p>
+							<p>
+								<b>Delivery:</b>
+							</p>
+							<p>
+								<b>Total:</b>
+							</p></td>
+						<td><p>
+								<b>£20.97</b>
+							</p>
+							<p>
+								<b>£1.00</b>
+							</p>
+							<p>
+								<b>£21.97</b>
+							</p></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
 	</div>
+
+	<div class="container col-sm-10 col-sm-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading col-sm-9 col-sm-offset-0">
+				<th><p>
+						<em>Order Number:</em>
+					</p>
+					<p>
+						<em>Order Date:</em>
+					</p></th>
+			</div>
+			<div class="panel-heading col-sm-3 col-sm-offset-0">
+				<th><p>
+						<em>Delivery Method:</em>
+					</p>
+					<p>
+						<em>Order Status:</em>
+					</p></th>
+			</div>
+
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
+						<th>Product ID</th>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>004</td>
+						<td>Ghostbusters T-Shirt</td>
+						<td>1</td>
+						<td>£9.99</td>
+					</tr>
+
+					<tr>
+						<td>005</td>
+						<td>Game of Thrones Keyring</td>
+						<td>1</td>
+						<td>£2.99</td>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><p>
+								<b>Sub total:</b>
+							</p>
+							<p>
+								<b>Delivery:</b>
+							</p>
+							<p>
+								<b>Total:</b>
+							</p></td>
+						<td><p>
+								<b>£12.99</b>
+							</p>
+							<p>
+								<b>£3.00</b>
+							</p>
+							<p>
+								<b>£15.99</b>
+							</p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="container col-sm-10 col-sm-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading col-sm-9 col-sm-offset-0">
+				<p>
+					<em>Order Number:</em>
+				</p>
+				<p>
+					<em>Order Date:</em>
+				</p>
+			</div>
+			<div class="panel-heading col-sm-3 col-sm-offset-0">
+				<th><p>
+						<em>Delivery Method:</em>
+					</p>
+					<p>
+						<em>Order Status:</em>
+					</p></th>
+			</div>
+
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
+						<th>Product ID</th>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>005</td>
+						<td>Game of Thrones Keyring</td>
+						<td>1</td>
+						<td>£2.99</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td><p>
+								<b>Sub total:</b>
+							</p>
+							<p>
+								<b>Delivery:</b>
+							</p>
+							<p>
+								<b>Total:</b>
+							</p></td>
+						<td><p>
+								<b>£2.99</b>
+							</p>
+							<p>
+								<b>£1.00</b>
+							</p>
+							<p>
+								<b>£3.99</b>
+							</p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 </body>
