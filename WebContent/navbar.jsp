@@ -23,7 +23,7 @@
 	<div class="navbar-header"></div>
 	<ul class="nav navbar-nav">
 		<li><a href="home">Home</a></li>
-		<li><a href="browse">Browse</a></li>
+		<li><a href="browse.jsp">Browse</a></li>
 		<li><a href="orders">Orders</a></li>
 		<li><form method="POST" action="/skymerch/searchresults">
 				<input type="text" name="searchString" placeholder="Search...">

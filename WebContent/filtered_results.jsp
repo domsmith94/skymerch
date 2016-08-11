@@ -54,27 +54,29 @@
                     <h4>Price</h4>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="0-5" <%if(request.getParameter("optradio").equals("0-5")){%>checked="checked"<%} %>>£0- £5</label>
+                        <% String priceRange = request.getParameter("optradio");
+                        if (priceRange == null){ priceRange = "noValue";}%>
+                            <input type="radio" name="optradio" value="0-5" <%if(priceRange.equals("0-5")){%>checked="checked"<%} %>>£0- £5</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="5-10" <%if(request.getParameter("optradio").equals("5-10")){%>checked="checked"<%} %>>£5- £10</label>
+                            <input type="radio" name="optradio" value="5-10" <%if(priceRange.equals("5-10")){%>checked="checked"<%} %>>£5- £10</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="10-20" <%if(request.getParameter("optradio").equals("10-20")){%>checked="checked"<%} %>>£10- £20</label>
+                            <input type="radio" name="optradio" value="10-20" <%if(priceRange.equals("10-20")){%>checked="checked"<%} %>>£10- £20</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="20-30" <%if(request.getParameter("optradio").equals("20-30")){%>checked="checked"<%} %>>£20- £30</label>
+                            <input type="radio" name="optradio" value="20-30" <%if(priceRange.equals("20-30")){%>checked="checked"<%} %>>£20- £30</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="30-40" <%if(request.getParameter("optradio").equals("30-40")){%>checked="checked"<%} %>>£30- £50</label>
+                            <input type="radio" name="optradio" value="30-40" <%if(priceRange.equals("30-40")){%>checked="checked"<%} %>>£30- £50</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="optradio" value="50-10000000000" <%if(request.getParameter("optradio").equals("50-10000000000")){%>checked="checked"<%} %>>£50+</label>
+                            <input type="radio" name="optradio" value="50-10000000000" <%if(priceRange.equals("50-10000000000")){%>checked="checked"<%} %>>£50+</label>
                     </div>
                     
              
