@@ -26,6 +26,8 @@
 
 .huge-top-buffer { margin-top:100px; }
 
+.bottom-buffer { margin-bottom:100px; }
+
 .fixed-table-container{border: 0px;}
 
 .borderless td, .borderless th {
