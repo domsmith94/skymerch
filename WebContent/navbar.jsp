@@ -9,7 +9,7 @@
 		auth = false;
 	} else {
 		auth = true;
-		Customer customer = (Customer) session.getAttribute("signedin_customer");
+		Customer customer = (Customer) session.getAttribute("signedInUser");
 		name = customer.getFirstName() + " " + customer.getLastName();
 	}
 %>

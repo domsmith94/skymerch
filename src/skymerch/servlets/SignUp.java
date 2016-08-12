@@ -46,7 +46,7 @@ public class SignUp extends HttpServlet {
 
 		System.out.println("Received GET request on /sign-up route");
 		System.out.println("Serving static sign-up.html page to user");
-		rd = this.getServletContext().getRequestDispatcher("/sign-up.html");
+		rd = this.getServletContext().getRequestDispatcher("/sign-up.jsp");
 
 		rd.forward(request, response);
 
