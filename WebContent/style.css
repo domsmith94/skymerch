@@ -1,5 +1,8 @@
-@CHARSET "ISO-8859-1";
+@CHARSET "utf-8";
 
+.bottom {
+	border-bottom: 1.5px solid #eee;
+}
 .sky-font {
 	font-family: SkyTextRegular;
 }
@@ -7,6 +10,8 @@
 .sky-medium-font {
 	font-size: 1.5em;
 }
+
+.nounderline {text-decoration: none !important}
 
 .sky-big-text {
 	color: background:-webkit-gradient(linear, left top, right top, color-stop(0%, #f6871f),
