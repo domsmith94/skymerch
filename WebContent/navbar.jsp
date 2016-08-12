@@ -25,12 +25,15 @@
 		<li><a href="home">Home</a></li>
 		<li><a href="browse.jsp">Browse</a></li>
 		<li><a href="orders">Orders</a></li>
-		<li><form method="POST" action="/skymerch/searchresults">
-				<input type="text" name="searchString" placeholder="Search...">
-				<input type="submit" value="Go">
-			</form></li>
+		
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
+	
+		<li> <form class="small-top-buffer small-right-buffer" method="POST" action="/skymerch/searchresults">
+				<input type="text" name="searchString" placeholder="Search...">
+				<input type="submit" value="Go">
+			</form> </li>
+		
 		<li><a href="basket"><span
 				class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
 		<%

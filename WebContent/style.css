@@ -19,6 +19,9 @@
 	font-family: SkyTextBold;
 	display: inline-block;
 }
+.small-top-buffer { margin-top:12px; }
+
+.small-right-buffer { margin-right: 10px; }
 
 .top-buffer { margin-top:20px; }
 
