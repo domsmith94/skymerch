@@ -94,16 +94,23 @@ public class DAOTest {
 		
 		
 		// ~~~ Order add and read test ~~~
-		Product testProd = pdao.findById(2000001);
+		Product testProd1 = pdao.findById(2000001);
+		Product testProd2 = pdao.findById(2000002);
 		System.out.println("Should return the time of our test order:");
-		OrderLine line = new OrderLine();
-		line.setProduct(testProd);
-		line.setItemPrice(testProd.getPrice());
-		line.setQuantity(5);
-		line.setOrderLinePrice();
+		OrderLine line1 = new OrderLine();
+		line1.setProduct(testProd1);
+		line1.setItemPrice(testProd1.getPrice());
+		line1.setQuantity(5);
+		line1.setOrderLinePrice();
+		OrderLine line2 = new OrderLine();
+		line2.setProduct(testProd2);
+		line2.setItemPrice(testProd2.getPrice());
+		line2.setQuantity(5);
+		line2.setOrderLinePrice();
 		
 		List<OrderLine> lineList = new ArrayList<OrderLine>();
-		lineList.add(line);
+		lineList.add(line1);
+		lineList.add(line2);
 		
 		Order testOrder = new Order();
 		Address addr = new Address();
@@ -113,8 +120,8 @@ public class DAOTest {
 		testOrder.setShippingType(Shipping.valueOf("NEXT_DAY"));
 		testOrder.setStatus(Status.valueOf("PROCESSING"));
 		testOrder.setTotalCost();
-		addr.setHouseNameNum("2/4");
-		addr.setAddressLineOne("Great Michael Rise");
+		addr.setHouseNameNum("TEST");
+		addr.setAddressLineOne("TEST TESTY TEST");
 		addr.setAddressLineTwo("Newhaven");
 		addr.setTownOrCity("Edinburgh");
 		addr.setPostcode("EH6 4JB");

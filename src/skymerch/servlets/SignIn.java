@@ -89,7 +89,7 @@ public class SignIn extends HttpServlet {
 			if (BCrypt.checkpw(pass, hashed)) {
 				System.out.println("Passwords Match");
 				loginSuccess = true;
-				session.setAttribute("signedin_customer", customer);
+				session.setAttribute("signedInUser", customer);
 				session.setAttribute("auth", true);
 				session.setAttribute("invalidLogin", null);
 			} else {

@@ -40,7 +40,7 @@ public class SignOut extends HttpServlet {
 		//RequestDispatcher rd = null;
 		HttpSession session = request.getSession();
 		
-		session.setAttribute("signedin_customer", null);
+		session.setAttribute("signedInUser", null);
 		session.setAttribute("auth", false);
 		//System.out.println("TESTPRINT");
 		response.sendRedirect("/skymerch");
