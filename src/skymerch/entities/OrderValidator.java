@@ -19,15 +19,25 @@ public class OrderValidator {
 		} 
 		return valid;
 	}
-	
-	// to add - loop validation of orderlines
 
 	public static boolean lineArrayCheck(Order o) {
 		boolean valid = false;
 		if (o.getOrderLines().size() > 0) { 
-			valid = true; 
+			if (lineCheckLoop(o)) {
+				valid = true; 
+			}
 		}
 		return valid;	 
+	}
+	
+	private static boolean lineCheckLoop(Order o) {
+		boolean valid = true;
+		for (int i = 0; i < o.getOrderLines().size(); i++) {
+			if (!validateLine(o.getOrderLines().get(i))) {
+				valid = false;
+			}
+		}
+		return valid;
 	}
 
 	private static boolean validCustomer(Order o) { return (o.getCustomerId() != 0); }

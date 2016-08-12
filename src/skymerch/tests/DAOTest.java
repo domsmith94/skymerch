@@ -46,17 +46,17 @@ public class DAOTest {
 		System.out.println(" ");
 		cdao.emptyDb();
 		
-		// ~~~ Product reading test ~~~
-		System.out.println("Should output name of first product:");
-		List<Product> products = new ArrayList<Product>();
-		products = pdao.readAll();
-		System.out.println(products.get(0).getProdName());
-		System.out.println(" ");
-
-		Product product = pdao.findById(2000001);
-		System.out.println("prod search result:" + product.getProdName());
-		product = pdao.findByName("Game of Thrones hat");
-		System.out.println("prod search result:" + product.getProdName());
+//		// ~~~ Product reading test ~~~
+//		System.out.println("Should output name of first product:");
+//		List<Product> products = new ArrayList<Product>();
+//		products = pdao.readAll();
+//		System.out.println(products.get(0).getProdName());
+//		System.out.println(" ");
+//
+//		Product product = pdao.findById(2000001);
+//		System.out.println("prod search result:" + product.getProdName());
+//		product = pdao.findByName("Game of Thrones hat");
+//		System.out.println("prod search result:" + product.getProdName());
 
 		// ~~~ Product writing test ~~~
 		System.out.println("Should input a product, and return name of second product (which is the one we inputed):");
@@ -121,6 +121,7 @@ public class DAOTest {
 		testOrder.setDeliveryAddress(addr);
 		
 		// add the order
+		System.out.println("Order Validation: " + OrderValidator.validate(testOrder));
 		odao.addOrder(testOrder);
 		
 		// search for the order
