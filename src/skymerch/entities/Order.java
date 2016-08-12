@@ -28,7 +28,7 @@ public class Order {
 		this.status = Status.ORDERED;
 		this.shippingType = shippingType;
 		this.deliveryAddress = deliveryAddress;
-		
+		this.orderTime = java.time.LocalDateTime.now();
 		
 		for(BasketLine b:basket.getBasketLines()){
 			OrderLine ol = new OrderLine(b.getProduct(), b.getQuantity());

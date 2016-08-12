@@ -155,9 +155,9 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-4" for="post">Postcode</label>
+						<label class="control-label col-sm-4" for="postcode">Postcode</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="post" id="post" value="<%= customer.getAddress().getPostcode()%>"><br/>
+							<input type="text" class="form-control" name="postcode" id="postcode" value="<%= customer.getAddress().getPostcode()%>"><br/>
 						</div>
 					</div>
 
