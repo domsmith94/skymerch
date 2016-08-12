@@ -81,6 +81,9 @@ public class Orders extends HttpServlet {
 		addr.setPostcode(request.getParameter("postcode"));
 		
 		Customer customer = (Customer)session.getAttribute("signedin_customer");
+		// is it customer ID that's breaking the whole thing? possibly - there's certainly weird things happening!
+		
+		
 		Basket basket = (Basket)session.getAttribute("basket");
 		
 		Double orderPrice = Double.parseDouble(request.getParameter("orderPrice"));
