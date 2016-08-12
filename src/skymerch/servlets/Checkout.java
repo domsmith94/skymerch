@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Orders
  */
-@WebServlet({"/orders","/validateOrder"})
-public class Orders extends HttpServlet {
+@WebServlet({"/checkout"})
+public class Checkout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Orders() {
+    public Checkout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,11 +43,17 @@ public class Orders extends HttpServlet {
 			}
 						
 			if (auth){
-				rd = request.getRequestDispatcher("/order_history.html");
-				rd.forward(request, response);
+				//if( basket is empty ){
+					// do nothing
+				//} else {
+					rd = request.getRequestDispatcher("/checkout.jsp");
+					rd.forward(request, response);
+				//}
+				
+				
 				
 			} else {
-				response.sendRedirect("/skymerch");
+				response.sendRedirect("/skymerch/sign-in");
 			}
 			
 		} catch (Exception e) {

@@ -21,6 +21,20 @@ public class Order {
 		
 	}
 
+	public Order(Customer customer, Basket basket, double totalCost, Address deliveryAddress, Shipping shippingType){
+		this.customerId = customer.getCustId();
+		List<OrderLine> orderLines = new ArrayList<OrderLine>();
+		this.totalCost = totalCost;
+		this.status = Status.ORDERED;
+		this.shippingType = shippingType;
+		this.deliveryAddress = deliveryAddress;
+		
+		
+		for(BasketLine b:basket.getBasketLines()){
+			OrderLine ol = new OrderLine(b.getProduct(), b.getQuantity());
+			orderLines.add(ol);
+		}
+	}
 	public int getOrderId() { return orderId; }
 
 	public void setOrderId(int orderId) { this.orderId = orderId; }
