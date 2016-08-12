@@ -13,8 +13,8 @@
 		name = customer.getFirstName() + " " + customer.getLastName();
 	}
 %>
-
 <nav class="navbar navbar-default">
+<div class = "sky-font">
 	<div class="col-sm-1 col-sm-offset-0">
 		<img src="images/logo.png" class="img-responsive" alt="Logo"
 			width="70px" height="70px">
@@ -59,4 +59,5 @@
 			<%}%>
 		<li><a></a></li>
 	</ul>
+	</div>
 </nav>
