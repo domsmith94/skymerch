@@ -34,6 +34,8 @@
 				<input type="submit" value="Go">
 			</form> </li>
 		
+		
+				
 		<li><a href="basket"><span
 				class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
 		<%
@@ -44,6 +46,9 @@
 				class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 		<li><a href="sign-in.html"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+				
+				<li><a href="contact_us.html"><span
+				class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
 
 		<%
 			} else {
