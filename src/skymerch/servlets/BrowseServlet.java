@@ -21,7 +21,7 @@ import skymerch.enums.Category;
 /**
  * Servlet implementation class browse
  */
-@WebServlet({"/filtered_results"})
+@WebServlet({"/browse", "/filtered_results"})
 public class BrowseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

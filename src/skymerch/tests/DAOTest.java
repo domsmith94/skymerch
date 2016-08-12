@@ -87,7 +87,7 @@ public class DAOTest {
 		
 		// ~~~ Product search test ~~~
 		System.out.println("Should search for a product (search term: Arya):");
-		List<Product> products3 = new ArrayList<Product>();
+		//List<Product> products3 = new ArrayList<Product>();
 		//products2 = pdao.multiSearch("Arya", null, null);
 		System.out.println(products2.get(0).getProdName());
 		System.out.println(" ");
@@ -130,8 +130,9 @@ public class DAOTest {
 		// ~~~ Manual password hashing ~~~ //
 		
 //		String manhash = BCrypt.hashpw("Apricot5", BCrypt.gensalt());
-//		System.out.println(manhash);
-		
+//		// System.out.println(manhash);
+//		
+//		System.out.println(BCrypt.checkpw("Adfsds", manhash));
 	}
 	
 }

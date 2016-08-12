@@ -16,7 +16,7 @@ import skymerch.entities.*;
 /**
  * Servlet implementation class SignIn
  */
-@WebServlet({"/sign-in","/loginCheck"})
+@WebServlet("/sign-in")
 public class SignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +33,6 @@ public class SignIn extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
 		System.out.println("Received GET request on /sign-in route");
@@ -45,7 +44,7 @@ public class SignIn extends HttpServlet {
 			
 			boolean auth = (boolean) session.getAttribute("auth");
 			if (auth){
-				rd = this.getServletContext().getRequestDispatcher("/browse");
+				rd = this.getServletContext().getRequestDispatcher("/index.html");
 				
 			} else {
 				rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
@@ -83,8 +82,7 @@ public class SignIn extends HttpServlet {
 		CustomerDAO cdao = new CustomerDAO();
 		Customer customer = cdao.findByEmail(email);
 		
-		if(customer != null){
-			
+		if(customer != null){	
 			String pass = request.getParameter("password");
 			String hashed = customer.getPassword();
 			System.out.println(hashed);

@@ -74,13 +74,13 @@ DROP TABLE order_line;
      
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('James Bond Top Trumps', 10, 5, 3, 'The names Bond, James Bond. This pack needs no introduction, its simply the Best of Bond. Villains, Henchman all the Bonds and a few glamorous women thrown in for good measure, it's the greatest adventure ever, so pay attention 007. Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.9, 10, 2.99, 'clothing');
+     values('James Bond Top Trumps', 10, 5, 3, 'The names Bond, James Bond. This pack needs no introduction, its simply the Best of Bond. Villains, Henchman all the Bonds and a few glamorous women thrown in for good measure, it\'s the greatest adventure ever, so pay attention 007. Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.9, 10, 2.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Shrek Mug', 6, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 4.9, 8, 3.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Despicable Me Minion Bag', 8, 4, 8, 'If your little one can't get enough of the Minions, they'll adore this fun backpack featuring their favourite characters. With a colourful blue and yellow Minions design, this backpack has one large zip pocket for storage with adjustable shoulder straps for comfort!', 4.9, 8, 15.99, 'clothing');
+     values('Despicable Me Minion Bag', 8, 4, 8, 'If your little one can\'t get enough of the Minions, they\'ll adore this fun backpack featuring their favourite characters. With a colourful blue and yellow Minions design, this backpack has one large zip pocket for storage with adjustable shoulder straps for comfort!', 4.9, 8, 15.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Ghostbusters Hat', 3, 3, 4, 'A hat perfect for fans of the iconic Ghostbusters movie. Based on the highly popular film it features a high quality embroidered logo and text design. The cap also features an adjustable fastener and is made using high quality materials ensuring it is comfortable. Ideal for fans of the popular movies.', 2.9, 6, 15.99, 'clothing');
@@ -88,7 +88,7 @@ DROP TABLE order_line;
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Game of Thrones Pin', 6, 8, 9, 'Become part of the Game Of Thrones story with this awesome Hand of the King pin! Beautifully crafted this Hand of The King Pin is a replica of the one seen within the hit HBO series Game of Thrones. An ideal gift for any fan this Game of thrones Hand Of The king pin measures 3-inches long x 1.1.4 inches wide.', 6.3, 4, 5.99, 'toys');
 
-	 insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Game of Thrones Babygrow', 4, 4, 5, 'This funny and unique Game of Thrones baby grow would make the perfect gift. It has an envelope neck opening with narrow self-bound neck and sleeve ends. the Game of Thrones print is on high quality cotton, the quirky design makes for an funny, adorable little baby outfit.', 6.7, 7, 22.99, 'clothing'); 
 
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
