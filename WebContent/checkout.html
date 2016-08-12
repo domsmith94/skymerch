@@ -52,6 +52,7 @@
 		</nav>
 
 		<div class="container col-sm-10 col-sm-offset-1">
+		<form>
 			<div class="page-header">
 				<h1 class="sky-text">
 					<b>Checkout</b>
@@ -115,8 +116,8 @@
 				<div class="page-header">
 					<h3>Payment and Delivery</h3>
 				</div>
-
-				<div class="container col-sm-6 col-sm-offset-0">
+				
+				<div class="container col-sm-10 col-sm-offset-1">
 
 					<div class="page-header text-center">
 						<h4>
@@ -124,21 +125,22 @@
 						</h4>
 					</div>
 
-
 					<div class="form-group">
+						<form class="form-inline" role="form-horizontal">
 						<label class="control-label col-sm-4" for="houseNumber">House
 							Number or Name </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="houseNumber"
-								id="houseNumber">
+								id="houseNumber"><br/>
 						</div>
 					</div>
+					</form>
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="firstLine">First
 							Line of Address </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="firstLine"
-								id="firstLine">
+								id="firstLine"><br/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -146,7 +148,7 @@
 							Line of Address</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="secondLine"
-								id="secondLine">
+								id="secondLine"><br/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -154,22 +156,21 @@
 							or City</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="townOrCity"
-								id="townOrCity">
+								id="townOrCity"><br/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="post">Postcode</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="post" id="post">
+							<input type="text" class="form-control" name="post" id="post"><br/>
 						</div>
 					</div>
-
 
 
 				</div>
 
 
-				<div class="container col-sm-6 col-sm-offset-">
+				<div class="container col-sm-10 col-sm-offset-1">
 
 					<div class="page-header text-center">
 						<h4>
@@ -183,7 +184,7 @@
 							Number or Name </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="houseNo"
-								id="houseNo">
+								id="houseNo"><br/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -191,7 +192,7 @@
 							Line of Address </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="firstAddress"
-								id="firstAddress">
+								id="firstAddress"><br/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -199,21 +200,21 @@
 							Line of Address</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="secondAddress"
-								id="secondAddress">
+								id="secondAddress"><br/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="town">Town or
 							City</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="town" id="town">
+							<input type="text" class="form-control" name="town" id="town"><br/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="postcodeSA">Postcode</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="postcodeSA"
-								id="postcodeSA">
+								id="postcodeSA"><br/>
 						</div>
 					</div>
 
@@ -229,10 +230,10 @@
 
 					<div class="radio">
 						<label><input type="radio" name="optradio">Standard
-							Delivery (3-5 days): £3.99</label>
+							Delivery (3-5 days): £3.99</label><br />
 					</div>
 					<div class="radio">
-						<label><input type="radio" name="optradio">Premium
+						<br /><label><input type="radio" name="optradio">Premium
 							Delivery (Next working day): £5.99</label>
 					</div>
 
@@ -255,7 +256,7 @@
 										<option>Visa</option>
 										<option>Mastercard</option>
 										<option>American Express</option>
-									</select>
+									</select><br/>
 								</div>
 
 								<div class="form-group">
@@ -263,7 +264,7 @@
 										Name </label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" name="cardholderName"
-											id="cardholderName">
+											id="cardholderName"><br/>
 									</div>
 								</div>
 
@@ -272,7 +273,7 @@
 										Number </label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" name="cardNumber"
-											id="cardNumber">
+											id="cardNumber"><br/>
 									</div>
 								</div>
 
@@ -281,7 +282,7 @@
 										CVV</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" name="cvv" id="cvv"
-											placeholder="Security Code">
+											placeholder="Security Code"><br/>
 									</div>
 								</div>
 							</div>
@@ -294,7 +295,6 @@
 										<div class="col-xs-5">
 											<select class="form-control col-sm-4" name="expiry-month"
 												id="expiry-month">
-												<option>Month</option>
 												<option value="01">Jan (01)</option>
 												<option value="02">Feb (02)</option>
 												<option value="03">Mar (03)</option>
@@ -330,15 +330,16 @@
 						</div>
 					</div>
 				</div>
-				
-				
+					
 				 <!-- Submit button -->
+				 <div class="container col-sm-10 col-sm-offset-1">
+				 
 				 
                         <div class="row text-center">
                             <div class="form-group">
                                 <button id="btnSubmit" type="submit" class="btn btn-default huge-top-buffer bottom-buffer">Confirm</button>
                             </div>
-                        </div>
-                        
+                        </div>  
+                        </div>             
 			</div></body>
 </html>
