@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
     import = "java.util.*,skymerch.entities.*,java.text.DecimalFormat" %>
 
 <!DOCTYPE html>
@@ -87,9 +87,9 @@
 						<% for (BasketLine bl: linesInBasket){  %>
 							<tr>
 								<td><%= bl.getProduct().getProdName() %></td>
-								<td>£<%= bl.getProduct().getPrice() %></td>
+								<td>Â£<%= bl.getProduct().getPrice() %></td>
 								<td><%= bl.getQuantity() %></td>
-								<td>£<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %></td>
+								<td>Â£<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %></td>
 							</tr>
 							<% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
                                 } %>    
@@ -98,7 +98,7 @@
 								<td></td>
 								<td><p><b>Sub total:</b></p></td>
 								<td><p>
-										<b>£<%= df.format(totalPrice) %></b>
+										<b>Â£<%= df.format(totalPrice) %></b>
 									</p></td>
 							</tr>
 
@@ -225,11 +225,11 @@
 
 					<div class="radio">
 						<label><input type="radio" name="optradio" id="optradio" >Standard
-							Delivery (3-5 days): £3.99</label><br />
+							Delivery (3-5 days): Â£3.99</label><br />
 					</div>
 					<div class="radio">
 						<br /><label><input type="radio" name="optradio" id="optradio" >Premium
-							Delivery (Next working day): £5.99</label>
+							Delivery (Next working day): Â£5.99</label>
 					</div>
 
 				</div>

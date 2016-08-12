@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
     import = "java.util.*,skymerch.entities.*,java.text.DecimalFormat" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -50,15 +50,15 @@
  	<a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> 
 	
 	Quantity: <%= bl.getQuantity() %>
-	Item Price: £<%= bl.getProduct().getPrice() %>
-	Price: £<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %>
+	Item Price: Â£<%= bl.getProduct().getPrice() %>
+	Price: Â£<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %>
 	Change Quantity: <input type="number" class="form-control" name="quantityProduct<%= bl.getProduct().getProdId() %>" value=<%= bl.getQuantity() %> id="quantityProduct<%= bl.getProduct().getProdId() %>">
 	
 <% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
 
 	} %>
 	<br />
-	Total Price: = £<%= df.format(totalPrice) %>
+	Total Price: = Â£<%= df.format(totalPrice) %>
 
 
 
@@ -101,13 +101,13 @@
                                     <tr>
                                         <td><img src="images/product/product3.jpeg" alt="<%= bl.getProduct().getProdName() %> Picture"></td>
                                         <td><a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> </td>
-                                        <td class="text-center">£<%= bl.getProduct().getPrice() %></td>
+                                        <td class="text-center">Â£<%= bl.getProduct().getPrice() %></td>
                                         <td class="text-center">
                                             
                                                 <input type="number" class="form-control" name="quantityProduct<%= bl.getProduct().getProdId() %>" value=<%= bl.getQuantity() %> id="quantityProduct<%= bl.getProduct().getProdId() %>">
                                             
                                         </td>
-                                        <td class="text-center">£<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %></td>
+                                        <td class="text-center">Â£<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %></td>
                                     </tr>
                                 <% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
                                 } %>    
@@ -115,12 +115,12 @@
                             </table>
                             <div class="row">
                                 <div class = "col-md-12">
-                                    <h3 class="text-right">Subtotal: £<%= df.format(totalPrice) %></h3>
+                                    <h3 class="text-right">Subtotal: Â£<%= df.format(totalPrice) %></h3>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class = "col-md-12">
-                                    <h4 class="text-right"><i>VAT: £<%= df.format(totalPrice*(1-1/1.2)) %> </i></h4>
+                                    <h4 class="text-right"><i>VAT: Â£<%= df.format(totalPrice*(1-1/1.2)) %> </i></h4>
                                 </div>
                             </div>
                         </div>

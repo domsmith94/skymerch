@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,7 +20,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>Browse Products - Sky Merchandise</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -60,33 +60,33 @@
 				<div class="col-xs-12">
 					<h4>Price</h4>
 					<div class="radio">
-						<label> <input type="radio" name="optradio" value="0-5">£0-
-							£5
+						<label> <input type="radio" name="optradio" value="0-5">Â£0-
+							Â£5
 						</label>
 					</div>
 					<div class="radio">
-						<label> <input type="radio" name="optradio" value="5-10">£5-
-							£10
+						<label> <input type="radio" name="optradio" value="5-10">Â£5-
+							Â£10
 						</label>
 					</div>
 					<div class="radio">
-						<label> <input type="radio" name="optradio" value="10-20">£10-
-							£20
+						<label> <input type="radio" name="optradio" value="10-20">Â£10-
+							Â£20
 						</label>
 					</div>
 					<div class="radio">
-						<label> <input type="radio" name="optradio" value="20-30">£20-
-							£30
+						<label> <input type="radio" name="optradio" value="20-30">Â£20-
+							Â£30
 						</label>
 					</div>
 					<div class="radio">
-						<label> <input type="radio" name="optradio" value="30-40">£30-
-							£50
+						<label> <input type="radio" name="optradio" value="30-40">Â£30-
+							Â£50
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio"
-							value="50-10000000000">£50+
+							value="50-10000000000">Â£50+
 						</label>
 					</div>
 				</div>
@@ -126,7 +126,7 @@ else {
 							<h3>
 								<a href="product?id=<%= p.getProdId() %>"><%= p.getProdName() %></a>
 							</h3>
-							<h4><%= "£" + p.getPrice() %></h4>
+							<h4><%= "Â£" + p.getPrice() %></h4>
 
 						</div>
 					</div>

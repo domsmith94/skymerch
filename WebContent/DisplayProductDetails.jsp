@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-import = "java.util.*,skymerch.entities.*;" 
-pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+import = "java.util.*,skymerch.entities.*" 
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@ pageEncoding="ISO-8859-1"%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Product - Sky Merchandise</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -51,7 +51,7 @@ Product product = (Product)session.getAttribute("product");
                         </div>
                         <h4 class="text-center">Product ID: <%= productId %></h4>
                             <div class="row top-buffer">
-                                 <h3 class = "text-center">£<%= product.getPrice() %></h3>
+                                 <h3 class = "text-center">Â£<%= product.getPrice() %></h3>
                             </div>
                                 <div class="row top-buffer">
                                      <div class = "text-center">
