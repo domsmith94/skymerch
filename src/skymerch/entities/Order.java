@@ -34,6 +34,7 @@ public class Order {
 			OrderLine ol = new OrderLine(b.getProduct(), b.getQuantity());
 			orderLines.add(ol);
 		}
+		this.orderLines = orderLines;
 	}
 	public int getOrderId() { return orderId; }
 
