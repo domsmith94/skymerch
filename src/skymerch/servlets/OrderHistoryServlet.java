@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import skymerch.dao.OrderDAO;
 import skymerch.dao.ProductDAO;
 import skymerch.entities.Product;
 
@@ -38,8 +39,9 @@ public class OrderHistoryServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		OrderDAO odao = new OrderDAO();
-		SortedSet<Product> orderHist = odao.getOrdersByCustId(int)
-		session.setAttribute("orderHistory", orderHist);
+		int signedInId = (Integer) session.getAttribute("signedInId");
+		//SortedSet<Product> orderHist = odao.getOrdersByCustId(signedInId);
+		//session.setAttribute("orderHistory", orderHist);
 		
 		rd = this.getServletContext().getRequestDispatcher("/order_history.jsp");
 		rd.forward(request, response);		
