@@ -17,7 +17,7 @@ import skymerch.dao.ProductDAO;
 /**
  * Servlet implementation class search
  */
-@WebServlet({"/search","/searchresults"})
+@WebServlet({"/search_results"})
 public class search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,9 +34,9 @@ public class search extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		String urlPattern = request.getServletPath();
-		HttpSession session = request.getSession();
-		rd = this.getServletContext().getRequestDispatcher("/search.html");
+		//String urlPattern = request.getServletPath();
+		//HttpSession session = request.getSession();
+		rd = this.getServletContext().getRequestDispatcher("/search_results");
 		rd.forward(request, response);		
 		
 		
@@ -60,7 +60,7 @@ public class search extends HttpServlet {
 			List<Product> searchResults = pdao.multiSearch(q, null, null);
 			session.setAttribute("resultsToDisplay", searchResults);
 			session.setAttribute("searchString", q);
-			rd = this.getServletContext().getRequestDispatcher("/searchresults.jsp");
+			rd = this.getServletContext().getRequestDispatcher("/search_results.jsp");
 		
 		
 		rd.forward(request, response);

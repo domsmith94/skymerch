@@ -29,7 +29,7 @@
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	
-		<li> <form class="small-top-buffer small-right-buffer" method="POST" action="/skymerch/searchresults">
+		<li> <form class="small-top-buffer small-right-buffer" method="POST" action="/skymerch/search_results">
 				<input type="text" name="searchString" placeholder="Search...">
 				<input type="submit" value="Go">
 			</form> </li>
