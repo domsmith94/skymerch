@@ -1,7 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <script src="js/jquery-3.1.0.min.js"></script>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -12,12 +15,13 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
+	
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Sky Merchandise Store</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,31 +31,9 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default">
-		<div class="col-sm-1 col-sm-offset-0">
-			<img src="images/logo.png" class="img-responsive" alt="Logo"
-				width="70px" height="70px">
-		</div>
-		<div class="navbar-header"></div>
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#l">Home</a></li>
-			<li><a href="#">Browse</a></li>
-			<li><a href="#">Orders</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#"><span
-					class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
-			<li><a href="sign-up.html"><span
-					class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<li><a href="sign-in.html"><span
-					class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
-			<li><a></a></li>
-		</ul>
-	</nav>
-
-
+	<!-- Nav Bar -->
+	<%@ include file="navbar.jsp"%>
 	<div class="container col-sm-10 col-sm-offset-1">
-		
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -67,17 +49,14 @@
 					<img src="images/banner1.jpeg" alt="Chania" width="1600"
 						height="300">
 				</div>
-
 				<div class="item">
 					<img src="images/banner2.png" alt="Chania" width="1600"
 						height="300">
 				</div>
-				
 				<div class="item">
 					<img src="images/banner3.png" alt="Chania" width="1600"
 						height="300">
 				</div>
-
 			</div>
 
 			<!-- Left and right controls -->
@@ -91,134 +70,113 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-		</div>
-	
+	</div>
 	<div class="container col-sm-10 col-sm-offset-1">
-	<div class="row">
-
-	<br>
-			<div class="container col-sm-4 col-sm-offset-0">
-				<a href="http://www.sky.com/shop/tv/sky-q/overview/?DCMP=knc-GOOGLE-ec-SKY-Q-sky+q&gclid=Cj0KEQjwoau9BRDMvsnv5MCh24UBEiQAKOqcfbAMGkocpOUYLEPOTQKO46M69V3yqQ-NbxGrOSpFLvkaAlOx8P8HAQ" class="thumbnail"> <img src="images/skynews.png"
-					width="265" height="200" alt="...">
-				</a>
-			</div>
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product1.jpeg"
-					width="242" height="200" alt="...">
-				</a>
-			</div>
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product2.jpeg"
-					width="242" height="200" alt="...">
-				</a>
-			</div>
-
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product3.jpeg"
-					width="242" height="200" alt="...">
-				</a>
-			</div>
-
-
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product4.jpeg"
-					width="242" height="200" alt="...">
-				</a>
-			</div>
-			
-			
-
-
-		</div>
-
-
 		<div class="row">
-		
-		<div class="container col-sm-4 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/skyq.jpg""
+			<br>
+			<div class="container col-sm-4 col-sm-offset-0">
+				<a
+					href="http://www.sky.com/shop/tv/sky-q/overview/?DCMP=knc-GOOGLE-ec-SKY-Q-sky+q&gclid=Cj0KEQjwoau9BRDMvsnv5MCh24UBEiQAKOqcfbAMGkocpOUYLEPOTQKO46M69V3yqQ-NbxGrOSpFLvkaAlOx8P8HAQ"
+					class="thumbnail"> <img src="images/skynews.png" width="265"
+					height="200" alt="...">
+				</a>
+			</div>
+			<div class="container col-sm-2 col-sm-offset-0">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product1.jpeg" width="242" height="200"
+					alt="...">
+				</a>
+			</div>
+			<div class="container col-sm-2 col-sm-offset-0">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product2.jpeg" width="242" height="200"
+					alt="...">
+				</a>
+			</div>
+			<div class="container col-sm-2 col-sm-offset-0">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product3.jpeg" width="242" height="200"
+					alt="...">
+				</a>
+			</div>
+			<div class="container col-sm-2 col-sm-offset-0">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product4.jpeg" width="242" height="200"
+					alt="...">
+				</a>
+			</div>
+		</div>
+		<div class="row">
+
+			<div class="container col-sm-4 col-sm-offset-0">
+				<a href="#" class="thumbnail"> <img src="images/skyq.jpg"
+					"
 					width="330" height="300" alt="...">
 				</a>
 			</div>
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product5.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product5.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product6.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product6.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product7.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product7.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-
-
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product8.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product8.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-			
-			
 		</div>
-
-
 		<div class="row">
-		
-		<div class="container col-sm-4 col-sm-offset-0">
+
+			<div class="container col-sm-4 col-sm-offset-0">
 				<a href="#" class="thumbnail"> <img src="images/fibre.png"
 					width="242" height="200" alt="...">
 				</a>
 			</div>
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product10.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product10.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
 
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product11.png"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product11.png" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-
-
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product12.png"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product12.png" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-
-
-
 			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/product/product9.jpeg"
-					width="242" height="200" alt="...">
+				<a href="#" class="thumbnail"> <img
+					src="images/product/product9.jpeg" width="242" height="200"
+					alt="...">
 				</a>
 			</div>
-			
-
-
 		</div>
-		</div>
-		
-
-
-
-
-
+	</div>
 </body>
 </html>

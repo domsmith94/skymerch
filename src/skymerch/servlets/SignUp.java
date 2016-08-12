@@ -92,6 +92,7 @@ public class SignUp extends HttpServlet {
 			System.out.println(registerSuccess);
 			session.setAttribute("signedin_customer", customer);
 			session.setAttribute("auth", true);
+			session.setAttribute("invalidLogin", null);
 		}
 
 		if (registerSuccess) {

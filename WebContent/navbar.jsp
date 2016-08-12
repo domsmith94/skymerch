@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*,skymerch.entities.*;"%>
 
 <%
@@ -44,7 +44,7 @@
 
 		<li><a href="sign-up.html"><span
 				class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		<li><a href="sign-in.html"><span
+		<li><a href="sign-in.jsp"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 				
 				<li><a href="contact_us.html"><span

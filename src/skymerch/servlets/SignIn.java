@@ -47,12 +47,12 @@ public class SignIn extends HttpServlet {
 				rd = this.getServletContext().getRequestDispatcher("/index.html");
 				
 			} else {
-				rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
+				rd = this.getServletContext().getRequestDispatcher("/sign-in.jsp");
 			}
 			
 		} catch (Exception e){
 			
-			rd = this.getServletContext().getRequestDispatcher("/sign-in.html");
+			rd = this.getServletContext().getRequestDispatcher("/sign-in.jsp");
 			
 		}
 		
@@ -71,10 +71,10 @@ public class SignIn extends HttpServlet {
 		//doGet(request, response);
 		
 		RequestDispatcher rd = null;
-		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
 		boolean loginSuccess = false;
+		boolean wrongPass = false;
 		
 		// here we will have checks for whether their details are okay.
 		
@@ -91,19 +91,23 @@ public class SignIn extends HttpServlet {
 				loginSuccess = true;
 				session.setAttribute("signedin_customer", customer);
 				session.setAttribute("auth", true);
-			} 
+				session.setAttribute("invalidLogin", null);
+			} else {
+				wrongPass = true;
+				session.setAttribute("invalidLogin", true);
+			}
 		}
 		
 		// 
 		if (loginSuccess){
-		rd = this.getServletContext().getRequestDispatcher("/browse");
+		rd = this.getServletContext().getRequestDispatcher("/index.html");
+		rd.forward(request, response);
+		} else if (wrongPass){
+			response.sendRedirect("/skymerch/sign-in");
 		} else {
 			rd = this.getServletContext().getRequestDispatcher("/sign-up");
+			rd.forward(request, response);
 		}
-		
-		
-		
-		rd.forward(request, response);
 	}
 
 }
