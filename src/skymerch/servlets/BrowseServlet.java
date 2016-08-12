@@ -41,9 +41,16 @@ public class BrowseServlet extends HttpServlet {
 		System.out.println("*****LOOK AT THE DO GET");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
+		String path = request.getServletPath();
+		System.out.println("*** LOOK AT THE PATH HERE " + path);
+		
 		RequestDispatcher rd = null;
-		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
+		
+		ProductDAO pdao = new ProductDAO();
+		List<Product> allProducts = pdao.readAll();
+		session.setAttribute("allProducts", allProducts);
+		
 		rd = this.getServletContext().getRequestDispatcher("/browse.jsp");
 		rd.forward(request, response);		
 			
@@ -58,7 +65,17 @@ public class BrowseServlet extends HttpServlet {
 		System.out.println("******LOOK AT THE DO POST");
 		RequestDispatcher rd = null;
 		HttpSession session = request.getSession();
+		String path = request.getServletPath();
+		System.out.println("*** LOOK AT THE PATH HERE " + path);
+		ProductDAO pdao = new ProductDAO();
 		
+		if (path.equals("/browse")) {
+			List<Product> allProducts = pdao.readAll();
+			session.setAttribute("allProducts", allProducts);
+			
+		}
+		
+		if (path.equals("/filtered_results")){
 		Set<Category> filterCats = null;
 				
 		if (request.getParameter("HOUSEHOLD") != null){
@@ -97,12 +114,15 @@ public class BrowseServlet extends HttpServlet {
 		max = Double.valueOf(tokens[1]);
 		}		
 
-		ProductDAO pdao = new ProductDAO();
 		List<Product> searchResults = pdao.multiSearch(filterCats, min.toString(), max.toString());
 		session.setAttribute("resultsToDisplay", searchResults);
 		System.out.println(min.toString() + " " + max.toString() + " ");
 		rd = this.getServletContext().getRequestDispatcher("/filtered_results.jsp");
-		System.out.println(rd.toString());
+		System.out.println(rd.toString());}
+		
+	
+		
+		
 		rd.forward(request, response);
 		//doGet(request, response);
 		

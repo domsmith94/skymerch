@@ -81,7 +81,7 @@
                 <div class="col-xs-12 text-center">
                     <button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
                </form>
-               <form action="/skymerch/browse.jsp">
+               <form action="/skymerch/browse">
                <button id="btnSubmit" type="submit" class="btn btn-default">Refresh</button>
                </form>
                 </div>
@@ -93,107 +93,34 @@
                 <div class="page-header">
                     <h1>Products <small>Sold by Sky Merchandise</small></h1>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product10.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Ghostbusters Phone Case</h3>
-                                <h4>£6.99</h4>
+                
+<%    List<Product> tiledAllProducts = (ArrayList<Product>) session.getAttribute("allProducts");
+if (tiledAllProducts == null) {
+	%> <p>There are no products to display </p>	<%
+}
+else {
+	for (Product p : tiledAllProducts) {
+		%><div class="row">
+        <div class="col-md-3">
+            <div class="thumbnail" >
+            <a href= "product?id=<%= p.getProdId() %>">
+                <img src="images/product/product10.jpeg" alt="...">
+                </a>
+                <div class="caption">
+                    <h3><a href= "product?id=<%= p.getProdId() %>"><%= p.getProdName() %></a></h3>
+                    <h4><%= "£" + p.getPrice() %></h4>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product2.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>James Bond Top Trumps</h3>
-                                <h4>£2.99</h4>
+                </div>
+            </div>
+        </div><%
+		
+	}
+}
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product3.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Shrek Mug</h3>
-                                <h4>£4.99</h4>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product4.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Minion Bag</h3>
-                                <h4>£9.99</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product5.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Ghostbusters Hat</h3>
-                                <h4>£12.99</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product6.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Game of Thrones Pin</h3>
-                                <h4>£2.99</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product7.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Game of Thrones Babygrow</h3>
-                                <h4>£14.99</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product8.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Sky Cycling Jersey</h3>
-                                <h4>£59.99</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product9.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Sky Remote</h3>
-                                <h4>£24.99</h4>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="images/product/product9.jpeg" alt="...">
-                            <div class="caption">
-                                <h3>Sky Remote</h3>
-                                <h4>£24.99</h4>
-                            </div>
-
-                        </div>
-                    </div>                    
+                
+%>
+                    
                 </div>
             </div>
         </div>
