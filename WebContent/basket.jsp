@@ -24,6 +24,10 @@
 <body>
 <%@ include file="navbar.jsp" %>
 
+<form method="post" action="/skymerch/updateBasket" class="form-horizontal" role="form">
+
+<button type="submit" class="btn btn-default">Update basket</button>
+
 <%  
 	Basket basket = new Basket();
 	List<BasketLine> linesInBasket = new ArrayList<BasketLine>();
@@ -31,7 +35,7 @@
 		basket = (Basket)session.getAttribute("basket"); 
 		linesInBasket = basket.getBasketLines();
 	} catch(Exception e){
-		// nothing
+		session.setAttribute("basket", basket);
 	}
 	
 	DecimalFormat df = new DecimalFormat();
@@ -48,7 +52,7 @@
 	Quantity: <%= bl.getQuantity() %>
 	Item Price: £<%= bl.getProduct().getPrice() %>
 	Price: £<%= df.format(bl.getQuantity()*bl.getProduct().getPrice()) %>
-	
+	Change Quantity: <input type="number" class="form-control" name="quantityProduct<%= bl.getProduct().getProdId() %>" value=<%= bl.getQuantity() %> id="quantityProduct<%= bl.getProduct().getProdId() %>">
 	
 <% totalPrice =  bl.getQuantity()*bl.getProduct().getPrice() + totalPrice;
 
@@ -56,5 +60,8 @@
 	<br />
 	Total Price: = £<%= df.format(totalPrice) %>
 
+
+
+</form>
 </body>
 </html>

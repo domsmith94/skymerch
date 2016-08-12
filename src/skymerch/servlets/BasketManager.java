@@ -16,7 +16,7 @@ import skymerch.entities.*;
 /**
  * Servlet implementation class Basket
  */
-@WebServlet({"/basket", "/addToBasket"})
+@WebServlet({"/basket", "/addToBasket", "/updateBasket"})
 public class BasketManager extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -53,39 +53,58 @@ public class BasketManager extends HttpServlet {
 		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		// either get the existing basket or create a new one
-		//Basket basket = new Basket();
+		String formToDisplay = request.getServletPath();
 		
-		// get the product id from the page
-				int id = Integer.parseInt(request.getParameter("id"));
-				int quantity = Integer.parseInt(request.getParameter("quantity"));
-				
-		// get the product from id
-				ProductDAO pdao = new ProductDAO();
-				Product idProd = pdao.findById(id);
-		try{
-			Basket basket = (Basket) session.getAttribute("basket");
-			//basket = (Basket) session.getAttribute("basket");
-			basket.addProductToBasket(idProd,quantity);
-			session.setAttribute("basket", basket);
-		} catch(Exception e){
-			Basket basket = new Basket();
+		if (formToDisplay.equals("/addToBasket")){
+			// either get the existing basket or create a new one
 			//Basket basket = new Basket();
-			//session.setAttribute("basket", basket);
-			basket.addProductToBasket(idProd,quantity);
-			session.setAttribute("basket", basket);
+			
+			// get the product id from the page
+					int id = Integer.parseInt(request.getParameter("id"));
+					int quantity = Integer.parseInt(request.getParameter("quantity"));
+					
+			// get the product from id
+					ProductDAO pdao = new ProductDAO();
+					Product idProd = pdao.findById(id);
+			try{
+				Basket basket = (Basket) session.getAttribute("basket");
+				//basket = (Basket) session.getAttribute("basket");
+				basket.addProductToBasket(idProd,quantity);
+				session.setAttribute("basket", basket);
+			} catch(Exception e){
+				Basket basket = new Basket();
+				//Basket basket = new Basket();
+				//session.setAttribute("basket", basket);
+				basket.addProductToBasket(idProd,quantity);
+				session.setAttribute("basket", basket);
+			}
+			
+			
+		}	else if (formToDisplay.equals("/updateBasket")){
+			
+			Basket oldBasket = (Basket) session.getAttribute("basket");
+			
+			// for now, set the "proposed" basket as the old one.
+			// carbon copy, NOT copy 
+			Basket proposedBasket = new Basket();
+			
+			
+			for (BasketLine b:oldBasket.getBasketLines()){
+				
+				int quantity = Integer.parseInt(request.getParameter("quantityProduct"+b.getProduct().getProdId()));
+				
+				if (quantity <1){
+					// don't add this basket line.
+				} else {
+					// add this basket line.
+					proposedBasket.addProductToBasket(b.getProduct(), quantity);
+				}
+				
+			}
+			
+			session.setAttribute("basket", proposedBasket);
+			
 		}
-		
-		
-		
-		
-		
-		// add to basket
-		//basket.addProductToBasket(idProd);
-		
-		
-		// update basket
-		//session.setAttribute("basket", basket);
 		
 		// send to basket page
 		rd = this.getServletContext().getRequestDispatcher("/basket.jsp");
