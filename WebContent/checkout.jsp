@@ -49,7 +49,7 @@
 	df.setMaximumFractionDigits(2);
 	df.setMinimumFractionDigits(2);
 	Double totalPrice = 0.0;
-	Customer customer = (Customer)session.getAttribute("signedin_customer");
+	Customer customer = (Customer)session.getAttribute("signedInUser");
 	
 	//for (BasketLine bl: linesInBasket){  
 	%>
@@ -224,11 +224,11 @@
 					</div>
 
 					<div class="radio">
-						<label><input type="radio" name="optradio" id="optradio" >Standard
+						<label><input type="radio" name="shippingChoice" id="shippingChoice" value="STANDARD">Standard
 							Delivery (3-5 days): £3.99</label><br />
 					</div>
 					<div class="radio">
-						<br /><label><input type="radio" name="optradio" id="optradio" >Premium
+						<br /><label><input type="radio" name="shippingChoice" id="shippingChoice" value="NEXT_DAY">Premium
 							Delivery (Next working day): £5.99</label>
 					</div>
 

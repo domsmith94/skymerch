@@ -80,15 +80,19 @@ public class Orders extends HttpServlet {
 		addr.setTownOrCity(request.getParameter("townOrCity"));
 		addr.setPostcode(request.getParameter("postcode"));
 		
-		Customer customer = (Customer)session.getAttribute("signedin_customer");
+		Customer customer = (Customer)session.getAttribute("signedInUser");
 		// is it customer ID that's breaking the whole thing? possibly - there's certainly weird things happening!
 		
 		
 		Basket basket = (Basket)session.getAttribute("basket");
 		
 		Double orderPrice = Double.parseDouble(request.getParameter("orderPrice"));
-		
-		Shipping shipping = Shipping.STANDARD; // !!!!!!! hardcoded !!!!!!!
+		Shipping shipping = Shipping.STANDARD;
+		try{
+			shipping = Shipping.valueOf(request.getParameter("shippingChoice")); 
+		} catch (Exception e){
+			//shipping = Shipping.STANDARD;
+		}
 		
 		//try{
 			
