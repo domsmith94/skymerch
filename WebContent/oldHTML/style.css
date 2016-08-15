@@ -1,0 +1,86 @@
+@CHARSET "utf-8";
+
+.bottom {
+	border-bottom: 1.5px solid #eee;
+}
+.sky-font {
+	font-family: SkyTextRegular;
+}
+
+.sky-medium-font {
+	font-size: 1.5em;
+}
+
+.nounderline {text-decoration: none !important}
+
+.sky-big-text {
+	color: background:-webkit-gradient(linear, left top, right top, color-stop(0%, #f6871f),
+		color-stop(36%, #ed1c24), color-stop(72%, #a43383),
+		color-stop(100%, #0052a4));
+	background: -webkit-linear-gradient(left, #f6871f 0%, #ed1c24 36%, #a43383 72%,
+		#0052a4 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: SkyTextBold;
+	display: inline-block;
+}
+.small-top-buffer { margin-top:12px; }
+
+.small-right-buffer { margin-right: 10px; }
+
+.top-buffer { margin-top:20px; }
+
+.big-top-buffer { margin-top:30px; }
+
+.huge-top-buffer { margin-top:100px; }
+
+.small-bottom-buffer { margin-bottom:50x; }
+
+.bottom-buffer { margin-bottom:100px; }
+
+.fixed-table-container{border: 0px;}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+	/*font-size: 4em;
+	display: inline-block;
+    /* margin-left: 5%;
+	margin-right: 5%;
+	padding-right: 20%;
+	padding-left: 7%;
+	
+}
+.btn-default {
+	padding-right: 48px;
+	padding-left: 48px;
+	font-family: SkyTextBold;
+	font-size: 1em;
+}
+ 
+.form-group {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+*/
+/*.form-control {
+	font-size: 1em;
+}
+
+.link {
+	font-family: SkyTextBold;
+	font-size: 2em;
+	
+}
+    /* 
+.form-horizontal {
+	padding-right: 7%;
+	padding-left: 7%;
+}
+
+input {
+	padding-left: 5em;
+	padding-right: inherit;
+}
+*/
