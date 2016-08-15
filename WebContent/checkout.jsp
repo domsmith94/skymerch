@@ -96,7 +96,7 @@
 							
 								<td></td>
 								<td></td>
-								<td><p><b>Sub total:</b></p></td>
+								<td><p><b>Subtotal</b></p></td>
 								<td><p>
 										<b>£<%= df.format(totalPrice) %></b>
 									</p></td>
@@ -122,8 +122,7 @@
 
 					<div class="form-group">
 						<form class="form-inline" role="form-horizontal">
-						<label class="control-label col-sm-4" for="houseNumber">House
-							Number or Name </label>
+						<label class="control-label col-sm-4" for="houseNumber">House Name/				Number </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="houseNumber"
 								id="houseNumber" value="<%= customer.getAddress().getHouseNameNum()%>"><br/>
@@ -131,16 +130,14 @@
 					</div>
 					</form>
 					<div class="form-group">
-						<label class="control-label col-sm-4" for="firstLine"  >First
-							Line of Address </label>
+						<label class="control-label col-sm-4" for="firstLine"  >Address Line One </label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="firstLine"
 								id="firstLine" value="<%= customer.getAddress().getAddressLineOne()%>"><br/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-4" for="secondLine">Second
-							Line of Address</label>
+						<label class="control-label col-sm-4" for="secondLine">Address Line Two</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="secondLine"
 								id="secondLine" value="<%= customer.getAddress().getAddressLineTwo()%>"><br/>
@@ -176,23 +173,21 @@
 
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="houseNo">House
-							Number or Name </label>
+							Name/Number</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="bhouseNo"
 								id="bhouseNo" value="<%= customer.getAddress().getHouseNameNum()%>"><br/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-4" for="firstAddress">First
-							Line of Address </label>
+						<label class="control-label col-sm-4" for="firstAddress">Address Line One</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="bfirstAddress"
 								id="bfirstAddress" value="<%= customer.getAddress().getAddressLineOne()%>"><br/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-4" for="secondAddress">Second
-							Line of Address</label>
+						<label class="control-label col-sm-4" for="secondAddress">Address Line Two</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="bsecondAddress"
 								id="bsecondAddress" value="<%= customer.getAddress().getAddressLineTwo()%>"><br/>
