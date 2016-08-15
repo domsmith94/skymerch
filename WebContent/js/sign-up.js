@@ -12,4 +12,5 @@ $(document).ready(function() {
 			alert("Password didn't quite match, try again!");
 		}
 
-});
+	
+	});
