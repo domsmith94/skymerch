@@ -37,12 +37,10 @@ public class SignOut extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//RequestDispatcher rd = null;
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("signedInUser", null);
-		session.setAttribute("auth", false);
+		session.setAttribute("auth", null);
 		response.sendRedirect("/skymerch");
 	}
-
 }
