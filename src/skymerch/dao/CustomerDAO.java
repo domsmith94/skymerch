@@ -116,9 +116,7 @@ public class CustomerDAO {
 
 			if (!rs.next()){
 				System.out.println("No customer found in database with ID " + custId);
-			}
-
-			while (rs.next()){
+			} else {
 				return this.processResult(rs);
 			}
 			

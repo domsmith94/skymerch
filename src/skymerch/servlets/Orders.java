@@ -94,7 +94,7 @@ public class Orders extends HttpServlet {
 			//shipping = Shipping.STANDARD;
 		}
 		
-		//try{
+		try{
 			
 			Order proposedOrder = new Order(customer, basket, orderPrice, addr, shipping);
 			//boolean orderValid = OrderValidator.validate(proposedOrder);
@@ -103,15 +103,15 @@ public class Orders extends HttpServlet {
 				OrderDAO odao = new OrderDAO();
 				odao.addOrder(proposedOrder);
 				
-				//rd = request.getRequestDispatcher("/order_history.html");
+				rd = request.getRequestDispatcher("/order_history");
 			//} else{
 			//	rd = request.getRequestDispatcher("/orderInvalid");
 			//}
 			
 		
-		//} catch(Exception e){
+		} catch(Exception e){
 			rd = request.getRequestDispatcher("/basket");
-		//}
+		}
 		
 		
 		rd.forward(request, response);
