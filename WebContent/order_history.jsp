@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*"%>
+	pageEncoding="UTF-8"
+	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat"%>
 <!DOCTYPE html>
 <html>
 
@@ -29,48 +30,57 @@
 	rel='stylesheet'>
 </head>
 <body>
-<%@ include file="navbar.jsp"%>
-<%Customer currentCust = (Customer) session.getAttribute("signedInUser");%>
+	<%@ include file="navbar.jsp"%>
+	<%
+		Customer currentCust = (Customer) session.getAttribute("signedInUser");
+	%>
 	<div class="container col-sm-10 col-sm-offset-1">
 		<div class="page-header">
-			<h1 class="sky-text"><b><%=currentCust.getFirstName() %>'s Order History</b></h1>
+			<h1 class="sky-text">
+				<b><%=currentCust.getFirstName()%>'s Order History</b>
+			</h1>
 		</div>
 		<div class="text-right">
-		<button onclick="myFunction()">Print Order History</button>
+			<button onclick="myFunction()">Print Order History</button>
 
-		<script>
-			function myFunction() {
-				window.print();
-			}
-		</script>
+			<script>
+				function myFunction() {
+					window.print();
+				}
+			</script>
 		</div>
-		
-		<div><br /></div>
-		
-<% 
-if (session.getAttribute("auth") == null) {
-	%> <p>Please sign in to view your order history.</p><%
-}
-else {
 
-ArrayList<Order> fullHistory = (ArrayList<Order>) session.getAttribute("orderHistory");
-if (fullHistory == null) { %>
-<p>Your order history is empty.</p><%
-}
-else for (Order o : fullHistory) {
-	
-	%>	<div class="panel panel-default">
+		<div>
+			<br />
+		</div>
+
+		<%
+			if (session.getAttribute("auth") != null) {
+
+				DecimalFormat df = new DecimalFormat();
+				df.setMaximumFractionDigits(2);
+				df.setMinimumFractionDigits(2);
+				ArrayList<Order> fullHistory = (ArrayList<Order>) session.getAttribute("orderHistory");
+				if (fullHistory == null) {
+		%>
+		<p>Your order history is empty.</p>
+		<%
+			} 
+		else
+					for (Order o : fullHistory) {
+		%>
+		<div class="panel panel-default">
 			<div class="panel-heading col-sm-7 col-sm-offset-0">
 				<th><p>
-						<em>Order Number: <%=o.getOrderId() %></em>
+						<em>Order Number: <%=o.getOrderId()%></em>
 					</p>
 					<p>
-						<em>Order Date: <%=o.getOrderTime() %></em>
+						<em>Order Date: <%=o.getOrderTime()%></em>
 					</p></th>
 			</div>
 			<div class="panel-heading col-sm-5 col-sm-offset-0">
 				<th><p>
-						<em>Delivery Method: <%=String.valueOf(o.getShippingType()).toLowerCase() %></em>
+						<em>Delivery Method: <%=String.valueOf(o.getShippingType()).toLowerCase()%></em>
 					</p>
 					<p>
 						<em>Order Status: <%=String.valueOf(o.getStatus()).toLowerCase()%></em>
@@ -88,57 +98,69 @@ else for (Order o : fullHistory) {
 					</tr>
 				</thead>
 				<tbody>
-				<%List<OrderLine> orderLines = o.getOrderLines();
-				int lineNum = 1;
-				Double subtotal = 0.0;
-				Double shippingCost = 0.0;
-				for (OrderLine ol : orderLines) {%>
+					<%
+						List<OrderLine> orderLines = o.getOrderLines();
+									int lineNum = 1;
+									Double subtotal = 0.0;
+									Double shippingCost = 0.0;
+									for (OrderLine ol : orderLines) {
+					%>
 					<tr>
-						<td><%=lineNum %><%lineNum++;%></td>
-						<td><%=ol.getProduct().getProdName() %></td>
-						<td><%=ol.getQuantity() %></td>
-						<td><%=ol.getItemPrice() %></td>
+						<td><%=lineNum%>
+							<%
+								lineNum++;
+							%></td>
+						<td><%=ol.getProduct().getProdName()%></td>
+						<td><%=ol.getQuantity()%></td>
+						<td><%=ol.getItemPrice()%></td>
 					</tr>
-					<% subtotal = subtotal + ol.getOrderLinePrice();
-					} %>
-						<td></td>
-						<td></td>
-						<td><p>
-								<b>Sub total:</b>
-							</p>
-							<p>
-								<b>Delivery:</b>
-							</p>
-							<p>
-								<b>Total:</b>
-							</p></td>
-						<td><p>
-								<b>£<%=subtotal %></b>
-							</p>
-							<p>
-								<b>£
-								<% if (o.getShippingType() == Shipping.STANDARD) {
-									shippingCost = 1.00;								
-								%>1.00<% }
-									else if (o.getShippingType() == Shipping.NEXT_DAY) {
-									shippingCost = 5.00;										
-								%>5.00<% } %></b>
-							</p>
-							<p>
-								<b>£<%= subtotal + shippingCost %></b>
-							</p></td>
+					<%
+						subtotal = subtotal + ol.getOrderLinePrice();
+									}
+					%>
+					<td></td>
+					<td></td>
+					<td><p>
+							<b>Sub total:</b>
+						</p>
+						<p>
+							<b>Delivery:</b>
+						</p>
+						<p>
+							<b>Total:</b>
+						</p></td>
+					<td><p>
+							<b>£<%=df.format(subtotal)%></b>
+						</p>
+						<p>
+							<b>£ <%
+								if (o.getShippingType() == Shipping.STANDARD) {
+												shippingCost = 1.00;
+							%>1.00<%
+								} else if (o.getShippingType() == Shipping.NEXT_DAY) {
+												shippingCost = 5.00;
+							%>5.00<%
+								}
+							%></b>
+						</p>
+						<p>
+							<b>£<%=df.format(subtotal + shippingCost)%></b>
+						</p></td>
 					</tr>
 
 				</tbody>
 			</table>
 		</div>
-				
-<%} }%>
 
-
-
-
-
-
+		<%
+			}
+			}
+			else {
+				%>
+				<p>Please sign in to view your order history.</p>
+				<%
+					}
+		%>
+	
 </body>
 </html>
