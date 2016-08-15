@@ -103,7 +103,8 @@ public class SignIn extends HttpServlet {
 		rd = this.getServletContext().getRequestDispatcher("/index.html");
 		rd.forward(request, response);
 		} else if (wrongPass){
-			response.sendRedirect("/skymerch/sign-in");
+			rd = request.getRequestDispatcher("/sign-in");
+			rd.forward(request, response);
 		} else {
 			rd = this.getServletContext().getRequestDispatcher("/sign-up");
 			rd.forward(request, response);

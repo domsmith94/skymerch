@@ -53,7 +53,8 @@ public class Checkout extends HttpServlet {
 				
 				
 			} else {
-				response.sendRedirect("/skymerch/sign-in");
+				rd = request.getRequestDispatcher("/sign-in");
+				rd.forward(request, response);
 			}
 			
 		} catch (Exception e) {
