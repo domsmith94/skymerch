@@ -11,6 +11,11 @@
 	font-size: 1.5em;
 }
 
+.greentick {
+	color:green;
+}
+
+
 .nounderline {text-decoration: none !important}
 
 .sky-big-text {
