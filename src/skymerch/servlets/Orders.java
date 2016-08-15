@@ -101,7 +101,8 @@ public class Orders extends HttpServlet {
 			
 			//if (orderValid){
 				OrderDAO odao = new OrderDAO();
-				odao.addOrder(proposedOrder);
+				int orderId = odao.addOrder(proposedOrder);
+				session.setAttribute("orderId", orderId);
 				
 				rd = request.getRequestDispatcher("/order_history");
 			//} else{

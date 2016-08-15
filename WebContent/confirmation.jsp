@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import = "java.util.*,skymerch.entities.*,java.text.DecimalFormat" %>
+	pageEncoding="UTF-8"
+	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat"%>
 
 <!DOCTYPE html>
 <html>
@@ -44,13 +44,17 @@
 		            </div>
 
 		            <div></div>
+		            
+		            <% Order order = (Order) session.getAttribute("lastOrder");
+		               
+		            %>
 
 		            <div class="container col-sm-10 col-sm-offset-1">
 		                <div class= "text-center">
 		                <div class= "greentick">
 		                        <h1> <span class="glyphicon glyphicon-ok"></span></h1> 
 		                    </div>
-		                    <h3>Your Order Number is 202364</h3>
+		                    <h3>Your Order Number is <%=order.getOrderId()%></h3>
 		            <h4>Please check your email inbox shortly, a confirmation email is on the way.</h4>
 		                <div class="page-header">
 		                    <h3>Order Summary</h3>
@@ -70,24 +74,16 @@
 		                            </tr>
 		                        </thead>
 		                        <tbody>
+		                        	<% 	Double subtotal = 0.0;
+		                        		for (OrderLine n: order.getOrderLines()) {
+		                        			subtotal = subtotal + n.getOrderLinePrice();%>
 		                            <tr>
-		                                <td>Shrek Mug</td>
-		                                <td>£4.99</td>
-		                                <td>1</td>
-		                                <td>£4.99</td>
+		                                <td>n.getProduct().getProdName()</td>
+		                                <td>n.getProduct().getPrice()</td>
+		                                <td>n.getQuantity()</td>
+		                                <td>n.getOrderLinePrice()</td>
 		                            </tr>
-		                            <tr>
-		                                <td>Game of Thrones T-Shirt</td>
-		                                <td>£9.99</td>
-		                                <td>2</td>
-		                                <td>£19.98</td>
-		                            </tr>
-		                            <tr>
-		                                <td>Ghostbusters Top Trumps</td>
-		                                <td>£2.99</td>
-		                                <td>2</td>
-		                                <td>£5.99</td>
-		                            </tr>
+		                            <%} %>
 		                        <tr>
 		                        <td></td>
 		                        <td></td>
@@ -101,13 +97,21 @@
 		                                <b>Total</b>
 		                            </p></td>
 		                        <td><p>
-		                                <b>£20.97</b>
+		                                <b><%=subtotal%></b>
+		                            </p>
+		                         	<% 
+		                         		Double shippingCost;
+		                         		if (order.getShippingType().equals(Shipping.STANDARD)) {
+		                         			shippingCost = 3.99;
+		                         		} else {
+		                         			shippingCost = 5.99;
+		                         		
+		                         	} %>   
+		                            <p>
+		                                <b><%=shippingCost %></b>
 		                            </p>
 		                            <p>
-		                                <b>£1.00</b>
-		                            </p>
-		                            <p>
-		                                <b>£21.97</b>
+		                                <b>n.getTotalCost()</b>
 		                            </p></td>
 		                    </tr>
 		                        </tbody>

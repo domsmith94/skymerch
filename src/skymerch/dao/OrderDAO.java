@@ -152,7 +152,7 @@ public class OrderDAO {
 
 	
 	
-	public void addOrder(Order order){
+	public int addOrder(Order order){
 		try {
 			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
 			
@@ -193,6 +193,8 @@ public class OrderDAO {
 				orderId = rs.getInt(1);
 			}
 			
+			
+			
 			// add orderlines to database in a loop
 			List<OrderLine> orderLines = order.getOrderLines();
 			int length = orderLines.size();
@@ -202,8 +204,11 @@ public class OrderDAO {
 				addOrderLine(orderLines.get(i), orderId);
 			}
 			
+			return orderId;
+			
 		} catch(Exception e) {
 			e.printStackTrace();
+			return 0;
 		}
 	}
 	
@@ -258,6 +263,30 @@ public class OrderDAO {
 			 */
 		}
 		return orderHistory;
+		
+	}
+	
+	public Order getOrderById(int orderId){
+		Order order = null; 
+		
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE order_no = " + orderId + "");
+			
+			if (rs.next()){
+				order = this.processOrder(rs);
+			} else {
+				System.out.println("No order found in database with ID " + orderId);
+				
+			}
+			
+			return order;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return order;
+		}
 		
 	}
 }
