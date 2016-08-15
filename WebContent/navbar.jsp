@@ -42,9 +42,9 @@
 			if (!auth) {
 		%>
 
-		<li><a href="sign-up.jsp"><span
+		<li><a href="/sign-up"><span
 				class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		<li><a href="sign-in.jsp"><span
+		<li><a href="/sign-in"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 				
 				<li><a href="contact_us"><span
