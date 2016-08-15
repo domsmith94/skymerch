@@ -44,6 +44,22 @@
     border: none;
 }
 
+.navbar-brand {
+  padding: 0px; 
+}
+.navbar-brand>img {
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px; 
+  width: auto;
+}
+
+#searchbox {
+	margin-left: 20px;
+}
+
 	/*font-size: 4em;
 	display: inline-block;
     /* margin-left: 5%;
