@@ -17,7 +17,7 @@ import skymerch.entities.Product;
 /**
  * Servlet implementation class userAccountServlet
  */
-@WebServlet("user_account")
+@WebServlet("/user_account")
 public class userAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
