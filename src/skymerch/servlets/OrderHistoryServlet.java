@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.persistence.criteria.Order;
 import javax.servlet.RequestDispatcher;
@@ -48,8 +49,7 @@ public class OrderHistoryServlet extends HttpServlet {
 		session.setAttribute("signedInId", signedInId);
 		
 		OrderDAO odao = new OrderDAO();
-		ArrayList<skymerch.entities.Order> orderHist = odao.getOrderHistory(signedInId);
-		//ArrayList<skymerch.entities.Order> orderHist = odao.getOrderHistory(1000004);
+		SortedSet<skymerch.entities.Order> orderHist = (TreeSet<skymerch.entities.Order>) odao.getOrderHistory(signedInId);
 		session.setAttribute("orderHistory", orderHist);
 				
 		rd = this.getServletContext().getRequestDispatcher("/order_history.jsp");

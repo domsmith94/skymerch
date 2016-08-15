@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import skymerch.entities.*;
 import skymerch.entities.Order;
@@ -236,14 +238,14 @@ public class OrderDAO {
 		}
 	}
 	
-	public ArrayList<Order> getOrderHistory(int custId) {
-		ArrayList<Order> orderHistory = null; 
+	public SortedSet<Order> getOrderHistory(int custId) {
+		SortedSet<Order> orderHistory = null; 
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE customer_id = " + custId + "");
 			while (rs.next()) {
-				if (orderHistory == null) { orderHistory = new ArrayList<>(); }
+				if (orderHistory == null) { orderHistory = new TreeSet<>(); }
 				Order o = this.processOrder(rs);
 				orderHistory.add(o);				
 			} 

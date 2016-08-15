@@ -31,7 +31,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-	<%
+	<%	
 		Customer currentCust = (Customer) session.getAttribute("signedInUser");
 	%>
 	<div class="container col-sm-10 col-sm-offset-1">
@@ -55,12 +55,12 @@
 		</div>
 
 		<%
-			if (session.getAttribute("auth") != null) {
+			if (auth) {
 
 				DecimalFormat df = new DecimalFormat();
 				df.setMaximumFractionDigits(2);
 				df.setMinimumFractionDigits(2);
-				ArrayList<Order> fullHistory = (ArrayList<Order>) session.getAttribute("orderHistory");
+				TreeSet<Order> fullHistory = (TreeSet<Order>) session.getAttribute("orderHistory");
 				if (fullHistory == null) {
 		%>
 		<p>Your order history is empty.</p>
@@ -69,6 +69,7 @@
 		else
 					for (Order o : fullHistory) {
 		%>
+		if (o.getStatus() == Category.DELIVERED) {
 		<div class="panel panel-default">
 			<div class="panel-heading col-sm-7 col-sm-offset-0">
 				<th><p>
@@ -135,10 +136,10 @@
 						<p>
 							<b>£ <%
 								if (o.getShippingType() == Shipping.STANDARD) {
-												shippingCost = 1.00;
+												shippingCost = 3.99;
 							%>1.00<%
 								} else if (o.getShippingType() == Shipping.NEXT_DAY) {
-												shippingCost = 5.00;
+												shippingCost = 5.99;
 							%>5.00<%
 								}
 							%></b>

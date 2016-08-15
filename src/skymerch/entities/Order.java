@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 import skymerch.enums.*;
 
-public class Order {
+public class Order implements Comparable<Order>{
 	
 	private int orderId;
 	//private Customer orderedBy;
@@ -86,13 +86,13 @@ public class Order {
 	public void setDeliveryAddress(Address deliveryAddress) { this.deliveryAddress = deliveryAddress; }
 	
 	// the method should implement the Comparator interface meaning orders can be compared listing by date placed 
-	/*@Override
-	public int compare(Order o1, Order o2) {
-		if (o1.getOrderId() > o2.getOrderId()) {return 1;}
-		else if (o1.getOrderId() < o2.getOrderId()) {return -1;}
+	@Override
+	public int compareTo(Order o) {
+		if (this.getOrderId() > o.getOrderId()) {return -1;}
+		else if (this.getOrderId() < o.getOrderId()) {return 1;}
 		else {return 0;}
 	}
-	*/
+	
 	
 	
 	
