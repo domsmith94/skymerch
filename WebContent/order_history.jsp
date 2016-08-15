@@ -61,15 +61,36 @@
 				df.setMaximumFractionDigits(2);
 				df.setMinimumFractionDigits(2);
 				TreeSet<Order> fullHistory = (TreeSet<Order>) session.getAttribute("orderHistory");
-				if (fullHistory == null) {
+				TreeSet<Order> openOrders = new TreeSet<Order>();
+				TreeSet<Order> completedOrders = new TreeSet<Order>();
+				if (fullHistory == null) 
+				{
 		%>
 		<p>Your order history is empty.</p>
 		<%
 			} 
-		else
-					for (Order o : fullHistory) {
+		else {
+			for (Order n : fullHistory) {
+			if (n.getStatus() != Status.DELIVERED) {
+				openOrders.add(n);				
+			}
+			else {
+				completedOrders.add(n);
+			} 
+			}
+			
+			
+		
+					%>
+			<div class="page-header">
+			<h3 class="sky-text">Open Orders</h3>
+		</div> 
+		<% if (openOrders.isEmpty()) {
+			%><p>There are no orders to display.</p><%
+		}
+		else {
+			for (Order o : openOrders) {
 		%>
-		if (o.getStatus() == Category.DELIVERED) {
 		<div class="panel panel-default">
 			<div class="panel-heading col-sm-7 col-sm-offset-0">
 				<th><p>
@@ -81,10 +102,10 @@
 			</div>
 			<div class="panel-heading col-sm-5 col-sm-offset-0">
 				<th><p>
-						<em>Delivery Method: <%=String.valueOf(o.getShippingType()).toLowerCase()%></em>
+						<em>Delivery Method: <%=String.valueOf(o.getShippingType())%></em>
 					</p>
 					<p>
-						<em>Order Status: <%=String.valueOf(o.getStatus()).toLowerCase()%></em>
+						<em>Order Status: <%=String.valueOf(o.getStatus())%></em>
 					</p></th>
 			</div>
 
@@ -92,6 +113,7 @@
 				<thead>
 
 					<tr>
+						<th>#</th>
 						<th>Product ID</th>
 						<th>Product Name</th>
 						<th>Quantity</th>
@@ -102,8 +124,6 @@
 					<%
 						List<OrderLine> orderLines = o.getOrderLines();
 									int lineNum = 1;
-									Double subtotal = 0.0;
-									Double shippingCost = 0.0;
 									for (OrderLine ol : orderLines) {
 					%>
 					<tr>
@@ -111,14 +131,15 @@
 							<%
 								lineNum++;
 							%></td>
+						<td><%=ol.getProduct().getProdId()%>
 						<td><%=ol.getProduct().getProdName()%></td>
 						<td><%=ol.getQuantity()%></td>
 						<td><%=ol.getItemPrice()%></td>
 					</tr>
 					<%
-						subtotal = subtotal + ol.getOrderLinePrice();
-									}
+						}
 					%>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td><p>
@@ -131,37 +152,139 @@
 							<b>Total:</b>
 						</p></td>
 					<td><p>
+					<%
+					double shippingCost = 0.0;
+					if  (o.getShippingType() == Shipping.STANDARD) {
+						shippingCost = 3.99;
+					} else if (o.getShippingType() == Shipping.NEXT_DAY) {
+						shippingCost = 5.99;
+					}
+					double subtotal = o.getTotalCost() - shippingCost; %>
 							<b>£<%=df.format(subtotal)%></b>
 						</p>
 						<p>
-							<b>£ <%
-								if (o.getShippingType() == Shipping.STANDARD) {
-												shippingCost = 3.99;
-							%>1.00<%
-								} else if (o.getShippingType() == Shipping.NEXT_DAY) {
-												shippingCost = 5.99;
-							%>5.00<%
-								}
-							%></b>
+							<b>£<%=df.format(shippingCost)%></b>
 						</p>
 						<p>
-							<b>£<%=df.format(subtotal + shippingCost)%></b>
+							<b>£<%=df.format(o.getTotalCost())%></b>
 						</p></td>
 					</tr>
 
 				</tbody>
 			</table>
 		</div>
+		
 
-		<%
-			}
+		<%					}
+						}		
+					}
+				%>
+
+				<div class="page-header">
+				<h3 class="sky-text">Completed Orders</h3>
+			</div> 
+			
+			
+			
+			<% if (completedOrders.isEmpty()) {
+				%><p>There are no orders to display.</p><%
 			}
 			else {
-				%>
-				<p>Please sign in to view your order history.</p>
-				<%
-					}
+				for (Order c : completedOrders) {
+					%>
+					<div class="panel panel-default">
+						<div class="panel-heading col-sm-7 col-sm-offset-0">
+							<th><p>
+									<em>Order Number: <%=c.getOrderId()%></em>
+								</p>
+								<p>
+									<em>Order Date: <%=c.getOrderTime()%></em>
+								</p></th>
+						</div>
+						<div class="panel-heading col-sm-5 col-sm-offset-0">
+							<th><p>
+									<em>Delivery Method: <%=String.valueOf(c.getShippingType())%></em>
+								</p>
+								<p>
+									<em>Order Status: <%=String.valueOf(c.getStatus())%></em>
+								</p></th>
+						</div>
+
+						<table class="table table-hover">
+							<thead>
+
+								<tr>
+									<th>#</th>
+									<th>Product ID</th>
+									<th>Product Name</th>
+									<th>Quantity</th>
+									<th>Unit Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%
+									List<OrderLine> orderLines = c.getOrderLines();
+												int lineNum = 1;
+												for (OrderLine ol : orderLines) {
+								%>
+								<tr>
+									<td><%=lineNum%>
+										<%
+											lineNum++;
+										%></td>
+									<td><%=ol.getProduct().getProdId()%>
+									<td><%=ol.getProduct().getProdName()%></td>
+									<td><%=ol.getQuantity()%></td>
+									<td><%=ol.getItemPrice()%></td>
+								</tr>
+								<%
+									}
+								%>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><p>
+										<b>Sub total:</b>
+									</p>
+									<p>
+										<b>Delivery:</b>
+									</p>
+									<p>
+										<b>Total:</b>
+									</p></td>
+								<td><p>
+								<%
+								double shippingCost = 0.0;
+								if  (c.getShippingType() == Shipping.STANDARD) {
+									shippingCost = 3.99;
+								} else if (c.getShippingType() == Shipping.NEXT_DAY) {
+									shippingCost = 5.99;
+								}
+								double subtotal = c.getTotalCost() - shippingCost; %>
+										<b>£<%=df.format(subtotal)%></b>
+									</p>
+									<p>
+										<b>£<%=df.format(shippingCost)%></b>
+									</p>
+									<p>
+										<b>£<%=df.format(c.getTotalCost())%></b>
+									</p></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+			<%
+			}
+			
+			}
+			}
 		%>
-	
+		
+		
+		
+		
+		
+</div>
 </body>
 </html>
