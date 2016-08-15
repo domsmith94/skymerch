@@ -199,7 +199,7 @@ public class ProductDAO {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_id = " + prodId + "");
 			if (rs.next()){
 				p = this.processResult(rs);
-				}
+			}
 			else{
 				System.out.println("No product found in database with ID " + prodId);
 				}

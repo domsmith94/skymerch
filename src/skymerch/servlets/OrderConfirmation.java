@@ -16,7 +16,7 @@ import skymerch.entities.Order;
 /**
  * Servlet implementation class OrderConfirmation
  */
-@WebServlet("/OrderConfirmation")
+@WebServlet("/confirmation")
 public class OrderConfirmation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,12 +36,14 @@ public class OrderConfirmation extends HttpServlet {
 		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
+		
 		int orderId = (int) session.getAttribute("orderId");
+		System.out.println("hello");
 		OrderDAO odao = new OrderDAO();
 		Order lastOrder = odao.getOrderById(orderId);
 		session.setAttribute("lastOrder", lastOrder);
 		
-		rd = this.getServletContext().getRequestDispatcher("confirmation.jsp");
+		rd = this.getServletContext().getRequestDispatcher("/confirmation.jsp");
 		rd.forward(request, response);
 		
 	}
