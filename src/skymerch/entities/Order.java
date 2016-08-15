@@ -31,10 +31,22 @@ public class Order implements Comparable<Order>{
 		this.deliveryAddress = deliveryAddress;
 		this.orderTime = java.time.LocalDateTime.now();
 		
+		Double realTotalCost = 0.0;
+		
 		for(BasketLine b:basket.getBasketLines()){
 			OrderLine ol = new OrderLine(b.getProduct(), b.getQuantity());
+			realTotalCost = realTotalCost + b.getProduct().getPrice();
 			orderLines.add(ol);
 		}
+		
+		if (shippingType.equals(Shipping.STANDARD)) {
+			realTotalCost = totalCost + 3.99;
+		} else if (shippingType.equals(Shipping.NEXT_DAY)) {
+			realTotalCost = totalCost + 5.99;
+		}
+		
+		this.totalCost = realTotalCost;
+		
 		this.orderLines = orderLines;
 	}
 	public int getOrderId() { return orderId; }
