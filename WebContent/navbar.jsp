@@ -50,9 +50,9 @@
 				%>
 
 
-		<li><a href="/sign-up"><span
+		<li><a href="sign-up"><span
 				class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		<li><a href="/sign-in"><span
+		<li><a href="sign-in"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 				
 
