@@ -41,7 +41,7 @@
 			<div class="row big-top-buffer">
 				<div class="container sky-font">
 					<div class="col-md-12">
-						<form method="POST" action="/skymerch/sign-up"
+						<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/sign-up"
 							class="form-horizontal" role="form" id="signUpForm">
 							<div class="col-md-6">
 								<div class="form-group">

@@ -55,7 +55,7 @@
 	%>
 
 		<div class="container col-sm-10 col-sm-offset-1">
-		<form method="post" action="/skymerch/validateOrder" class="form-horizontal" role="form">
+		<form method="post" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/validateOrder" class="form-horizontal" role="form">
 			<div class="page-header">
 				<h1 class="sky-text">
 					<b>Checkout</b>

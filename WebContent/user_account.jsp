@@ -40,7 +40,7 @@
 <p><%=address.getTownOrCity()%></p>
 <p><%=address.getPostcode()%></p>
 
-<form action="/skymerch/order_history">
+<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/order_history">
 				<p align="center">
 				<button id="btnSubmit" type="submit" class="btn btn-default">View Order History</button>
 					</p>

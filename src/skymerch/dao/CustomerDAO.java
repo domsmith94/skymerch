@@ -22,21 +22,49 @@ public class CustomerDAO {
 
 	private Connection getConnection() {
 		Connection con = null;
+		String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
+		String DB_USERNAME = "root";
+		String DB_PASSWORD = "root";
+		
+		try{
 
-		try {
-			// create a driver class
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection(this.DB_LOCATION, this.DB_USERNAME, this.DB_PASSWORD);
-
-			// TO DO: We should move this out to another class so if we want to change database we only
-			// have to change it once in the code base. 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+			String dbName = System.getenv("RDS_DB_NAME");
+			  //String dbName = "skymerch_db";
+		      String userName = System.getenv("RDS_USERNAME");
+		      String password = System.getenv("RDS_PASSWORD");
+		      String hostname = System.getenv("RDS_HOSTNAME");
+		      String port = System.getenv("RDS_PORT");
+		      String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
+		      
+		      Class.forName("com.mysql.jdbc.Driver");
+		      
+		      con = DriverManager.getConnection(jdbcUrl);
+		      	
+			//}
+			
+	      } catch (Exception e){
+	    	  //e.printStackTrace();
+	    	// create a driver class
+				try {
+					Class.forName("com.mysql.jdbc.Driver").newInstance();
+					con = DriverManager.getConnection(DB_LOCATION, DB_USERNAME, DB_PASSWORD);
+					
+				} catch (InstantiationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IllegalAccessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
 		return con;
-
-	}
+	      }
 
 
 	private Customer processResult(ResultSet rs) throws SQLException{

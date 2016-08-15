@@ -53,5 +53,7 @@ public class OrderBasketTest {
 	System.out.println(OrderValidator.validate(testOrder));
 	
 	odao.addOrder(testOrder);
+	
+	System.out.println("hi" + null);
 	}
 }

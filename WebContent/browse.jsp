@@ -32,7 +32,7 @@
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
 		<div class="col-md-2">
-			<form method="POST" action="/skymerch/filtered_results">
+			<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
 				<h3>Filters</h3>
 				<div class="col-xs-12">
 					<h4>Category</h4>
@@ -94,7 +94,7 @@
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
-			<form action="/skymerch/browse">
+			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
 				<p align="center">
 				<br />
 				<br />

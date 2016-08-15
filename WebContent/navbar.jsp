@@ -66,7 +66,7 @@
 						class="glyphicon glyphicon-user"></span> <%=name%></a></li>
 
 				<li>
-					<form method="POST" action="/skymerch/sign-out"
+					<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/sign-out"
 						class="form-horizontal" role="form">
 						<!-- <input type="hidden" name="action" value="logout"> -->
 						<button class="btn btn-link navbar-btn nounderline" type="submit">
@@ -80,7 +80,7 @@
 				%>
 				<li>
 					<form class="small-top-buffer small-right-buffer" method="POST"
-						action="/skymerch/search_results">
+						action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/search_results">
 						<input type="text" name="searchString" placeholder="Search..." id="searchbox">
 						<input type="submit" value="Go">
 					</form>

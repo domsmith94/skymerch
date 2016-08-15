@@ -59,7 +59,7 @@
 	<div class="row">
 		<div class="container sky-font">
 			<div class="col-sm-6 col-sm-offset-3">
-				<form method="POST" action="/skymerch/sign-in"
+				<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/sign-in"
 					class="form-horizontal" role="form">
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="email">Email</label>

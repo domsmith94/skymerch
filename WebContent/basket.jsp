@@ -63,7 +63,7 @@
 
 
 </form> --%>
-<form method="post" action="/skymerch/updateBasket" class="form-horizontal" role="form">
+<form method="post" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/updateBasket" class="form-horizontal" role="form">
 <div class="container">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-6">
@@ -128,7 +128,7 @@
                 </div>
                 <div class="text-right">
                     <div class="huge-top-buffer">
-                        <a href="/skymerch/checkout" type="button" class="btn btn-info">
+                        <a href="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/checkout" type="button" class="btn btn-info">
                             <h4>Checkout</h4></a>
                     </div>
                 </div>

@@ -65,7 +65,7 @@ Product product = (Product)session.getAttribute("product");
                                            <% } else  { %> stock error <% } %>
                                     </div>  
                                 </div>
-                    <form name="productsOrdered" method="POST" action="/skymerch/addToBasket">
+                    <form name="productsOrdered" method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/addToBasket">
                     <input type="hidden" name="id" value="<%= productId %>">
                         <div class="row top-buffer">
                             <div class="col-md-6 col-md-offset-3">
