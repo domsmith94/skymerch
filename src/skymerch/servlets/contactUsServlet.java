@@ -1,6 +1,7 @@
 package skymerch.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,17 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import skymerch.dao.ProductDAO;
+import skymerch.entities.Product;
+
 /**
- * Servlet implementation class Home
+ * Servlet implementation class userAccountServlet
  */
-@WebServlet({"/index.html","/home"})
-public class Home extends HttpServlet {
+@WebServlet("/contact_us")
+public class contactUsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public contactUsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +33,10 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher rd = null;
-		String urlPattern = request.getServletPath();
-		HttpSession session = request.getSession();
-		
-		System.out.println("Received GET request on /sign-in route");
-		System.out.println("Serving static sign-in.html page to user");
-		rd = this.getServletContext().getRequestDispatcher("/Home.jsp");
-		
-		rd.forward(request, response);
+		rd = this.getServletContext().getRequestDispatcher("/contact_us.jsp");
+		rd.forward(request, response);	
 	}
 
 	/**

@@ -47,7 +47,7 @@
 		<li><a href="sign-in.jsp"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
 				
-				<li><a href="contact_us.html"><span
+				<li><a href="contact_us"><span
 				class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
 
 		<%
