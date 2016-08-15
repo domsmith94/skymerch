@@ -165,7 +165,7 @@ public class CustomerDAO {
 		return null;
 	}
 
-	public void addCustomer(Customer customer){
+	public int addCustomer(Customer customer){
 		try {
 			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
 			
@@ -180,7 +180,7 @@ public class CustomerDAO {
 					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			// generate a prepared statement using sql string
-			PreparedStatement stmt = con.prepareStatement(sql);
+			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			Address addr = customer.getAddress();
 
 			// assign required String data to each slot in the prepared statement (each '?')
@@ -198,7 +198,11 @@ public class CustomerDAO {
 			// execute the prepared statement (run in SQL)
 			stmt.execute();
 			
-			// TO DO - extract auto-generated customer ID from db
+			// get customerId
+			ResultSet rs = stmt.getGeneratedKeys();
+			rs.next();
+			return rs.getInt(1);
+
 
 
 		} catch(Exception e){
@@ -208,7 +212,7 @@ public class CustomerDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy at a later date
 			 */
-
+			return 0;
 		}
 	}
 	
