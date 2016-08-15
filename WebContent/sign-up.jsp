@@ -38,115 +38,117 @@
 			<div class="text-center">
 				<h1 class="sky-big-text">Sign Up</h1>
 			</div>
-			<div class="row">
+			<div class="row big-top-buffer">
 				<div class="container sky-font">
-					<div class="col-sm-6 col-sm-offset-3">
+					<div class="col-md-12">
 						<form method="POST" action="/skymerch/sign-up"
-							class="form-horizontal" role="form">
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="title">Title</label>
-								<div class="col-sm-8">
-									<select class="form-control" name="title" id="title">
-										<option>Please Select..</option>
-										<option>Mr</option>
-										<option>Miss</option>
-										<option>Ms</option>
-										<option>Mrs</option>
-									</select>
+							class="form-horizontal" role="form" id="signUpForm">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="title">Title</label>
+									<div class="col-sm-8">
+										<select class="form-control" name="title" id="title">
+											<option>Please Select..</option>
+											<option>Mr</option>
+											<option>Miss</option>
+											<option>Ms</option>
+											<option>Mrs</option>
+										</select>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="firstName">First
-									Name </label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="firstName"
-										id="firstName">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="firstName">First
+										Name </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="firstName"
+											id="firstName">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="lastName">Last
-									Name </label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="lastName"
-										id="lastName">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="lastName">Last
+										Name </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" name="lastName"
+											id="lastName">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="email">Email</label>
-								<div class="col-sm-8">
-									<input type="email" class="form-control" name="email"
-										id="email">
-									<!-- Name for email added -->
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="email">Email</label>
+									<div class="col-sm-8">
+										<input type="email" class="form-control" name="email"
+											id="email">
+										<!-- Name for email added -->
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="password">Password</label>
-								<div class="col-sm-8">
-									<input type="password" class="form-control" name="password"
-										id="password">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="password">Password</label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control" name="password"
+											id="password">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="confirmPassword">Confirm
-									password </label>
-								<div class="col-sm-8">
-									<input type="password" class="form-control"
-										name="confirmPassword" id="confirmPassword">
+								<div class="form-group">
+									<label class="control-label col-sm-4" for="confirmPassword">Confirm
+										password </label>
+									<div class="col-sm-8">
+										<input type="password" class="form-control"
+											name="confirmPassword" id="confirmPassword">
+									</div>
 								</div>
 							</div>
 							<!-- Repeat - to be changed -->
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="houseNum">House
-									Number or Name </label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="houseNum"
-										id="houseNum">
+							<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label col-sm-4" for="houseNum">House Name/Number
+											</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="houseNum"
+												id="houseNum">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4" for="firstAddr">Address Line One </label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="firstAddr"
+												id="firstAddr">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4" for="secondAddr">Address Line Two</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="secondAddr"
+												id="secondAddr">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4" for="townCity">Town
+											or City</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="townCity"
+												id="townCity">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4" for="postcode">Postcode</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="postcode"
+												id="postcode">
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="firstAddr">First
-									Line of Address </label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="firstAddr"
-										id="firstAddr">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="secondAddr">Second
-									Line of Address</label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="secondAddr"
-										id="secondAddr">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="townCity">Town
-									or City</label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="townCity"
-										id="townCity">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-sm-4" for="postcode">Postcode</label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" name="postcode"
-										id="postcode">
-								</div>
-							</div>
 							<!-- Submit button -->
-							<div class="row text-center">
-								<div class="form-group">
-									<button id="btnSubmit" type="submit" class="btn btn-default">Sign
-										Up</button>
+							<div class="col-md-12 top-buffer">
+								<div class="row text-center">
+									<div class="form-group text-center">
+										<button id="btnSubmit" type="submit" class="btn btn-default">Sign
+											Up</button>
+									</div>
+									<div class="link">
+						<a href="sign-in.html">Already got an account?</a>
+									</div>
 								</div>
 							</div>
 						</form>
-					</div>
-				</div>
-				<div class="row text-center">
-					<div class="link">
-						<a href="sign-in.html">Already got an account?</a>
 					</div>
 				</div>
 			</div>
