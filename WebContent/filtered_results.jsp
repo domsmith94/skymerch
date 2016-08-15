@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -73,39 +73,39 @@
 						<label> <% String priceRange = request.getParameter("optradio");
                         if (priceRange == null){ priceRange = "noValue";}%>
 							<input type="radio" name="optradio" value="0-5"
-							<%if(priceRange.equals("0-5")){%> checked="checked" <%} %>>£0-
-							£5
+							<%if(priceRange.equals("0-5")){%> checked="checked" <%} %>>Â£0-
+							Â£5
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="5-10"
-							<%if(priceRange.equals("5-10")){%> checked="checked" <%} %>>£5-
-							£10
+							<%if(priceRange.equals("5-10")){%> checked="checked" <%} %>>Â£5-
+							Â£10
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="10-20"
-							<%if(priceRange.equals("10-20")){%> checked="checked" <%} %>>£10-
-							£20
+							<%if(priceRange.equals("10-20")){%> checked="checked" <%} %>>Â£10-
+							Â£20
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="20-30"
-							<%if(priceRange.equals("20-30")){%> checked="checked" <%} %>>£20-
-							£30
+							<%if(priceRange.equals("20-30")){%> checked="checked" <%} %>>Â£20-
+							Â£30
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="30-40"
-							<%if(priceRange.equals("30-40")){%> checked="checked" <%} %>>£30-
-							£50
+							<%if(priceRange.equals("30-40")){%> checked="checked" <%} %>>Â£30-
+							Â£50
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio"
 							value="50-10000000000"
 							<%if(priceRange.equals("50-10000000000")){%> checked="checked"
-							<%} %>>£50+
+							<%} %>>Â£50+
 						</label>
 					</div>
 				</div>
@@ -148,7 +148,7 @@ else {
 							<h3>
 								<a href="product?id=<%= p.getProdId() %>"><%= p.getProdName() %></a>
 							</h3>
-							<h4><%= "£" + p.getPrice() %></h4>
+							<h4><%= "Â£" + p.getPrice() %></h4>
 
 						</div>
 					</div>

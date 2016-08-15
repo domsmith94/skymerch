@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*,skymerch.entities.*"%>
+	pageEncoding="UTF-8" import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*"%>
 <!DOCTYPE html>
 <html>
 
@@ -30,12 +30,112 @@
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
-<% Customer currentCust = (Customer) session.getAttribute("signedInUser");
-int signedInId = currentCust.getCustId();
-System.out.println(currentCust.getFirstName() + " " + signedInId);
-session.setAttribute("signedInId", signedInId);
-%><p>Customer is <%=currentCust.getFirstName() %></p><%
-%>
+<%Customer currentCust = (Customer) session.getAttribute("signedInUser");%>
+	<div class="container col-sm-10 col-sm-offset-1">
+		<div class="page-header">
+			<h1 class="sky-text"><b><%=currentCust.getFirstName() %>'s Order History</b></h1>
+		</div>
+		<div class="text-right">
+		<button onclick="myFunction()">Print Order History</button>
+
+		<script>
+			function myFunction() {
+				window.print();
+			}
+		</script>
+		</div>
+		
+		<div><br /></div>
+		
+<% 
+if (session.getAttribute("auth") == null) {
+	%> <p>Please sign in to view your order history.</p><%
+}
+else {
+
+ArrayList<Order> fullHistory = (ArrayList<Order>) session.getAttribute("orderHistory");
+if (fullHistory == null) { %>
+<p>Your order history is empty.</p><%
+}
+else for (Order o : fullHistory) {
+	
+	%>	<div class="panel panel-default">
+			<div class="panel-heading col-sm-7 col-sm-offset-0">
+				<th><p>
+						<em>Order Number: <%=o.getOrderId() %></em>
+					</p>
+					<p>
+						<em>Order Date: <%=o.getOrderTime() %></em>
+					</p></th>
+			</div>
+			<div class="panel-heading col-sm-5 col-sm-offset-0">
+				<th><p>
+						<em>Delivery Method: <%=String.valueOf(o.getShippingType()).toLowerCase() %></em>
+					</p>
+					<p>
+						<em>Order Status: <%=String.valueOf(o.getStatus()).toLowerCase()%></em>
+					</p></th>
+			</div>
+
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
+						<th>Product ID</th>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%List<OrderLine> orderLines = o.getOrderLines();
+				int lineNum = 1;
+				Double subtotal = 0.0;
+				Double shippingCost = 0.0;
+				for (OrderLine ol : orderLines) {%>
+					<tr>
+						<td><%=lineNum %><%lineNum++;%></td>
+						<td><%=ol.getProduct().getProdName() %></td>
+						<td><%=ol.getQuantity() %></td>
+						<td><%=ol.getItemPrice() %></td>
+					</tr>
+					<% subtotal = subtotal + ol.getOrderLinePrice();
+					} %>
+						<td></td>
+						<td></td>
+						<td><p>
+								<b>Sub total:</b>
+							</p>
+							<p>
+								<b>Delivery:</b>
+							</p>
+							<p>
+								<b>Total:</b>
+							</p></td>
+						<td><p>
+								<b>£<%=subtotal %></b>
+							</p>
+							<p>
+								<b>£
+								<% if (o.getShippingType() == Shipping.STANDARD) {
+									shippingCost = 1.00;								
+								%>1.00<% }
+									else if (o.getShippingType() == Shipping.NEXT_DAY) {
+									shippingCost = 5.00;										
+								%>5.00<% } %></b>
+							</p>
+							<p>
+								<b>£<%= subtotal + shippingCost %></b>
+							</p></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+				
+<%} }%>
+
+
 
 
 

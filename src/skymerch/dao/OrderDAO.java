@@ -1,6 +1,7 @@
 package skymerch.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skymerch.entities.*;
+import skymerch.entities.Order;
 import skymerch.enums.Shipping;
 import skymerch.enums.Status;
 
@@ -143,7 +145,7 @@ public class OrderDAO {
 			 *TO DO: work on exception strategy
 			 */
 		}
-		return null;
+		return null; 
 	}
 
 	
@@ -232,5 +234,28 @@ public class OrderDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<Order> getOrderHistory(int custId) {
+		ArrayList<Order> orderHistory = null; 
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE customer_id = " + custId + "");
+			while (rs.next()) {
+				if (orderHistory == null) { orderHistory = new ArrayList<>(); }
+				Order o = this.processOrder(rs);
+				orderHistory.add(o);				
+			} 
+			} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+		}
+		return orderHistory;
+		
 	}
 }

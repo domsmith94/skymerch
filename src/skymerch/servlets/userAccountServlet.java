@@ -1,12 +1,8 @@
 package skymerch.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-
-import javax.persistence.criteria.Order;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,22 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import skymerch.dao.OrderDAO;
 import skymerch.dao.ProductDAO;
-import skymerch.entities.Customer;
 import skymerch.entities.Product;
 
 /**
- * Servlet implementation class OrderHistoryServlet
+ * Servlet implementation class userAccountServlet
  */
-@WebServlet("/order_history")
-public class OrderHistoryServlet extends HttpServlet {
+@WebServlet("user_account")
+public class userAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderHistoryServlet() {
+    public userAccountServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +33,10 @@ public class OrderHistoryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher rd = null;
-		HttpSession session = request.getSession();
-		
-		Customer currentCust = (Customer) session.getAttribute("signedInUser");
-		int signedInId = currentCust.getCustId();
-		System.out.println(currentCust.getFirstName() + " " + signedInId);
-		session.setAttribute("signedInId", signedInId);
-		
-		OrderDAO odao = new OrderDAO();
-		ArrayList<skymerch.entities.Order> orderHist = odao.getOrderHistory(signedInId);
-		//ArrayList<skymerch.entities.Order> orderHist = odao.getOrderHistory(1000004);
-		session.setAttribute("orderHistory", orderHist);
-				
-		rd = this.getServletContext().getRequestDispatcher("/order_history.jsp");
-		rd.forward(request, response);		
-		
-		
+		rd = this.getServletContext().getRequestDispatcher("/user_account.jsp");
+		rd.forward(request, response);	
 	}
 
 	/**

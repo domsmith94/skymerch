@@ -95,9 +95,12 @@
 				</div>
 			</form>
 			<form action="/skymerch/browse">
+				<p align="center">
+				<br />
 				<br />
 				<button id="btnSubmit" type="submit" class="btn btn-default">Clear
 					All</button>
+					</p>
 			</form>
 		</div>
 

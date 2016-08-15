@@ -1,6 +1,7 @@
 package skymerch.entities;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import skymerch.enums.*;
@@ -83,6 +84,15 @@ public class Order {
 	public Address getDeliveryAddress() { return deliveryAddress; }
 
 	public void setDeliveryAddress(Address deliveryAddress) { this.deliveryAddress = deliveryAddress; }
+	
+	// the method should implement the Comparator interface meaning orders can be compared listing by date placed 
+	/*@Override
+	public int compare(Order o1, Order o2) {
+		if (o1.getOrderId() > o2.getOrderId()) {return 1;}
+		else if (o1.getOrderId() < o2.getOrderId()) {return -1;}
+		else {return 0;}
+	}
+	*/
 	
 	
 	

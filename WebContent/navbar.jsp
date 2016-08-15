@@ -23,8 +23,8 @@
 	<div class="navbar-header"></div>
 	<ul class="nav navbar-nav">
 		<li><a href="home">Home</a></li>
-		<li><a href="browse.jsp">Browse</a></li>
-		<li><a href="orders">Orders</a></li>
+		<li><a href="browse">Browse</a></li>
+		<li><a href="order_history">Orders</a></li>
 		
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
@@ -53,7 +53,7 @@
 		<%
 			} else {
 		%>
-		<li><a href=#><span class="glyphicon glyphicon-user"></span>
+		<li><a href="user_account"><span class="glyphicon glyphicon-user"></span>
 				<%=name%></a></li>
 
 		<li>
