@@ -99,7 +99,7 @@
                                 <tbody>
                                 <% for (BasketLine bl: linesInBasket){  %>
                                     <tr>
-                                        <td><img src="images/product/product3.jpeg" alt="<%= bl.getProduct().getProdName() %> Picture"></td>
+                                        <td><img src="images/product/product<%= bl.getProduct().getProdId() %>.jpeg" alt="<%= bl.getProduct().getProdName() %> Picture"></td>
                                         <td><a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> </td>
                                         <td class="text-center">£<%= bl.getProduct().getPrice() %></td>
                                         <td class="text-center">

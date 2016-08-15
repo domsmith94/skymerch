@@ -123,7 +123,7 @@ else {
 				<div class="col-md-3">
 					<div class="thumbnail">
 						<a href="product?id=<%= p.getProdId() %>"> <img
-							src="images/product/product10.jpeg" alt="...">
+							src="images/product/product<%= p.getProdId() %>.jpeg" alt="...">
 						</a>
 						<div class="caption">
 							<h3>

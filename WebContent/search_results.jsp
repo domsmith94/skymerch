@@ -50,7 +50,7 @@
 				<div class="media bottom top-buffer">
 					<div class="media-left media-top">
 						<a href="product?id=<%= p.getProdId()%>"> <img class="media-object img-thumbnail"
-							src="images/product/product3.jpeg" alt="..."
+							src="images/product/product<%= p.getProdId() %>.jpeg" alt="..."
 							style="width: 128px; height: 128px;" border: 2pxsolidblack"">
 						</a>
 					</div>

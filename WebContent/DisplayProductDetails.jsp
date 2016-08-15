@@ -38,7 +38,7 @@ Product product = (Product)session.getAttribute("product");
                
                     <div class="col-md-12">
                         <div class="thumbnail">
-                            <img src="images/placeholder.jpg" alt="Shrek Mug Picture">
+                            <img src="images/product/product<%= productId %>.jpeg" alt="<%= product.getProdName() %> Picture">
                             <div class="caption">
                                 <p> <%= product.getProdDesc() %></p>
                             </div>
