@@ -15,7 +15,9 @@
 	color:green;
 }
 
-
+.biggerlabel {
+	font-size: 1em
+}
 .nounderline {text-decoration: none !important}
 
 .sky-big-text {
