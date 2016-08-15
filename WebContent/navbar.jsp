@@ -42,7 +42,7 @@
 			if (!auth) {
 		%>
 
-		<li><a href="sign-up.html"><span
+		<li><a href="sign-up.jsp"><span
 				class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 		<li><a href="sign-in.jsp"><span
 				class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
@@ -57,7 +57,7 @@
 				<%=name%></a></li>
 
 		<li>
-			<form method="POST" action="sign-out" class="form-horizontal" role="form">
+			<form method="POST" action="/skymerch/sign-out" class="form-horizontal" role="form">
 				<!-- <input type="hidden" name="action" value="logout"> -->
 				<button class="btn btn-link navbar-btn nounderline" type="submit"> Sign Out </button>
 			</form>

@@ -96,7 +96,7 @@ public class SignUp extends HttpServlet {
 		}
 
 		if (registerSuccess) {
-			rd = request.getServletContext().getRequestDispatcher("/browse");
+			rd = request.getServletContext().getRequestDispatcher("/index.html");
 		} else {
 			rd = request.getServletContext().getRequestDispatcher("/sign-up");
 		}
