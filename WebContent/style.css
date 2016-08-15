@@ -67,6 +67,16 @@
 	margin-left: 20px;
 }
 
+@media print
+{
+.noprint {display:none;}
+}
+
+@media screen
+{
+...
+}
+
 	/*font-size: 4em;
 	display: inline-block;
     /* margin-left: 5%;
