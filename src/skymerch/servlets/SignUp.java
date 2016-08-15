@@ -86,7 +86,8 @@ public class SignUp extends HttpServlet {
 
 		if(passMatch && CustomerValidator.validate(customer)) {
 			CustomerDAO custDAO = new CustomerDAO();
-			custDAO.addCustomer(customer);
+			int customerID = custDAO.addCustomer(customer);
+			customer.setCustId(customerID);
 			System.out.println(registerSuccess);
 			registerSuccess = true;
 			System.out.println(registerSuccess);
