@@ -56,5 +56,8 @@ public class OrderBasketTest {
 	odao.addOrder(testOrder);
 	
 	System.out.println("hi" + null);
+	
+	pdao.removeFromStock(testProd, 2);
+	pdao.addToStock(testProd, 5);
 	}
 }

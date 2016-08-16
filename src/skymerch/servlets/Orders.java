@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import skymerch.dao.OrderDAO;
+import skymerch.dao.*;
 import skymerch.entities.*;
 import skymerch.enums.*;
 
@@ -103,6 +103,12 @@ public class Orders extends HttpServlet {
 			if (orderValid){
 				ServletContext sc = this.getServletContext();
 				OrderDAO odao = (OrderDAO)sc.getAttribute("order_dao"); //new OrderDAO();
+				ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao"); //new OrderDAO();
+				
+				for (OrderLine o:proposedOrder.getOrderLines()) {
+					pdao.removeFromStock(o.getProduct(), o.getQuantity());
+				}
+								
 				int orderId = odao.addOrder(proposedOrder);
 				session.setAttribute("orderId", orderId);
 				session.removeAttribute("basket");

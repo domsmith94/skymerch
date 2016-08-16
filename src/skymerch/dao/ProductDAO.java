@@ -385,4 +385,37 @@ public class ProductDAO {
 			 */
 		}
 		}	
+	
+	public void removeFromStock(Product product, int difference){
+		try {
+			int id = product.getProdId();
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("UPDATE product SET stock_level= stock_level -" + difference + " WHERE product_id = " + id + "");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+		}
+		}
+	public void addToStock(Product product, int difference){
+		try {
+			int id = product.getProdId();
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("UPDATE product SET stock_level= stock_level +" + difference + " WHERE product_id = " + id + "");
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy at a later date
+			 */
+		}
+		}
 }
