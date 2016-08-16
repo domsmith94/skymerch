@@ -80,7 +80,7 @@
 						</div>
 					</div>
 					<div class="link row text-center">
-						<a href="sign-up.html">Haven't got an account?</a>
+						<a href="sign-up">Haven't got an account?</a>
 					</div>
 				</form>
 			</div>

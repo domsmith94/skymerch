@@ -47,8 +47,8 @@
 			<div class="container">
 				<h2>Our Sky Merchandise experts can help solve your issue!</h2>
 				<h3>Contact Details</h3>
-				<p>If you need to contact us for any reason please use the below
-					contact details</p>
+				<p>If you need to contact us for any reason please use the
+					contact details below:</p>
 				<table class="table table-condensed">
 					<thead>
 						<tr>
@@ -97,9 +97,9 @@
 			</div>
 
 			<div class="container">
-				<h2>Issue with you TV, broadband or other sky product?</h2>
+				<h2>Issue with your TV, broadband or other Sky product?</h2>
 				<p>If you are having an issue with your TV, broadband or other
-					sky product please follow the below link to the Sky Help & Support
+					Sky product please follow the below link to the Sky Help & Support
 					site.</p>
 				<a href="https://www.sky.com/help/home/sky-plus"
 					class="btn btn-default" role="button">Sky Help & Support</a>

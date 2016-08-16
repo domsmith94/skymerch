@@ -144,7 +144,7 @@
 											Up</button>
 									</div>
 									<div class="link">
-						<a href="sign-in.html">Already got an account?</a>
+						<a href="sign-in">Already got an account?</a>
 									</div>
 								</div>
 							</div>
