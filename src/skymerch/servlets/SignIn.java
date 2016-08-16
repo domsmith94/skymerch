@@ -76,6 +76,7 @@ public class SignIn extends HttpServlet {
 		
 		boolean loginSuccess = false;
 		boolean wrongPass = false;
+		boolean admin = false;
 		
 		// here we will have checks for whether their details are okay.
 		
@@ -94,16 +95,23 @@ public class SignIn extends HttpServlet {
 				session.setAttribute("signedInUser", customer);
 				session.setAttribute("auth", true);
 				session.setAttribute("invalidLogin", null);
+				if (customer.getCustId() == 1000001) {
+					session.setAttribute("admin", true);
+					admin = true;
+				}
 			} else {
 				wrongPass = true;
 				session.setAttribute("invalidLogin", true);
 			}
 		}
 		
-		// 
-		if (loginSuccess){
-		rd = this.getServletContext().getRequestDispatcher("/index.html");
-		rd.forward(request, response);
+		// Direct output to required location
+		if (admin) {
+			rd = this.getServletContext().getRequestDispatcher("/wh-order-history");
+			rd.forward(request, response);
+		} else if (loginSuccess){
+			rd = this.getServletContext().getRequestDispatcher("/index.html");
+			rd.forward(request, response);
 		} else if (wrongPass){
 			rd = request.getRequestDispatcher("/sign-in");
 			rd.forward(request, response);

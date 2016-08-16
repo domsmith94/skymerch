@@ -56,6 +56,8 @@ DROP TABLE order_line;
        
        
        
+     insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
+     values ('Admin','Istrator', 'Mr', 'Admin', '$2a$10$M5KPgjJ1TJU27O/XkQO0RO2uR5Mn0OnDjzTbyq.J71PaDKmXzUugW', 1, 'Admin Road', 'Admintown', 'ADM 1N');
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
      values ('Adam','Morrison', 'Mr', 'adam.morrison@sky.uk', '$2a$10$gpHTQlrd4GIssPPXkTFV3upgkhhv.Vsl4899ofcmhPPfTckyrdV3y', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); -- passwd Apricot5
