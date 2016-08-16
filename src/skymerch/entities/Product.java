@@ -3,7 +3,7 @@ package skymerch.entities;
 //import java.util.List; //not used unless keywords reinstated
 import skymerch.enums.Category;
 
-public class Product {
+public class Product implements Comparable<Product>{
 	
 	private String prodName;
 	private int prodId;
@@ -74,6 +74,13 @@ public class Product {
 				", w/h location: " + this.getLocation(); 
 	}
 
+	// Comparable method so that natural order of products is highest rated first
+	
+	public int compareTo(Product p) {
+		if (this.getRating() > p.getRating()) { return 1;}
+		else if (this.getRating() < p.getRating()) { return -1;}
+		else {return 0;}
+	}
 
 
 }

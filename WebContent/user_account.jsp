@@ -32,19 +32,54 @@
 	<%@ include file="navbar.jsp"%>
 	<% Customer customer = (Customer) session.getAttribute("signedInUser");
 	Address address = customer.getAddress();%>
-<h1><%=customer.getFirstName() + " " + customer.getLastName() %></h1>
-<h3>Customer Account no.: <%=customer.getCustId() %></h3>
-<h4>Address</h4>
-<p><%=address.getHouseNameNum() + " " + address.getAddressLineOne()%></p>
-<p><%=address.getAddressLineTwo()%></p>
-<p><%=address.getTownOrCity()%></p>
-<p><%=address.getPostcode()%></p>
+	
+<div class="container col-sm-10 col-sm-offset-1">
+		<div class="page-header">
+			<h1 class="sky-text"><b><%=customer.getFirstName() + " " + customer.getLastName() %>'s Account</b></h1>
+		</div>
+		
+		
+		
+			<div class="panel panel-default">
+			<div class="panel-heading col-m-12 col-sm-offset-0">
+				User ID Number: <%=customer.getCustId() %>
+			</div>
+			
 
-<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/order_history">
-				<p align="center">
-				<button id="btnSubmit" type="submit" class="btn btn-default">View Order History</button>
-					</p>
-			</form>
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email Address</th>
+						<th>House Name/Number</th>
+						<th>Address Line 1</th>
+						<th>Address Line 2</th>
+						<th>Town City</th>
+						<th>Postcode</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%=customer.getFirstName()%></td>
+						<td><%=customer.getLastName()%></td>
+						<td><%=customer.getEmail()%></td>
+						<td><%=address.getHouseNameNum() %></td>
+						<td><%=address.getAddressLineOne() %></td>
+						<td><% if (address.getAddressLineTwo() != null) {%><%=address.getAddressLineTwo()%><%}%></td>
+						<td><%=address.getTownOrCity()%></td>
+						<td><%=address.getPostcode()%></td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+	
+	<a href="order_history"
+					class="btn btn-default" role="button">View order history</a>
+	
+	</div>	
 
 </body>
 </html>

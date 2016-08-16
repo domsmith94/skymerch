@@ -53,6 +53,93 @@ Product product = (Product)session.getAttribute("product");
                             <div class="row top-buffer">
                                  <h3 class = "text-center">£<%= product.getPrice() %></h3>
                             </div>
+                            <div class="row top-buffer">
+                            <div class="rating">
+                             <p class = "text-center">Customer Rating: <% 
+                                 double rating = product.getRating() / 2;
+                                 if (rating >= 4.8) { %> 
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                                                	
+                               	<% } else if (rating >= 4.3) { %>
+                               	<i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star"></i>
+                                 <i class="glyphicon glyphicon-star half"></i>
+                                                                                           
+                                 <% } else if (rating >= 3.8) { %>
+                                	<i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 3.3) { %>
+                                	<i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star half"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 2.8) { %>
+                                	<i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 2.3) { %>
+                                	<i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star half"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 1.8) { %>
+                                	<i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 1.3) { %>
+                                	<i class="glyphicon glyphicon-star"></i>                                
+                                  <i class="glyphicon glyphicon-star half"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  <i class="glyphicon glyphicon-star-empty"></i>
+                                  
+                                  <% } else if (rating >= 0.8) { %>
+                                	<i class="glyphicon glyphicon-star"></i>   
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>                             
+                                  
+                                  <% } else if (rating >= 0.8) { %>
+                                	<i class="glyphicon glyphicon-star half"></i> 
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>   
+                                  
+                                  <% } else { %>
+                                	<i class="glyphicon glyphicon-star-empty"></i> 
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i>
+                                	<i class="glyphicon glyphicon-star-empty"></i> 
+                                  
+                                  <% }  
+                                 
+                                 %>
+                                </p><p class = "text-center">Average <%=(product.getRating() / 2)%> from <b><%=product.getNumOfRatings() / 2%></b> ratings.</p>
+                               </div>
+                            </div>
                                 <div class="row top-buffer">
                                      <div class = "text-center">
                                      		<% if (product.getStockLevel()>=5){%>

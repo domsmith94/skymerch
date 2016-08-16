@@ -214,6 +214,29 @@
 	}
 }
 
+.glyphicon-star {
+  font-size: 40px;
+  color: #e67e22;
+}
+.half:after {
+    content:'';
+    position:absolute;
+    z-index:1;
+    background:white;
+    width: 50%;
+    height: 100%;
+    left: 47%;
+    content:'';
+    colour: grey;
+    
+}
+
+.glyphicon-star-empty {
+  font-size: 40px;
+  color: white;
+}
+
+
 	/*font-size: 4em;
 	display: inline-block;
     /* margin-left: 5%;
