@@ -16,6 +16,7 @@ pageEncoding="UTF-8"%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://assets.sky.com/dist/latest/css/fonts.css' rel='stylesheet'>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
@@ -32,7 +33,7 @@ Product product = (Product)session.getAttribute("product");
 
 <div class = "sky-font">
 
-<div class="container">
+<div class="container bottom-buffer">
         <div class="col-md-10 col-md-offset-1">
             <div class = "col-md-6">
                

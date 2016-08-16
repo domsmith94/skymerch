@@ -84,10 +84,10 @@
 		<div class="container col-md-12 top-buffer bottom "></div>
 
 		<!-- Categories Container -->
-		<div class="container col-md-4 top-buffer">
+		<div class="container col-sm-6 col-md-4">
 
 			<!-- Header/Title -->
-			<div class="container col-md-12 top-buffer">
+			<div class="container col-md-12">
 				<div class="page-header">
 					<h3 class="text-center">
 						<b>Categories</b>
@@ -127,10 +127,10 @@
 
 
 		<!-- Top Rated Products Section -->
-		<div class="container col-md-8 top-buffer">
+		<div class="container col-sm-12 col-md-8">
 
 			<!-- Header -->
-			<div class="container col-md-12 top-buffer">
+			<div class="container col-md-12">
 				<div class="page-header">
 					<h3 class="text-center">
 						<b>Top Rated</b>
@@ -147,7 +147,7 @@
 					for (int i = 0; i < 12; i++) {
 						Product p = orderedProducts.last();
 				%>
-				<div class="col-md-3">
+				<div class="col-sm-6 col-md-6 col-lg-4">
 					<div class="thumbnail thumbnail_small shadowfilter">
 						<div class="grow" id="inner">
 							<a href="product?id=<%=p.getProdId()%>"> <img

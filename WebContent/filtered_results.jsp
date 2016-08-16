@@ -27,85 +27,91 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://assets.sky.com/dist/latest/css/fonts.css'
 	rel='stylesheet'>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
 		<div class="col-md-2">
-			<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
+			<form method="POST"
+				action="<%if (request.getRequestURL().toString().contains("localhost")) {%>/skymerch<%}%>/filtered_results">
 				<h3>Filters</h3>
 				<div class="col-xs-12">
 					<h4>Category</h4>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="HOUSEHOLD"
-							<%if(request.getParameter("HOUSEHOLD") != null){%>
-							checked="checked" <%} %>>Household
+							<%if (request.getParameter("HOUSEHOLD") != null) {%>
+							checked="checked" <%}%>>Household
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="MEDIA"
-							<%if(request.getParameter("MEDIA") != null){%> checked="checked"
-							<%} %>>Media
+							<%if (request.getParameter("MEDIA") != null) {%>
+							checked="checked" <%}%>>Media
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="ELECTRONICS"
-							<%if(request.getParameter("ELECTRONICS") != null){%>
-							checked="checked" <%} %>>Electronics
+							<%if (request.getParameter("ELECTRONICS") != null) {%>
+							checked="checked" <%}%>>Electronics
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="CLOTHING"
-							<%if(request.getParameter("CLOTHING") != null){%>
-							checked="checked" <%} %>>Clothing
+							<%if (request.getParameter("CLOTHING") != null) {%>
+							checked="checked" <%}%>>Clothing
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="TOYS"
-							<%if(request.getParameter("TOYS") != null){%> checked="checked"
-							<%} %>>Toys
+							<%if (request.getParameter("TOYS") != null) {%> checked="checked"
+							<%}%>>Toys
 						</label>
 					</div>
 				</div>
 				<div class="col-xs-12">
 					<h4>Price</h4>
 					<div class="radio">
-						<label> <% String priceRange = request.getParameter("optradio");
-                        if (priceRange == null){ priceRange = "noValue";}%>
-							<input type="radio" name="optradio" value="0-5"
-							<%if(priceRange.equals("0-5")){%> checked="checked" <%} %>>£0-
+						<label> <%
+ 	String priceRange = request.getParameter("optradio");
+ 	if (priceRange == null) {
+ 		priceRange = "noValue";
+ 	}
+ %> <input type="radio" name="optradio" value="0-5"
+							<%if (priceRange.equals("0-5")) {%> checked="checked" <%}%>>£0-
 							£5
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="5-10"
-							<%if(priceRange.equals("5-10")){%> checked="checked" <%} %>>£5-
+							<%if (priceRange.equals("5-10")) {%> checked="checked" <%}%>>£5-
 							£10
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="10-20"
-							<%if(priceRange.equals("10-20")){%> checked="checked" <%} %>>£10-
+							<%if (priceRange.equals("10-20")) {%> checked="checked" <%}%>>£10-
 							£20
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="20-30"
-							<%if(priceRange.equals("20-30")){%> checked="checked" <%} %>>£20-
+							<%if (priceRange.equals("20-30")) {%> checked="checked" <%}%>>£20-
 							£30
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="30-40"
-							<%if(priceRange.equals("30-40")){%> checked="checked" <%} %>>£30-
+							<%if (priceRange.equals("30-40")) {%> checked="checked" <%}%>>£30-
 							£50
 						</label>
 					</div>
 					<div class="radio">
 						<label> <input type="radio" name="optradio"
 							value="50-10000000000"
-							<%if(priceRange.equals("50-10000000000")){%> checked="checked"
-							<%} %>>£50+
+							<%if (priceRange.equals("50-10000000000")) {%> checked="checked"
+							<%}%>>£50+
 						</label>
 					</div>
 				</div>
@@ -113,13 +119,13 @@
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
-			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
-			<p align="center">
-				<br />
-				<br />
-				<button id="btnSubmit" type="submit" class="btn btn-default">Clear
-					All</button>
-					</p>
+			<form
+				action="<%if (request.getRequestURL().toString().contains("localhost")) {%>/skymerch<%}%>/browse">
+				<p align="center">
+					<br /> <br />
+					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
+						All</button>
+				</p>
 			</form>
 		</div>
 
@@ -130,31 +136,36 @@
 				</h1>
 			</div>
 			<div class="row">
-				<%    List<Product> tiledResults = (ArrayList<Product>) session.getAttribute("resultsToDisplay");
-if (tiledResults == null) {
-	%>
+				<%
+					List<Product> tiledResults = (ArrayList<Product>) session.getAttribute("resultsToDisplay");
+					if (tiledResults == null) {
+				%>
 				<p>There are no products to display</p>
 				<%
-}
-else {
-	for (Product p : tiledResults) {
-		%>
+					} else {
+						for (Product p : tiledResults) {
+				%>
 				<div class="col-md-3">
-					<div class="thumbnail">
-						<a href="product?id=<%= p.getProdId() %>"> <img
-							src="images/product/product<%= p.getProdId() %>.jpeg" alt="...">
-						</a>
-						<div class="caption">
-							<h3>
-								<a href="product?id=<%= p.getProdId() %>"><%= p.getProdName() %></a>
-							</h3>
-							<h4><%= "£" + p.getPrice() %></h4>
+					<div class="thumbnail thumbnail_small shadowfilter">
+						<div class="grow" id="inner">
+							<a href="product?id=<%=p.getProdId()%>"> <img
+								src="images/product/product<%=p.getProdId()%>.jpeg" alt="...">
+							</a>
 
+							<div class="caption">
+								<h3>
+									<a href="product?id=<%=p.getProdId()%>"><%=p.getProdName()%></a>
+								</h3>
+								<h4><%="£" + p.getPrice()%></h4>
+
+							</div>
 						</div>
 					</div>
 				</div>
-				<% } 
-	} %>
+				<%
+					}
+					}
+				%>
 			</div>
 		</div>
 	</div>

@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='https://assets.sky.com/dist/latest/css/fonts.css'
 	rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
@@ -42,7 +43,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<% List<Product> listedResults = (ArrayList<Product>) session.getAttribute("resultsToDisplay");
 					if (listedResults == null){
-						%> <p> Sorry, there are no results to display. </p> <%
+						%> <p class="text-center"> Sorry, there are no results to display. </p> <%
 					}
 					else {
 					for (Product p : listedResults) {%>

@@ -44,7 +44,7 @@
 				<div id="collapse1" class="panel-collapse collapse">
 					<div class="container">
 						<div class="col-xs-12 col-sm-3 col-md-2">
-							<form method="POST" action="/skymerch/filtered_results">
+							<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
 								<div class="col-xs-4 col-sm-12">
 									<h4>Category</h4>
 									<div class="checkbox">
@@ -108,7 +108,7 @@
 									<button id="btnSubmit" type="submit" class="btn btn-default filterbutton">Filter</button>
 								</div>
 							</form>
-							<form action="/skymerch/browse">
+							<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
 								<div class="col-xs-4 col-sm-12">
 									<button id="btnSubmit" type="submit"
 										class="btn btn-default filterbutton">Clear All</button>
@@ -121,7 +121,7 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-3 col-md-2 hidden-xs">
-			<form method="POST" action="/skymerch/filtered_results">
+			<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
 				<h3>Filters</h3>
 				<div class="col-xs-6 col-sm-12">
 					<h4>Category</h4>
@@ -183,7 +183,7 @@
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
-			<form action="/skymerch/browse">
+			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
 				<div class="col-xs-2 col-sm-12">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
 						All</button>
@@ -210,7 +210,7 @@
 				%>
 				<div class="col-sm-6 col-md-3">
 				
-					<div class="thumbnail thumbnail_small slideanim shadowfilter">
+					<div class="thumbnail thumbnail_small shadowfilter">
 
 						<div class="grow" id="inner">
 							<a href="product?id=<%=p.getProdId()%>"> 

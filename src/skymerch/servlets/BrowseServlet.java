@@ -69,7 +69,9 @@ public class BrowseServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String path = request.getServletPath();
 		System.out.println("*** LOOK AT THE PATH HERE " + path);
-		ProductDAO pdao = new ProductDAO();
+
+		ServletContext sc = this.getServletContext();
+		ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
 		
 		if (path.equals("/browse")) {
 			List<Product> allProducts = pdao.readAll();

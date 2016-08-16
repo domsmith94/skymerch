@@ -82,7 +82,7 @@
 	visibility: hidden;
 }
 
-.slide {
+.slideup {
 	/* The name of the animation */
 	animation-name: slide;
 	-webkit-animation-name: slide;
@@ -161,6 +161,10 @@
 		float: right;
 	}
 }
+
+.pull-right {
+		float: right;
+	}
 
 #inner {
 	width: 95%;
