@@ -103,7 +103,7 @@ public class Orders extends HttpServlet {
 				OrderDAO odao = new OrderDAO();
 				int orderId = odao.addOrder(proposedOrder);
 				session.setAttribute("orderId", orderId);
-				
+				session.removeAttribute("basket");
 				rd = request.getRequestDispatcher("/confirmation");
 			//} else{
 			//	rd = request.getRequestDispatcher("/orderInvalid");
