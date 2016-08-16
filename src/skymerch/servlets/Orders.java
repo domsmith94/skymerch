@@ -108,7 +108,7 @@ public class Orders extends HttpServlet {
 				session.removeAttribute("basket");
 				rd = request.getRequestDispatcher("/confirmation");
 			} else{
-				rd = request.getRequestDispatcher("/orderInvalid");
+				rd = request.getRequestDispatcher("/home");
 			}
 			
 		
