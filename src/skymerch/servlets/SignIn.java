@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -79,7 +80,8 @@ public class SignIn extends HttpServlet {
 		// here we will have checks for whether their details are okay.
 		
 		String email = request.getParameter("email");
-		CustomerDAO cdao = new CustomerDAO();
+		ServletContext sc = this.getServletContext();
+		CustomerDAO cdao = (CustomerDAO)sc.getAttribute("customer_dao");//new CustomerDAO();
 		Customer customer = cdao.findByEmail(email);
 		
 		if(customer != null){	

@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,7 +57,8 @@ public class search extends HttpServlet {
 		
 			String q = request.getParameter("searchString");
 			System.out.println(q);
-			ProductDAO pdao = new ProductDAO();
+			ServletContext sc = this.getServletContext();
+			ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
 			List<Product> searchResults = pdao.multiSearch(q, null, null);
 			session.setAttribute("resultsToDisplay", searchResults);
 			session.setAttribute("searchString", q);

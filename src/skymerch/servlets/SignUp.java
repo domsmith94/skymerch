@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -85,7 +86,8 @@ public class SignUp extends HttpServlet {
 				confirmPassword.equals(request.getParameter("password")));
 
 		if(passMatch && CustomerValidator.validate(customer)) {
-			CustomerDAO custDAO = new CustomerDAO();
+			ServletContext sc = this.getServletContext();
+			CustomerDAO custDAO = (CustomerDAO)sc.getAttribute("customer_dao");//new CustomerDAO();
 			int customerID = custDAO.addCustomer(customer);
 			customer.setCustId(customerID);
 			System.out.println(registerSuccess);

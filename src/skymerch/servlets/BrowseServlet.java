@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +48,8 @@ public class BrowseServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		HttpSession session = request.getSession();
 		
-		ProductDAO pdao = new ProductDAO();
+		ServletContext sc = this.getServletContext();
+		ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
 		List<Product> allProducts = pdao.readAll();
 		session.setAttribute("allProducts", allProducts);
 		

@@ -75,13 +75,15 @@
 		                        </thead>
 		                        <tbody>
 		                        	<% 	Double subtotal = 0.0;
+		                    			
 		                        		for (OrderLine n: order.getOrderLines()) {
-		                        			subtotal = subtotal + n.getOrderLinePrice();%>
+		                        			subtotal = subtotal + n.getOrderLinePrice();
+		                        			%>
 		                            <tr>
-		                                <td>n.getProduct().getProdName()</td>
-		                                <td>n.getProduct().getPrice()</td>
-		                                <td>n.getQuantity()</td>
-		                                <td>n.getOrderLinePrice()</td>
+		                                <td><%=n.getProduct().getProdName()%></td>
+		                                <td><%=n.getProduct().getPrice()%></td>
+		                                <td><%=n.getQuantity()%></td>
+		                                <td><%=n.getOrderLinePrice()%></td>
 		                            </tr>
 		                            <%} %>
 		                        <tr>
@@ -111,14 +113,15 @@
 		                                <b><%=shippingCost %></b>
 		                            </p>
 		                            <p>
-		                                <b>n.getTotalCost()</b>
+		                                <b><%=order.getTotalCost()%></b>
 		                            </p></td>
 		                    </tr>
 		                        </tbody>
 		                    </table>
 		                     <div class="text-center">
 		                        <div class="top-buffer">
-		                            <button type="button" class="btn btn-info">Continue shopping</button>
+		                        <a href="browse" class="btn btn-info" role="button">Continue Shopping</a>
+		                            
 		                        </div>
 		                    </div>
 		                </div>

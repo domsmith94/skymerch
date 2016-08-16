@@ -61,10 +61,11 @@
 					<b>Order #117864</b>
 				</h1>
 			</div>
-			<div class="container col-sm-10 col-sm-offset-1">
-			  <div class="page-header">
-			                    <h3>Order Details</h3>
-			   </div>
+			<div class="panel-heading col-sm-12 col-sm-offset-0"></div>
+				
+				 	<div class="page-header text-left">
+				         <h3>Order Details</h3>
+				   </div>
 			<table class="table table-hover">
 						<thead>
 							<tr>
@@ -77,17 +78,28 @@
 							<tr>
 								<td class="text-center">15/08/2016</td>
 								<td class="text-center">Premium</td>
-								<td class="text-center"><span class="label label-success biggerlabel">Delivered</span> 
-								<!-- <span class="label label-warning biggerlabel">Dispatched</span> 
+								<td class="text-center"><select class="form-control" name="title" id="title">
+                                        <option selected="selected">Ordered</option>
+                                        <option>Processing</option>
+                                        <option>Dispatched</option>
+                                        <option>Delivered</option>                                   
+								<!--</select><span class="label label-success biggerlabel">Delivered</span>  
+								<span class="label label-warning biggerlabel">Dispatched</span> 
 								<span class="label label-warning biggerlabel">Processing</span>
 								<span class="label label-danger biggerlabel">Ordered</span>-->
 
 								</td>
 							</tr>
+							<tr>
+								<th class="text-center"></th>
+								<th class="text-center"></th>
+								<th class="text-center"><button type="button" class="btn btn-info">Update status</button></th>
+							</tr>
 
 						</tbody>
 					</table>
-				</div>					
+				</div>				
+				</div>	
 			<div class="container col-sm-10 col-sm-offset-1">
 			  <div class="page-header">
 			                    <h3>Order Summary</h3>

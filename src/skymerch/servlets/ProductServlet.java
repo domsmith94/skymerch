@@ -9,6 +9,7 @@ import java.io.IOException;
 //import java.util.*;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -63,7 +64,8 @@ public class ProductServlet extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			session.setAttribute("id", id);
 			
-			ProductDAO pdao = new ProductDAO();
+			ServletContext sc = this.getServletContext();
+			ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
 			Product product = new Product();
 			product = pdao.findById(id);
 			

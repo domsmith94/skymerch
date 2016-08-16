@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import skymerch.dao.OrderDAO;
 import skymerch.dao.ProductDAO;
 import skymerch.entities.*;
 
@@ -64,7 +66,8 @@ public class BasketManager extends HttpServlet {
 					int quantity = Integer.parseInt(request.getParameter("quantity"));
 					
 			// get the product from id
-					ProductDAO pdao = new ProductDAO();
+					ServletContext sc = this.getServletContext();
+					ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
 					Product idProd = pdao.findById(id);
 			try{
 				Basket basket = (Basket) session.getAttribute("basket");

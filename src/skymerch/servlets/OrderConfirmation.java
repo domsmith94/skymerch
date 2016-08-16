@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,15 +37,23 @@ public class OrderConfirmation extends HttpServlet {
 		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		
-		int orderId = (int) session.getAttribute("orderId");
-		System.out.println("hello");
-		OrderDAO odao = new OrderDAO();
-		Order lastOrder = odao.getOrderById(orderId);
-		session.setAttribute("lastOrder", lastOrder);
-		
-		rd = this.getServletContext().getRequestDispatcher("/confirmation.jsp");
-		rd.forward(request, response);
+		try {
+			int orderId = (int) session.getAttribute("orderId");
+			
+			ServletContext sc = this.getServletContext();
+			OrderDAO odao = (OrderDAO)sc.getAttribute("order_dao"); //new OrderDAO();
+			Order lastOrder = odao.getOrderById(orderId);
+			session.setAttribute("lastOrder", lastOrder);
+			
+			rd = this.getServletContext().getRequestDispatcher("/confirmation.jsp");
+			rd.forward(request, response);
+			
+		} catch (Exception e) {
+			rd = this.getServletContext().getRequestDispatcher("/browse");
+			rd.forward(request, response);
+			
+		}
+
 		
 	}
 
