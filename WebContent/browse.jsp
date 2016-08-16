@@ -31,10 +31,98 @@
 <body>
 	<%@ include file="navbar.jsp"%>
 	<div class="container">
-		<div class="col-md-2">
-			<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
+
+		<!-- FILTER BANK -->
+		<div class="col-xs-12 panel-group hidden-sm hidden-md hidden-lg">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#collapse1">Filters</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse">
+					<div class="container">
+						<div class="col-xs-12 col-sm-3 col-md-2">
+							<form method="POST" action="/skymerch/filtered_results">
+								<div class="col-xs-4 col-sm-12">
+									<h4>Category</h4>
+									<div class="checkbox">
+										<label> <input type="checkbox" name="HOUSEHOLD"
+											value="">Household
+										</label>
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox" name="MEDIA" value="">Media
+										</label>
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox" name="ELECTRONICS"
+											value="">Electronics
+										</label>
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox" name="CLOTHING"
+											value="">Clothing
+										</label>
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox" name="TOYS" value="">Toys
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-12">
+									<h4>Price</h4>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="0-5">£0- £5
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="5-10">£5- £10
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="10-20">£10- £20
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="20-30">£20- £30
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="30-40">£30- £50
+										</label>
+									</div>
+									<div class="radio">
+										<label> <input type="radio" name="optradio"
+											value="50-10000000000">£50+
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-12">
+									<button id="btnSubmit" type="submit" class="btn btn-default filterbutton">Filter</button>
+								</div>
+							</form>
+							<form action="/skymerch/browse">
+								<div class="col-xs-4 col-sm-12">
+									<button id="btnSubmit" type="submit"
+										class="btn btn-default filterbutton">Clear All</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-3 col-md-2 hidden-xs">
+			<form method="POST" action="/skymerch/filtered_results">
 				<h3>Filters</h3>
-				<div class="col-xs-12">
+				<div class="col-xs-6 col-sm-12">
 					<h4>Category</h4>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="HOUSEHOLD" value="">Household
@@ -57,7 +145,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-12">
+				<div class="col-xs-6 col-sm-12 pull-right-sm">
 					<h4>Price</h4>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="0-5">£0-
@@ -90,56 +178,74 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-12 text-center">
+				<div class="col-xs-2 col-sm-12 text-centre">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
-			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
-				<p align="center">
-				<br />
-				<br />
-				<button id="btnSubmit" type="submit" class="btn btn-default">Clear
-					All</button>
-					</p>
+			<form action="/skymerch/browse">
+				<div class="col-xs-2 col-sm-12">
+					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
+						All</button>
+				</div>
 			</form>
 		</div>
 
-		<div class="col-md-10">
+		<!-- MAIN BODY -->
+		<div class="col-sm-9 col-md-10">
 			<div class="page-header">
 				<h1>
 					Products <small>Sold by Sky Merchandise</small>
 				</h1>
 			</div>
 			<div class="row">
-				<%    List<Product> tiledAllProducts = (ArrayList<Product>) session.getAttribute("allProducts");
-if (tiledAllProducts == null) {
-	%>
+				<%
+					List<Product> tiledAllProducts = (ArrayList<Product>) session.getAttribute("allProducts");
+					if (tiledAllProducts == null) {
+				%>
 				<p>There are no products to display</p>
 				<%
-}
-else {
-	for (Product p : tiledAllProducts) {
-		%>
-				<div class="col-md-3">
-					<div class="thumbnail">
-						<a href="product?id=<%= p.getProdId() %>"> <img
-							src="images/product/product<%= p.getProdId() %>.jpeg" alt="..." width="242px" height="200px">
-						</a>
+					} else {
+						for (Product p : tiledAllProducts) {
+				%>
+				<div class="col-sm-6 col-md-3">
+					<div class="thumbnail slideanim shadowfilter">
+
+						<div class="grow" id="inner">
+							<a href="product?id=<%=p.getProdId()%>"> <img
+								src="images/product/product<%=p.getProdId()%>.jpeg" alt="..." width="242px" height="240px">
+							</a>
+						</div>
+
+						<!--  <div class="hover_shine"></div> -->
 						<div class="caption">
 							<h3>
-								<a href="product?id=<%= p.getProdId() %>"><%= p.getProdName() %></a>
+								<a href="product?id=<%=p.getProdId()%>"><%=p.getProdName()%></a>
 							</h3>
-							<h4><%= "£" + p.getPrice() %></h4>
+							<h4><%="£" + p.getPrice()%></h4>
 
 						</div>
 					</div>
 				</div>
-				<% } 
-	} %>
+				<%
+					}
+					}
+				%>
 			</div>
 		</div>
 	</div>
 	<script src="js/browse.js"></script>
+	<script>
+		$(window).scroll(function() {
+			$(".slideanim").each(function() {
+				var pos = $(this).offset().top;
+
+				var winTop = $(window).scrollTop();
+				if (pos < winTop + 600) {
+					$(this).addClass("slide");
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>

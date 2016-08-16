@@ -77,6 +77,143 @@
 ...
 }
 
+/* EXPERIMENTAL */
+.slideanim {
+	visibility: hidden;
+}
+
+.slide {
+	/* The name of the animation */
+	animation-name: slide;
+	-webkit-animation-name: slide;
+	/* The duration of the animation */
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	/* Make the element visible */
+	visibility: visible;
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    } 
+}
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+
+.filterbutton {
+	margin-top: 20px;
+}
+
+.hover_shine {
+	width: 87%;
+	height: 100%;
+	background-image:
+		url(http://www.crowncreekkennels.com/wp-content/themes/crowncreek/js/images/shine.png);
+	position : absolute;
+	overflow: hidden;
+	/*initial position*/
+	background-position: -350px 0;
+	left: 17px;
+	top: 0px;
+	background-repeat: no-repeat;
+	/*css transition*/
+	-webkit-transition: background-position .3s ease;
+	-moz-transition: background-position .3s ease;
+	-o-transition: background-position .3s ease;
+	transition: background-position .3s ease;
+	position: absolute;
+}
+
+.hover_shine:hover {
+	/*Final position*/
+	background-position: 100px 0;
+}
+
+.shadowfilter {
+	-webkit-filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.80));
+	-webkit-transition: all 0.3s linear;
+	-o-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+.shadowfilter:hover {
+	-webkit-filter: drop-shadow(0px 0px 8px rgba(0, 231, 255, 0.8));
+}
+
+/* pull-right on small devices */
+@media ( max-width : 767px) {
+	.pull-right-sm {
+		float: right;
+	}
+}
+
+#inner {
+	width: 95%;
+	margin: 0 auto;
+}
+
+.grow img {
+	height: 95%;
+	width: 95%;
+	overflow: hidden;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.grow img:hover {
+	width: 100%;
+	height: 100%;
+}
+
+@media ( max-width : 990px) {
+	.navbar-header {
+		float: none;
+	}
+	.navbar-toggle {
+		display: block;
+	}
+	.navbar-collapse {
+		border-top: 1px solid transparent;
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+	.navbar-collapse.collapse {
+        display: none!important;
+    }
+	.navbar-collapse.collapse.in {
+		display: block !important;
+		margin-left: 85px;
+	}
+	.navbar-nav {
+		float: none !important;
+		margin: 7.5px -15px;
+	}
+	.navbar-nav>li {
+		float: none;
+	}
+	.navbar-nav>li>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+
 	/*font-size: 4em;
 	display: inline-block;
     /* margin-left: 5%;
