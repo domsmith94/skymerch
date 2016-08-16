@@ -4,7 +4,8 @@
 <html>
 <head>
 <script src="js/jquery-3.1.0.min.js"></script>
-
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -97,22 +98,30 @@
 			<!-- Categories -->
 			<div class="container col-md-12 top-buffer">
 				<div class="thumbnail shadowfilter">
-					<div class="grow" id="inner">
-						<a href="#"> <img src="images/product/test.png" width="440"
-							height="200" alt="..." id="restrict">
-						</a>
-					</div>
+					<a href="#"> <img src="images/product/test.png" width="540"
+						height="200" alt="...">
+					</a>
 				</div>
-				<a href="#" class="thumbnail"> <img
-					src="images/product/clothing.png" width="540" height="200"
-					alt="...">
-				</a> <a href="#" class="thumbnail"> <img src="images/media.png"
-					width="440" height="200" alt="...">
-				</a> <a href="#" class="thumbnail"> <img src="images/household.png"
-					width="600" height="200" alt="...">
-				</a> <a href="#" class="thumbnail"> <img
-					src="images/electronics.png" width="365" height="200" alt="...">
-				</a>
+				<div class="thumbnail shadowfilter">
+					<a href="#"> <img src="images/product/clothing.png" width="540"
+						height="200" alt="...">
+					</a>
+				</div>
+				<div class="thumbnail shadowfilter">
+					<a href="#"> <img src="images/media.png" width="540"
+						height="200" alt="...">
+					</a>
+				</div>
+				<div class="thumbnail shadowfilter">
+					<a href="#"> <img src="images/household.png" width="540"
+						height="200" alt="...">
+					</a>
+				</div>
+				<div class="thumbnail shadowfilter">
+					<a href="#"> <img src="images/electronics.png" width="540"
+						height="200" alt="...">
+					</a>
+				</div>
 			</div>
 		</div>
 
@@ -132,15 +141,17 @@
 			<!-- Products -->
 			<div class="container col-md-12 top-buffer">
 
-				<% TreeSet<Product> orderedProducts = (TreeSet<Product>) session.getAttribute("orderedProducts");
-			   List<Product> allProducts = (ArrayList<Product>) session.getAttribute("allProducts");
-				for (int i = 0; i < 12; i++) {
-					Product p = orderedProducts.last();%>
+				<%
+					TreeSet<Product> orderedProducts = (TreeSet<Product>) session.getAttribute("orderedProducts");
+					List<Product> allProducts = (ArrayList<Product>) session.getAttribute("allProducts");
+					for (int i = 0; i < 12; i++) {
+						Product p = orderedProducts.last();
+				%>
 				<div class="col-md-3">
 					<div class="thumbnail thumbnail_small shadowfilter">
 						<div class="grow" id="inner">
-							<a href="product?id=<%=p.getProdId()%>"> 
-								<img src="images/product/product<%=p.getProdId()%>.jpeg" alt="..."
+							<a href="product?id=<%=p.getProdId()%>"> <img
+								src="images/product/product<%=p.getProdId()%>.jpeg" alt="..."
 								width="242px" height="240px">
 							</a>
 						</div>
@@ -149,11 +160,15 @@
 								<a href="product?id=<%=p.getProdId()%>"><%=p.getProdName()%></a>
 							</h3>
 							<p><%="£" + orderedProducts.pollLast().getPrice()%></p>
-							<% System.out.println("SIZE = " + orderedProducts.size()); %>
+							<%
+								System.out.println("SIZE = " + orderedProducts.size());
+							%>
 						</div>
 					</div>
 				</div>
-				<%}%>
+				<%
+					}
+				%>
 			</div>
 		</div>
 	</div>
