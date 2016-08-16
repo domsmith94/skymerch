@@ -180,14 +180,16 @@
 					}
 				%>
 
-				<div class="page-header">
+				
+			
+			
+			
+			<% if (fullHistory != null ){
+			if (completedOrders.isEmpty()) {
+				%><div class="page-header">
 				<h3 class="sky-text">Completed Orders</h3>
 			</div> 
-			
-			
-			
-			<% if (completedOrders.isEmpty()) {
-				%><p>There are no orders to display.</p><%
+				<p>There are no orders to display.</p><%
 			}
 			else {
 				for (Order c : completedOrders) {
@@ -275,9 +277,9 @@
 						</table>
 					</div>
 			<%
-			}
-			
-			}
+						}
+					}
+				}
 			}
 		%>
 		

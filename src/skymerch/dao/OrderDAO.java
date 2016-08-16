@@ -288,8 +288,9 @@ public class OrderDAO {
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * from customer_order ORDER BY order_date DESC;");
 			
+			
 			while (rs.next()) {
-				orderHistory = new ArrayList<Order>();
+				if (orderHistory == null) {orderHistory = new ArrayList<Order>();}
 				Order o = this.processOrder(rs);
 				orderHistory.add(o);
 			}
