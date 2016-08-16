@@ -33,7 +33,7 @@ Product product = (Product)session.getAttribute("product");
 
 <div class = "sky-font">
 
-<div class="container">
+<div class="container bottom-buffer">
         <div class="col-md-10 col-md-offset-1">
             <div class = "col-md-6">
                

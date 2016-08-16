@@ -147,7 +147,7 @@
 					for (int i = 0; i < 12; i++) {
 						Product p = orderedProducts.last();
 				%>
-				<div class="col-sm-6 col-md-4 col-lg-3">
+				<div class="col-sm-6 col-md-6 col-lg-4">
 					<div class="thumbnail thumbnail_small shadowfilter">
 						<div class="grow" id="inner">
 							<a href="product?id=<%=p.getProdId()%>"> <img
