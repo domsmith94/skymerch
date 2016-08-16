@@ -19,8 +19,9 @@ public class CustomerDAO {
 	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
 	private final String DB_USERNAME = "root";
 	private final String DB_PASSWORD = "root";
-
-	private Connection getConnection() {
+	private Connection connection;
+	
+	public CustomerDAO(){
 		Connection con = null;
 		String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
 		String DB_USERNAME = "root";
@@ -63,7 +64,13 @@ public class CustomerDAO {
 					e1.printStackTrace();
 				}
 				}
-		return con;
+		this.connection = con;
+	}
+
+	
+
+	private Connection getConnection() {
+			return this.connection;
 	      }
 
 
