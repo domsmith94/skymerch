@@ -152,4 +152,7 @@ DROP TABLE order_line;
       
        insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('3000005', '2000005', 19.99 , 1, 19.99);
+      
+      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
+      values ('3000006', '2000010', 0.99 , 3, 2.97);
 
