@@ -210,7 +210,7 @@
 				%>
 				<div class="col-sm-6 col-md-3">
 				
-					<div class="thumbnail thumbnail_small slideanim shadowfilter">
+					<div class="thumbnail thumbnail_small shadowfilter">
 
 						<div class="grow" id="inner">
 							<a href="product?id=<%=p.getProdId()%>"> 
