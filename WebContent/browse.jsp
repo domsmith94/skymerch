@@ -208,14 +208,15 @@
 						for (Product p : tiledAllProducts) {
 				%>
 				<div class="col-sm-6 col-md-3">
-					<div class="thumbnail slideanim shadowfilter">
+				
+					<div class="thumbnail thumbnail_small slideanim shadowfilter">
 
 						<div class="grow" id="inner">
-							<a href="product?id=<%=p.getProdId()%>"> <img
-								src="images/product/product<%=p.getProdId()%>.jpeg" alt="..." width="242px" height="240px">
+							<a href="product?id=<%=p.getProdId()%>"> 
+							<img src="images/product/product<%=p.getProdId()%>.jpeg" alt="..." width="242px" height="240px">
 							</a>
 						</div>
-
+						
 						<!--  <div class="hover_shine"></div> -->
 						<div class="caption">
 							<h3>

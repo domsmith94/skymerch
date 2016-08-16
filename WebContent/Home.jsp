@@ -15,7 +15,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-	
+
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -33,7 +33,8 @@
 <body>
 	<!-- Nav Bar -->
 	<%@ include file="navbar.jsp"%>
-	<div class="container col-sm-10 col-sm-offset-1">
+	<div class="container col-md-10 col-md-offset-1">
+
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -49,14 +50,17 @@
 					<img src="images/banner1.jpeg" alt="Chania" width="1600"
 						height="300">
 				</div>
+
 				<div class="item">
 					<img src="images/banner2.png" alt="Chania" width="1600"
 						height="300">
 				</div>
+
 				<div class="item">
 					<img src="images/banner3.png" alt="Chania" width="1600"
 						height="300">
 				</div>
+
 			</div>
 
 			<!-- Left and right controls -->
@@ -71,112 +75,88 @@
 			</a>
 		</div>
 	</div>
-	<div class="container col-sm-10 col-sm-offset-1">
-		<div class="row">
-			<br>
-			<div class="container col-sm-4 col-sm-offset-0">
-				<a
-					href="http://www.sky.com/shop/tv/sky-q/overview/?DCMP=knc-GOOGLE-ec-SKY-Q-sky+q&gclid=Cj0KEQjwoau9BRDMvsnv5MCh24UBEiQAKOqcfbAMGkocpOUYLEPOTQKO46M69V3yqQ-NbxGrOSpFLvkaAlOx8P8HAQ"
-					class="thumbnail"> <img src="images/skynews.png" width="265"
-					height="200" alt="...">
-				</a>
+
+	<!-- Page Border Div -->
+	<div class="container col-md-10 col-md-offset-1">
+
+		<!-- Page Break Line -->
+		<div class="container col-md-12 top-buffer bottom "></div>
+
+		<!-- Categories Container -->
+		<div class="container col-md-4 top-buffer">
+
+			<!-- Header/Title -->
+			<div class="container col-md-12 top-buffer">
+				<div class="page-header">
+					<h3 class="text-center">
+						<b>Categories</b>
+					</h3>
+				</div>
 			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
+
+			<!-- Categories -->
+			<div class="container col-md-12 top-buffer">
+				<div class="thumbnail shadowfilter">
+					<div class="grow" id="inner">
+						<a href="#"> <img src="images/product/test.png" width="440"
+							height="200" alt="..." id="restrict">
+						</a>
+					</div>
+				</div>
 				<a href="#" class="thumbnail"> <img
-					src="images/product/product1.jpeg" width="242" height="200"
+					src="images/product/clothing.png" width="540" height="200"
 					alt="...">
-				</a>
-			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product2.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product3.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product4.jpeg" width="242" height="200"
-					alt="...">
+				</a> <a href="#" class="thumbnail"> <img src="images/media.png"
+					width="440" height="200" alt="...">
+				</a> <a href="#" class="thumbnail"> <img src="images/household.png"
+					width="600" height="200" alt="...">
+				</a> <a href="#" class="thumbnail"> <img
+					src="images/electronics.png" width="365" height="200" alt="...">
 				</a>
 			</div>
 		</div>
-		<div class="row">
 
-			<div class="container col-sm-4 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/skyq.jpg"
-					"
-					width="330" height="300" alt="...">
-				</a>
-			</div>
 
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product5.jpeg" width="242" height="200"
-					alt="...">
-				</a>
+		<!-- Top Rated Products Section -->
+		<div class="container col-md-8 top-buffer">
+
+			<!-- Header -->
+			<div class="container col-md-12 top-buffer">
+				<div class="page-header">
+					<h3 class="text-center">
+						<b>Top Rated</b>
+					</h3>
+				</div>
 			</div>
 
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product6.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
+			<!-- Products -->
+			<div class="container col-md-12 top-buffer">
 
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product7.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product8.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-		</div>
-		<div class="row">
-
-			<div class="container col-sm-4 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img src="images/fibre.png"
-					width="242" height="200" alt="...">
-				</a>
-			</div>
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product10.jpeg" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product11.png" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product12.png" width="242" height="200"
-					alt="...">
-				</a>
-			</div>
-			<div class="container col-sm-2 col-sm-offset-0">
-				<a href="#" class="thumbnail"> <img
-					src="images/product/product9.jpeg" width="242" height="200"
-					alt="...">
-				</a>
+				<% TreeSet<Product> orderedProducts = (TreeSet<Product>) session.getAttribute("orderedProducts");
+			   List<Product> allProducts = (ArrayList<Product>) session.getAttribute("allProducts");
+				for (int i = 0; i < 12; i++) {
+					Product p = orderedProducts.last();%>
+				<div class="col-md-3">
+					<div class="thumbnail thumbnail_small shadowfilter">
+						<div class="grow" id="inner">
+							<a href="product?id=<%=p.getProdId()%>"> 
+								<img src="images/product/product<%=p.getProdId()%>.jpeg" alt="..."
+								width="242px" height="240px">
+							</a>
+						</div>
+						<div class="caption">
+							<h3>
+								<a href="product?id=<%=p.getProdId()%>"><%=p.getProdName()%></a>
+							</h3>
+							<p><%="£" + orderedProducts.pollLast().getPrice()%></p>
+							<% System.out.println("SIZE = " + orderedProducts.size()); %>
+						</div>
+					</div>
+				</div>
+				<%}%>
 			</div>
 		</div>
 	</div>
+	<script src="js/browse.js"></script>
 </body>
 </html>

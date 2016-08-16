@@ -10,5 +10,5 @@ function equalHeight(group) {
 } 
 
 $(document).ready(function() {   
-    equalHeight($(".thumbnail")); 
+    equalHeight($(".thumbnail_small")); 
 });

@@ -167,6 +167,10 @@
 	margin: 0 auto;
 }
 
+#restrict {
+	overflow: hidden;
+}
+
 .grow img {
 	height: 95%;
 	width: 95%;
