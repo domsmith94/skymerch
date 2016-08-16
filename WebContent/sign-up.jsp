@@ -83,7 +83,7 @@
 								<div class="form-group">
 									<label class="control-label col-sm-4" for="password">Password</label>
 									<div class="col-sm-8">
-										<input type="password" class="form-control" name="password"
+										<input type="password" placeholder="6 Characters including one number and Capital" class="form-control" name="password"
 											id="password">
 									</div>
 								</div>
@@ -92,7 +92,7 @@
 										password </label>
 									<div class="col-sm-8">
 										<input type="password" class="form-control"
-											name="confirmPassword" id="confirmPassword">
+											name="confirmPassword" placeholder="Passwords must match" id="confirmPassword">
 									</div>
 								</div>
 							</div>
@@ -116,7 +116,7 @@
 									<div class="form-group">
 										<label class="control-label col-sm-4" for="secondAddr">Address Line Two</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" name="secondAddr"
+											<input type="text" class="form-control" placeholder="Optional" name="secondAddr"
 												id="secondAddr">
 										</div>
 									</div>
