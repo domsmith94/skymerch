@@ -18,69 +18,69 @@ import skymerch.enums.Shipping;
 import skymerch.enums.Status;
 
 public class OrderDAO {
-	
+
 	private final String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
 	private final String DB_USERNAME = "root";
 	private final String DB_PASSWORD = "root";
-	
+
 	private Connection connection;
-	
+
 	public OrderDAO(){
 		Connection con = null;
 		String DB_LOCATION = "jdbc:mysql://localhost:3306/skymerch_db?useSSL=false";
 		String DB_USERNAME = "root";
 		String DB_PASSWORD = "root";
-		
+
 		try{
 
 			String dbName = System.getenv("RDS_DB_NAME");
-			  //String dbName = "skymerch_db";
-		      String userName = System.getenv("RDS_USERNAME");
-		      String password = System.getenv("RDS_PASSWORD");
-		      String hostname = System.getenv("RDS_HOSTNAME");
-		      String port = System.getenv("RDS_PORT");
-		      String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
-		      
-		      Class.forName("com.mysql.jdbc.Driver");
-		      
-		      con = DriverManager.getConnection(jdbcUrl);
-		      	
+			//String dbName = "skymerch_db";
+			String userName = System.getenv("RDS_USERNAME");
+			String password = System.getenv("RDS_PASSWORD");
+			String hostname = System.getenv("RDS_HOSTNAME");
+			String port = System.getenv("RDS_PORT");
+			String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			con = DriverManager.getConnection(jdbcUrl);
+
 			//}
-			
-	      } catch (Exception e){
-	    	  //e.printStackTrace();
-	    	// create a driver class
-				try {
-					Class.forName("com.mysql.jdbc.Driver").newInstance();
-					con = DriverManager.getConnection(DB_LOCATION, DB_USERNAME, DB_PASSWORD);
-					
-				} catch (InstantiationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				}
+
+		} catch (Exception e){
+			//e.printStackTrace();
+			// create a driver class
+			try {
+				Class.forName("com.mysql.jdbc.Driver").newInstance();
+				con = DriverManager.getConnection(DB_LOCATION, DB_USERNAME, DB_PASSWORD);
+
+			} catch (InstantiationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalAccessException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (ClassNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		this.connection = con;
 	}
 
-	
+
 
 	private Connection getConnection() {
-			return this.connection;
-	      }
-	
+		return this.connection;
+	}
+
 	private Order processOrder(ResultSet rs) throws SQLException{
 		// This method takes a result set containing an order table entry and extracts the data,
 		// storing it in an order object and returning it for further use
-		
+
 		// First, save each column to a relevant variable
 		int orderId = rs.getInt(1);
 		int custId = rs.getInt(2);
@@ -116,17 +116,17 @@ public class OrderDAO {
 		// return the completed order object
 		return order;
 	}
-	
+
 	private OrderLine processLine(ResultSet rs) throws SQLException{
 		// This method takes a result set containing a order line table entry and extracts the data,
 		// storing it in a order line object and returning it for further use
-		
+
 		// First, save each column to a relevant variable
 		int productNo = rs.getInt(2);
 		Double itemPrice = rs.getDouble(3);
 		int quantityOrdered = rs.getInt(4);
 		Double totalCost = rs.getDouble(5);
-		
+
 		// next, fill an order line object's fields with these temporary variables
 		OrderLine orderLine = new OrderLine();
 		ProductDAO pdao = new ProductDAO();
@@ -138,7 +138,7 @@ public class OrderDAO {
 		// return the completed order line object
 		return orderLine;
 	}
-	
+
 	public List<OrderLine> getOrderLines(int orderNo){
 		ArrayList<OrderLine> allLines = null;
 		try {
@@ -164,13 +164,13 @@ public class OrderDAO {
 		}
 		return allLines;
 	}
-	
+
 	public Order findById(int orderNo){
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE order_no = " + orderNo + "");
-			
+
 			if (rs.next()) {
 				return this.processOrder(rs);	
 			} else {
@@ -187,22 +187,22 @@ public class OrderDAO {
 		return null; 
 	}
 
-	
-	
+
+
 	public int addOrder(Order order){
 		try {
 			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
-			
+
 			// initialise connection
 			Connection con = this.getConnection();
-			
+
 			// Next we generate the script string using a Prepared Statement. 
 			// Syntax: each '?' is a placeholder for a value which will be subsequently added
-			
+
 			// initialise String for general structure
 			String sql = " insert into customer_order (customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, address_line2, town_city, postcode)"
 					+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			
+
 			// generate a prepared statement using sql string
 			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			Address addr = order.getDeliveryAddress();
@@ -219,50 +219,50 @@ public class OrderDAO {
 			stmt.setString(8, addr.getAddressLineTwo());
 			stmt.setString(9, addr.getTownOrCity());
 			stmt.setString(10, addr.getPostcode());
-			
+
 			// execute the prepared statement (run in SQL)
 			stmt.execute();
-			
+
 			// get orderId
 			ResultSet rs = stmt.getGeneratedKeys();
 			int orderId = 0;
 			if (rs.next()) {
 				orderId = rs.getInt(1);
 			}
-			
-			
-			
+
+
+
 			// add orderlines to database in a loop
 			List<OrderLine> orderLines = order.getOrderLines();
 			int length = orderLines.size();
-			
+
 			// passes orderId into orderline through 'getGeneratedKeys' method
 			for (int i = 0; i < length; i++) {
 				addOrderLine(orderLines.get(i), orderId);
 			}
-			
+
 			return orderId;
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 			return 0;
 		}
 	}
-	
+
 	public void addOrderLine(OrderLine orderLine, int orderNo){
 		try {
 			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
-			
+
 			// initialise connection
 			Connection con = this.getConnection();
-			
+
 			// Next we generate the script string using a Prepared Statement. 
 			// Syntax: each '?' is a placeholder for a value which will be subsequently added
-			
+
 			// initialise String for general structure
 			String sql = " insert into order_line (order_no, product_id, item_price, quantity_ordered, total_price)"
 					+ " values (?, ?, ?, ?, ?)";
-			
+
 			// generate a prepared statement using sql string
 			PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -272,40 +272,40 @@ public class OrderDAO {
 			stmt.setDouble(3, orderLine.getItemPrice());
 			stmt.setInt(4, orderLine.getQuantity());
 			stmt.setDouble(5, orderLine.getOrderLinePrice());
-			
+
 			// execute the prepared statement (run in SQL)
 			stmt.execute();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<Order> getAllOrders() {
 		List<Order> orderHistory = null;
-		
+
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * from customer_order ORDER BY order_date DESC;");
-			
-			
+
+
 			while (rs.next()) {
 				if (orderHistory == null) {orderHistory = new ArrayList<Order>();}
 				Order o = this.processOrder(rs);
 				orderHistory.add(o);
 			}
-			
+
 			return orderHistory;
-				
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return orderHistory;
-			
+
 		}
-	
+
 	}
-	
+
 	public SortedSet<Order> getOrderHistory(int custId) {
 		SortedSet<Order> orderHistory = null; 
 		try {
@@ -317,39 +317,55 @@ public class OrderDAO {
 				Order o = this.processOrder(rs);
 				orderHistory.add(o);				
 			} 
-			} catch(Exception e){
+		} catch(Exception e){
 			e.printStackTrace();
 			/*
 			 * add what will happen if a statement in the try block
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-			}
+		}
 		return orderHistory;
-		
+
 	}
-	
+
 	public Order getOrderById(int orderId){
 		Order order = null; 
-		
+
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE order_no = " + orderId + "");
-			
+
 			if (rs.next()){
 				order = this.processOrder(rs);
 			} else {
 				System.out.println("No order found in database with ID " + orderId);
-				
+
 			}
-			
+
 			return order;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return order;
 		}
-		
+
 	}
+
+	public void updateStatusById(int orderId, Status newStatus) {
+
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate("UPDATE customer_order SET order_status='" + String.valueOf(newStatus).toLowerCase() + "' WHERE order_no =" + orderId);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+
 }
