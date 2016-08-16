@@ -32,10 +32,8 @@
 <%@ include file="adminNav.jsp"%>
 
 <body>
-	<div class="sky-font">
 
-
-		<div class="container col-sm-10 col-sm-offset-1">
+		<div class="container sky-font col-sm-10 col-sm-offset-1">
 		<form>
 			<div class="page-header">
 				<h1 class="sky-text">
@@ -45,7 +43,7 @@
 
 			<div></div>
 
-			<div class="container col-sm-10 col-sm-offset-1">
+			<div class="container sky-font col-sm-10 col-sm-offset-1">
 				<div class="panel">
 					<div class="panel-heading col-sm-12 col-sm-offset-0"></div>
 
@@ -79,6 +77,7 @@
 							
 							</tbody>
 					</table>
+					</form>
 				</div>
 		</body>
 </html>

@@ -31,7 +31,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-	<div class="container">
+	<div class="container sky-font">
 
 		<!-- FILTER BANK -->
 		<div class="col-xs-12 panel-group hidden-sm hidden-md hidden-lg">
@@ -42,7 +42,7 @@
 					</h4>
 				</div>
 				<div id="collapse1" class="panel-collapse collapse">
-					<div class="container">
+					<div class="container sky-font">
 						<div class="col-xs-12 col-sm-3 col-md-2">
 							<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
 								<div class="col-xs-4 col-sm-12">

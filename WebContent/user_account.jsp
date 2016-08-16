@@ -34,7 +34,7 @@
 	<% Customer customer = (Customer) session.getAttribute("signedInUser");
 	Address address = customer.getAddress();%>
 	
-<div class="container col-sm-10 col-sm-offset-1">
+<div class="container sky-font col-sm-10 col-sm-offset-1">
 		<div class="page-header">
 			<h1 class="sky-text"><b><%=customer.getFirstName() + " " + customer.getLastName() %>'s Account</b></h1>
 		</div>

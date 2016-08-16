@@ -65,7 +65,7 @@
 
 </form> --%>
 <form method="post" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/updateBasket" class="form-horizontal" role="form">
-<div class="container">
+<div class="container sky-font">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-xs-6 col-md-6">
                     <h1 class="text-left">My basket</h1>
