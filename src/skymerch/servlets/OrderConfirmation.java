@@ -3,6 +3,7 @@ package skymerch.servlets;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,8 @@ public class OrderConfirmation extends HttpServlet {
 		try {
 			int orderId = (int) session.getAttribute("orderId");
 			
-			OrderDAO odao = new OrderDAO();
+			ServletContext sc = this.getServletContext();
+			OrderDAO odao = (OrderDAO)sc.getAttribute("order_dao"); //new OrderDAO();
 			Order lastOrder = odao.getOrderById(orderId);
 			session.setAttribute("lastOrder", lastOrder);
 			

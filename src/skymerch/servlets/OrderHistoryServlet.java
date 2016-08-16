@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import javax.persistence.criteria.Order;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,8 @@ public class OrderHistoryServlet extends HttpServlet {
 		System.out.println(currentCust.getFirstName() + " " + signedInId);
 		session.setAttribute("signedInId", signedInId);
 		
-		OrderDAO odao = new OrderDAO();
+		ServletContext sc = this.getServletContext();
+		OrderDAO odao = (OrderDAO)sc.getAttribute("order_dao"); //new OrderDAO();
 		SortedSet<skymerch.entities.Order> orderHist = (TreeSet<skymerch.entities.Order>) odao.getOrderHistory(signedInId);
 		session.setAttribute("orderHistory", orderHist);
 				

@@ -39,8 +39,8 @@ public class DatabaseListener implements ServletContextListener {
     	// here we set the required DBMS... for now, it is hard-coded to be MySQL
     	sc.setAttribute("dbmsName", "MySQL");
     	sc.setAttribute("customer_dao", new CustomerDAO());
-    	sc.setAttribute("order_dao", new CustomerDAO());
-    	sc.setAttribute("product_dao", new CustomerDAO());
+    	sc.setAttribute("order_dao", new OrderDAO());
+    	sc.setAttribute("product_dao", new ProductDAO());
     	
     	System.out.println("context initialisation routine invoked successfully");
     }
