@@ -43,7 +43,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<% List<Product> listedResults = (ArrayList<Product>) session.getAttribute("resultsToDisplay");
 					if (listedResults == null){
-						%> <p> Sorry, there are no results to display. </p> <%
+						%> <p class="text-center"> Sorry, there are no results to display. </p> <%
 					}
 					else {
 					for (Product p : listedResults) {%>
