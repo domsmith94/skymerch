@@ -67,23 +67,19 @@
 <form method="post" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/updateBasket" class="form-horizontal" role="form">
 <div class="container">
             <div class="col-md-10 col-md-offset-1">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h1 class="text-left">My basket</h1>
                 </div>
-                <div class="col-md-5">
+
+                <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="text-right">
                         <div class="top-buffer">
                             <button type="submit" method="post" action="/skymerch/updateBasket" class="btn btn-info">Update basket</button>
+                       		<span class="glyphicon glyphicon-refresh"></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-1">
-                    <h4>
-                    <div class="row big-top-buffer">
-                        <span class="glyphicon glyphicon-refresh"></span> 
-                    </div>
-                </h4>
-                </div>
+       		
                 <div class="huge-top-buffer">
                     <div class="col-md-12">
                         <div class="sky-medium-font">
