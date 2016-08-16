@@ -36,15 +36,22 @@ public class OrderConfirmation extends HttpServlet {
 		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		
-		int orderId = (int) session.getAttribute("orderId");
-		System.out.println("hello");
-		OrderDAO odao = new OrderDAO();
-		Order lastOrder = odao.getOrderById(orderId);
-		session.setAttribute("lastOrder", lastOrder);
-		
-		rd = this.getServletContext().getRequestDispatcher("/confirmation.jsp");
-		rd.forward(request, response);
+		try {
+			int orderId = (int) session.getAttribute("orderId");
+			
+			OrderDAO odao = new OrderDAO();
+			Order lastOrder = odao.getOrderById(orderId);
+			session.setAttribute("lastOrder", lastOrder);
+			
+			rd = this.getServletContext().getRequestDispatcher("/confirmation.jsp");
+			rd.forward(request, response);
+			
+		} catch (Exception e) {
+			rd = this.getServletContext().getRequestDispatcher("/browse");
+			rd.forward(request, response);
+			
+		}
+
 		
 	}
 

@@ -104,7 +104,7 @@ public class Orders extends HttpServlet {
 				int orderId = odao.addOrder(proposedOrder);
 				session.setAttribute("orderId", orderId);
 				
-				rd = request.getRequestDispatcher("/order_history");
+				rd = request.getRequestDispatcher("/confirmation");
 			//} else{
 			//	rd = request.getRequestDispatcher("/orderInvalid");
 			//}
