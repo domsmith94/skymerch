@@ -41,32 +41,37 @@
 					<h4>Category</h4>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="HOUSEHOLD"
-							<%if (request.getParameter("HOUSEHOLD") != null) {%>
-							checked="checked" <%}%>>Household
+							<%if (request.getParameter("HOUSEHOLD") != null || session.getAttribute("category").equals("HOUSEHOLD")) {%>
+							checked="checked" <%
+							session.setAttribute("category", " ");}%>>Household
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="MEDIA"
-							<%if (request.getParameter("MEDIA") != null) {%>
-							checked="checked" <%}%>>Media
+							<%if (request.getParameter("MEDIA") != null || session.getAttribute("category").equals("MEDIA")) {%>
+							checked="checked" <%
+							session.setAttribute("category", " ");}%>>Media
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="ELECTRONICS"
-							<%if (request.getParameter("ELECTRONICS") != null) {%>
-							checked="checked" <%}%>>Electronics
+							<%if (request.getParameter("ELECTRONICS") != null || session.getAttribute("category").equals("ELECTRONICS")) {%>
+							checked="checked" <%
+							session.setAttribute("category", " ");}%>>Electronics
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="CLOTHING"
-							<%if (request.getParameter("CLOTHING") != null) {%>
-							checked="checked" <%}%>>Clothing
+							<%if (request.getParameter("CLOTHING") != null || session.getAttribute("category").equals("CLOTHING")) {%>
+							checked="checked" <%
+							session.setAttribute("category", " ");}%>>Clothing
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="TOYS"
-							<%if (request.getParameter("TOYS") != null) {%> checked="checked"
-							<%}%>>Toys
+							<%if (request.getParameter("TOYS") != null || session.getAttribute("category").equals("TOYS")) {%> checked="checked"
+							<%
+							session.setAttribute("category", " ");}%>>Toys
 						</label>
 					</div>
 				</div>
@@ -74,7 +79,8 @@
 					<h4>Price</h4>
 					<div class="radio">
 						<label> <%
- 	String priceRange = request.getParameter("optradio");
+
+	String priceRange = request.getParameter("optradio");
  	if (priceRange == null) {
  		priceRange = "noValue";
  	}

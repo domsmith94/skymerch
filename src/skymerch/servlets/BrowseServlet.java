@@ -2,6 +2,7 @@ package skymerch.servlets;
 
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,7 +23,7 @@ import skymerch.enums.Category;
 /**
  * Servlet implementation class browse
  */
-@WebServlet({"/browse", "/filtered_results"})
+@WebServlet({"/browse", "/browse-for", "/filtered_results"})
 public class BrowseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,8 +39,7 @@ public class BrowseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("*****LOOK AT THE DO GET");
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String path = request.getServletPath();
@@ -50,10 +50,28 @@ public class BrowseServlet extends HttpServlet {
 		
 		ServletContext sc = this.getServletContext();
 		ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
+		
+		if (path.equals("/browse")) {
 		List<Product> allProducts = pdao.readAll();
 		session.setAttribute("allProducts", allProducts);
-		
 		rd = this.getServletContext().getRequestDispatcher("/browse.jsp");
+		}
+		
+		if (path.equals("/browse-for")) {
+			String cat = request.getParameter("category");
+			System.out.println("results for category:" + cat);
+			session.setAttribute("category", cat);
+			
+			Set<Category> setOneCat= new HashSet<>();
+			setOneCat.add(Category.valueOf(cat));			
+			
+			List<Product> searchResults = pdao.multiSearch(setOneCat, null, null);
+			session.setAttribute("resultsToDisplay", searchResults);
+			
+			rd = this.getServletContext().getRequestDispatcher("/filtered_results.jsp");
+		}
+		
+				
 		rd.forward(request, response);		
 			
 		

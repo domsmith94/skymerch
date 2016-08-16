@@ -98,27 +98,27 @@
 			<!-- Categories -->
 			<div class="container col-md-12 top-buffer">
 				<div class="thumbnail shadowfilter">
-					<a href="#"> <img src="images/product/test.png" width="540"
+					<a href="browse-for?category=TOYS"> <img src="images/product/test.png" width="540"
 						height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="#"> <img src="images/product/clothing.png" width="540"
+					<a href="browse-for?category=CLOTHING"> <img src="images/product/clothing.png" width="540"
 						height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="#"> <img src="images/media.png" width="540"
+					<a href="browse-for?category=MEDIA"> <img src="images/media.png" width="540"
 						height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="#"> <img src="images/household.png" width="540"
+					<a href="browse-for?category=HOUSEHOLD"> <img src="images/household.png" width="540"
 						height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="#"> <img src="images/electronics.png" width="540"
+					<a href="browse-for?category=ELECTRONICS"> <img src="images/electronics.png" width="540"
 						height="200" alt="...">
 					</a>
 				</div>
