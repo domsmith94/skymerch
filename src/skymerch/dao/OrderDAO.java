@@ -272,6 +272,31 @@ public class OrderDAO {
 		}
 	}
 	
+	public List<Order> getAllOrders() {
+		List<Order> orderHistory = null;
+		
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * from customer_order ORDER BY order_date DESC;");
+			
+			while (rs.next()) {
+				orderHistory = new ArrayList<Order>();
+				Order o = this.processOrder(rs);
+				orderHistory.add(o);
+			}
+			
+			return orderHistory;
+				
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return orderHistory;
+			
+		}
+	
+	}
+	
 	public SortedSet<Order> getOrderHistory(int custId) {
 		SortedSet<Order> orderHistory = null; 
 		try {
@@ -290,7 +315,7 @@ public class OrderDAO {
 			 *(e.g. a username is input incorrectly) fails. 
 			 *TO DO: work on exception strategy
 			 */
-		}
+			}
 		return orderHistory;
 		
 	}
