@@ -46,6 +46,9 @@
 		            <div></div>
 		            
 		            <% Order order = (Order) session.getAttribute("lastOrder");
+                 		DecimalFormat df = new DecimalFormat();
+                   		df.setMaximumFractionDigits(2);
+                   		df.setMinimumFractionDigits(2);
 		               
 		            %>
 
