@@ -57,7 +57,7 @@ DROP TABLE order_line;
        
        
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('Admin','Istrator', 'Mr', 'Admin', '$2a$10$M5KPgjJ1TJU27O/XkQO0RO2uR5Mn0OnDjzTbyq.J71PaDKmXzUugW', 1, 'Admin Road', 'Admintown', 'ADM 1N');
+     values ('System','Admin', 'Mr', 'admin@skymerch.com', '$2a$10$BJsx8Lf4d5/L09aCy6viKuK8n5GK7Hp2DgmCl3IgaxaH6cuStCUxG', 1, 'Admin Road', 'Admintown', 'ADM 1N');
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
      values ('Adam','Morrison', 'Mr', 'adam.morrison@sky.uk', '$2a$10$gpHTQlrd4GIssPPXkTFV3upgkhhv.Vsl4899ofcmhPPfTckyrdV3y', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); -- passwd Apricot5
@@ -121,7 +121,7 @@ DROP TABLE order_line;
      values('Disney Frozen Backpack', 9, 3, 13, 'Our Frozen light up backpack adds sparkle and fun to any adventure! This gorgeous design includes a PVC panel over a blue glitter background with character artwork and twinkling lights.', 2.3, 2, 19.99, 'clothing');
 
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
-     values ('1000001', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
+     values ('1000004', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
      values ('1000002', '2016-06-03 13:27:34', 'next_day', 'dispatched', 15.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
@@ -136,7 +136,7 @@ DROP TABLE order_line;
      values ('1000003', '2016-06-22 13:35:24', 'standard', 'ordered', 52.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
-     values ('1000001', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
+     values ('1000004', '2016-06-02 16:25:24', 'next_day', 'delivered', 35.93, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
      insert into order_line ( order_no, product_id, item_price, quantity_ordered, total_price)
       values ('3000001', '2000001', 4.99 , 4, 19.96);

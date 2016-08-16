@@ -29,7 +29,7 @@
 	rel='stylesheet'>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<%@ include file="navbar.jsp"%>
+<%@ include file="adminNav.jsp"%>
 
 <body>
 	<div class="sky-font">

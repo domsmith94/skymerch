@@ -109,7 +109,8 @@ public class SignIn extends HttpServlet {
 		if (admin) {
 			rd = this.getServletContext().getRequestDispatcher("/wh-order-history");
 			rd.forward(request, response);
-		} else if (loginSuccess){
+		} else 
+			if (loginSuccess){
 			rd = this.getServletContext().getRequestDispatcher("/index.html");
 			rd.forward(request, response);
 		} else if (wrongPass){

@@ -39,7 +39,7 @@
 </head>
 <body>
 	<div class="sky-font">
-		<%@ include file="navbar.jsp"%>
+		<%@ include file="adminNav.jsp"%>
 
 		<div class="container col-sm-10 col-sm-offset-1">
 			<div class="page-header">

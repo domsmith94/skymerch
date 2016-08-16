@@ -29,7 +29,7 @@
 	rel='stylesheet'>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<%@ include file="navbar.jsp"%>
+<%@ include file="adminNav.jsp"%>
 
 <body>
 	<div class="sky-font">
@@ -183,14 +183,14 @@
 		</div>
 	</div>
 
-	<div class="container col-sm-10 col-sm-offset-1">
-		<div class="container col-sm-10 col-sm-offset-1">
+	<div class="container col-sm-10 col-sm-offset-1 bottom-buffer">
+		<div class="container col-sm-4 col-sm-offset-4">
 			<div class="noprint">
-				<div class="page-header">
+				<div class="page-header text-centre">
 					<h3>Shipping Address</h3>
 				</div>
 			</div>
-			<div class="text-center">
+			<div>
 				<p><%=customer.getFirstName() + " " + customer.getLastName()%></p>
 				<p><%=address.getHouseNameNum() + " " + address.getAddressLineOne()%></p>
 				<%
@@ -205,7 +205,7 @@
 
 			</div>
 			<div class="noprint">
-				<div class="row text-center">
+				<div class="row">
 					<button onclick="myFunction()">Print Shipping Label</button>
 					<script>
 						function myFunction() {

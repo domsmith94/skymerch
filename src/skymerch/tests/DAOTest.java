@@ -137,7 +137,7 @@ public class DAOTest {
 		
 		// ~~~ Manual password hashing ~~~ //
 		
-		String manhash = BCrypt.hashpw("root", BCrypt.gensalt());
+		String manhash = BCrypt.hashpw("Root123", BCrypt.gensalt());
 		System.out.println(manhash);
 		
 		//System.out.println(BCrypt.checkpw("Adfsds", manhash));
