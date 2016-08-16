@@ -18,6 +18,7 @@ public class OrderBasketTest {
 		
 		Product testProd = pdao.findById(2000001);
 		Customer testCust = cdao.findById(1000001);
+		Order testOrder2 = odao.findById(3000011);
 		int theId = testCust.getCustId();
 		Basket basket = new Basket();
 		basket.addProductToBasket(testProd, 3);
@@ -51,7 +52,7 @@ public class OrderBasketTest {
 	
 	//testOrder.setDeliveryAddress(addr);
 	System.out.println(OrderValidator.validate(testOrder));
-	
+	System.out.println(OrderValidator.validate(testOrder2));
 	odao.addOrder(testOrder);
 	
 	System.out.println("hi" + null);

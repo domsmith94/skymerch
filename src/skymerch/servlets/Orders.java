@@ -98,21 +98,22 @@ public class Orders extends HttpServlet {
 		try{
 			
 			Order proposedOrder = new Order(customer, basket, orderPrice, addr, shipping);
-			//boolean orderValid = OrderValidator.validate(proposedOrder);
+			boolean orderValid = OrderValidator.validate(proposedOrder); //OrderValidator.lineArrayCheck(proposedOrder) && OrderValidator.validCustomer(proposedOrder) && OrderValidator.validDate(proposedOrder) && OrderValidator.validShippingType(proposedOrder) && OrderValidator.validStatus(proposedOrder) && OrderValidator.totalPriceCheck(proposedOrder);
 			
-			//if (orderValid){
+			if (orderValid){
 				ServletContext sc = this.getServletContext();
 				OrderDAO odao = (OrderDAO)sc.getAttribute("order_dao"); //new OrderDAO();
 				int orderId = odao.addOrder(proposedOrder);
 				session.setAttribute("orderId", orderId);
 				session.removeAttribute("basket");
 				rd = request.getRequestDispatcher("/confirmation");
-			//} else{
-			//	rd = request.getRequestDispatcher("/orderInvalid");
-			//}
+			} else{
+				rd = request.getRequestDispatcher("/orderInvalid");
+			}
 			
 		
 		} catch(Exception e){
+			e.printStackTrace();
 			rd = request.getRequestDispatcher("/basket");
 		}
 		
