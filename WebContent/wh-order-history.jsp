@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat"%>
+    import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat, java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,13 +59,15 @@
 						</thead>
 						<tbody>
 						<% List<Order> allOrders = (List<Order>) session.getAttribute("allOrders");
+						SimpleDateFormat formatter=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+						
 						for (Order print : allOrders) {
 							System.out.println("Id: " + print.getOrderId());
 						}
 						for (Order o : allOrders) { %>
 							<tr>
 								<td><a href="wh-order-view?id=<%=o.getOrderId()%>"><%=o.getOrderId()%></a></td>
-								<td><%=o.getOrderTime()%></td>
+								<td><%=formatter.format(o.getOrderTime())%></td>
 								<td><%=String.valueOf(o.getShippingType()) %></td>
 								<td><span class="label label-<% 
 								if (o.getStatus() == Status.ORDERED) {%>danger<%}
