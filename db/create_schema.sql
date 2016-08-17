@@ -120,6 +120,70 @@ DROP TABLE order_line;
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Disney Frozen Backpack', 9, 3, 13, 'Our Frozen light up backpack adds sparkle and fun to any adventure! This gorgeous design includes a PVC panel over a blue glitter background with character artwork and twinkling lights.', 2.3, 2, 19.99, 'clothing');
 
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Ant-Man Figure', 12, 5, 13, 'Marvel funko pop vinyl figure Ant-Man from the 2015 Ant Man movie following Dr Hank Pyms successor Scott Lang. Not suitable for children under the age of 3 years due to small parts which could cause a choking hazard.', 3.2, 7, 12.99, 'toys');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Ant-Man Mug', 8, 7, 17, 'The perfect gift for Ant-Man fans! Your chance to show your love for your favourite superhero!High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 3.1, 6, 3.99, 'household');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Good Dinosaur Colouring Set', 8, 7, 18, 'The Good Dinosaur Deluxe Stationery Set is perfect for the new school year. Contains a notebook, 8 colouring sheets, 2 pencils, 6 colouring pencils and 20 re-usable stickers.', 4.7, 12, 8.99, 'toys');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Dragon Z T-Shirt', 3, 2, 19, 'A must have for all Dragonball Z fans! A high quality T Shirt with a Training To Go Super Saiyan print. Short sleeve crew neck T-Shirt with double stitched sleeves and bottom hems.', 8.1, 4, 14.99, 'clothing');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Monsters Inc LED Nightlights', 11, 5, 20, 'A nightlight or a favourite soft toy are the perfect comforters at bedtime and now we have combined the two! Soft, squashy and as bright green as we expect him to be, Mike is filled with LED lights. Stand him on his charging base and he becomes a fun, colourful childrens lamp, or remove him from the base and he is the perfect cuddly nightlight to snuggle up with for a soothing nights sleep.', 3.8, 9, 29.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('The Dressmaker DVD', 6, 4, 21, 'A stylish dressmaker (Kate Winslet) returns to her backwoods Australian town in the 1950s - a place she fled at a young age after being accused of a horrific crime - in this scandalous comedy-drama. Also stars Liam Hemsworth, Hugo Weaving, Sarah Snook and Judy Davis.', 3.1, 4, 12.99, 'media');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Monsters Inc Luggage Set', 8, 7, 22, 'This set comprises of a wheeled bag. Back pack, wallet and trainer bag, each in a bold blue featuring Sully and Mike from the soon to be hit Monsters inc University. All are very durable in a wipe clean material. All products come with Zip fastening for easy access. The adjustable backstraps on the back pack are padded for comfort. ', 4.1, 4, 34.99, 'clothing');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Team Sky Water Bottle', 17, 12, 23, 'Keep hydrated with our Team Sky Water Bottle - it’s the same one our Team Sky riders use in training and worldwide competitions. Featuring the class-leading Corsa cap with safety blow-off feature and a soft rubber push-pull valve, this water bottle is easy to grip, easy on the mouth and easy to open, making it the perfect accessory for any cyclist. ', 4.2, 4, 5.99, 'household');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Team Sky Samsung Galaxy S4 Phone Case', 8, 7, 25, 'Show your support for Team Sky with this slim-fitting Team Sky branded phone case designed to fit the Samsung Galaxy S4. This original case gives you the perfect way to protect your mobile device as it is both flexible and impact-resistant.', 4.8, 4, 29.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Team Sky iPhone 5/5S Phone Case', 13, 5, 24, 'Show your support for Team Sky with this slim-fitting Team Sky branded phone case designed to fit the iPhone 5 and iPhone 5S. This original case gives you the perfect way to protect your mobile device as it is both flexible and impact-resistant.', 4.3, 4, 29.99, 'electronics');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Spectre Soundtrack CD', 13, 5, 25, 'Soundtrack to the 24th James Bond film Spectre. Featuring music composed by Thomas Newman including an instrumental version of Writing/s on the Wall, the album debuted at 25 in the UK Albums Chart.', 4.3, 4, 29.99, 'media');
+
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('James Bond 007 Mens Fragrance', 13, 5, 26, 'James Bond 007, the perfume with license to kill. Aimed at the confident, attractive, elegant man, a gentleman. The bottle is inspired by secret devices used by the secret agent in his missions. The aromatic notes are: apple, bergamot, geranium, rose, lavender, cardamom, vetiver, sandalwood, patchouli and moss. Designed to use in the day or at night, during intense missions.', 4.3, 4, 25.99, 'household');
+ 
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('James Bond Premium A5 Notebook', 16, 5, 27, 'Perfect for all James Bond fans! A black A5 textured notebook with double sided lined and watermarked pages throughout. This notebook includes a black ribbon as a place holder and an elasticated closure around the middle.', 4.3, 4, 7.99, 'household');
+          
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Star Wars Printed Poster', 20, 10, 28, 'An ideal gift for any Star Wars ® fan. Size 16 inches x 12 inches. All of our posters are new and are rolled, sealed and shipped in sturdy cardboard tubes to arrive in perfect condition. ', 4.3, 4, 7.99, 'media');
+               
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Disney Frozen Cushion', 18, 8, 47, 'Add a touch of Frozen magic to your child/s bedroom or playroom with this charming cushion. Featuring a beautiful print of Disney sisters Anna and Elsa on an icy blue background, this soft and snuggly cushion is made from 100% polyester and is wipe clean only.', 3.3, 4, 16.99, 'household');
+     
+     insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+     values('Star Wars Klontrooper Cushion', 7, 3, 30, 'Decorate your bedroom with this brilliant Star Wars Klontrooper cushion. The image print is of the finest quality and the cover can be removed for washing machine cleaning.',  4.3, 3, 14.99, 'household');
+  
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   values('Casino Royale Card Set and Soundtrack', 4, 1, 31, 'A perfect gift for a James Bond fan. Enjoy a card game with the official Casino Royale Card Set and really create an atmosphere with the Casino Royale soundtrack', 2.7, 12, 34.99, 'media');
+		
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   values('Billions Season 1 DVD Box Set', 30, 20, 32, 'Brilliant hedge fund titan Bobby “Axe” Axelrod and brash U.S. District Attorney Chuck Rhoades play a dangerous, winner-take-all game of cat and mouse where the stakes run into ten figures.', 4.9, 35, 29.99, 'media');
+	
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   values('Minions DVD', 50, 30, 33, 'Starting as single-celled yellow organisms, Minions evolve through the ages, perpetually serving the most despicable of masters.', 3.5, 20, 4.99, 'media');
+     
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   values('Spectre DVD', 50, 30, 34, 'A cryptic message from the past sends James Bond on a rogue mission to Mexico City and eventually Rome, where he meets Lucia Sciarra (Monica Bellucci), the beautiful and forbidden widow of an infamous criminal.', 3, 45, 9.99, 'media');
+	
+	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
+	   values('Monsters Inc University Cushion', 10, 7, 35, 'Designed in the UK and manufactured by Character World. Character World is the UK/s number 1 manufacturer of officially licensed beds, bedding and bedroom accessories. Other items to complete your bedroom makeover are widely available.', 4.5, 12, 9.99, 'household');	     
+      
+
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
      values ('1000004', '2016-06-02 12:25:24', 'standard', 'ordered', 14.33, 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); 
      
