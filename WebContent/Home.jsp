@@ -49,7 +49,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="images/slide1.PNG" alt="Chania" width="1600" 
+					<img src="images/Slide1.PNG" alt="Chania" width="1600" 
 						height="300">
 				</div>
 				<div class="item">
