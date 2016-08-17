@@ -9,6 +9,6 @@ function equalHeight(group) {
     group.each(function() { $(this).height(tallest); });
 } 
 
-$(document).ready(function() {   
+$(window).ready(function() {   
     equalHeight($(".thumbnail_small")); 
 });

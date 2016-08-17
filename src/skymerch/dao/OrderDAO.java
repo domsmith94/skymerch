@@ -13,7 +13,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import skymerch.entities.*;
-import skymerch.entities.Order;
+import skymerch.enums.Category;
 import skymerch.enums.Shipping;
 import skymerch.enums.Status;
 
@@ -116,7 +116,57 @@ public class OrderDAO {
 		// return the completed order object
 		return order;
 	}
+	
+	private Product processProductResult(ResultSet rs) throws SQLException{
+		// numbers correspond to columns of the CURRENT ROW of database table
+		int id = rs.getInt(1);
+		String name = rs.getString(2);
+		int stockLvl = rs.getInt(3);
+		int stockReorderLvl = rs.getInt(4);
+		String whLocation = rs.getString(5);
+		String description = rs.getString(6);
+		double rating = rs.getDouble(7);
+		int ratingCount = rs.getInt(8);
+		double price = rs.getDouble(9);
+		Category category = Category.valueOf((rs.getString(10).toUpperCase()));
+		
+		Product product = new Product();
+		product.setProdId(id);
+		product.setProdName(name);
+		product.setStockLevel(stockLvl);
+		product.setReorderLevel(stockReorderLvl);
+		product.setLocation(whLocation);
+		product.setProdDesc(description);
+		product.setRating(rating);
+		product.setNumOfRatings(ratingCount);
+		product.setPrice(price);
+		product.setCategory(category);
 
+		return product;
+	}
+	public Product findProductById(int prodId){
+		Product p = null;
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM product WHERE product_id = " + prodId + "");
+			if (rs.next()){
+				p = this.processProductResult(rs);
+			}
+			else{
+				System.out.println("No product found in database with ID " + prodId);
+				}
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+			}
+		return p;
+	}
+	
 	private OrderLine processLine(ResultSet rs) throws SQLException{
 		// This method takes a result set containing a order line table entry and extracts the data,
 		// storing it in a order line object and returning it for further use
@@ -129,8 +179,7 @@ public class OrderDAO {
 
 		// next, fill an order line object's fields with these temporary variables
 		OrderLine orderLine = new OrderLine();
-		ProductDAO pdao = new ProductDAO();
-		orderLine.setProduct(pdao.findById(productNo));
+		orderLine.setProduct(this.findProductById(productNo));
 		orderLine.setOrderLinePrice(totalCost);
 		orderLine.setQuantity(quantityOrdered);
 		orderLine.setItemPrice(itemPrice);

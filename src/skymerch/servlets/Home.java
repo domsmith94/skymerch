@@ -7,6 +7,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +41,8 @@ public class Home extends HttpServlet {
 		String urlPattern = request.getServletPath();
 		HttpSession session = request.getSession();
 		
-		ProductDAO pdao = new ProductDAO();
+		ServletContext sc = this.getServletContext();
+		ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");
 		List<Product> allProducts = pdao.readAll();
 		SortedSet<Product> orderedProducts = new TreeSet<Product>();
 		for (Product p : allProducts) {
