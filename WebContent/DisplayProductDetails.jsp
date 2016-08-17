@@ -58,7 +58,7 @@ Product product = (Product)session.getAttribute("product");
                             <div class="row top-buffer">
                             <div class="rating">
                              <p class = "text-center">Customer Rating: <% 
-                                 double rating = product.getRating() / 2;
+                                 double rating = product.getRating() ;
                                  if (rating >= 4.8) { %> 
                                  <i class="glyphicon glyphicon-star"></i>
                                  <i class="glyphicon glyphicon-star"></i>
@@ -139,7 +139,7 @@ Product product = (Product)session.getAttribute("product");
                                   <% }  
                                  
                                  %>
-                                </p><p class = "text-center">Average <%=(product.getRating() / 2)%> from <b><%=product.getNumOfRatings() / 2%></b> ratings.</p>
+                                </p><p class = "text-center">Average <%=(product.getRating())%> from <b><%=product.getNumOfRatings() / 2%></b> ratings.</p>
                                </div>
                             </div>
                                 <div class="row top-buffer">
