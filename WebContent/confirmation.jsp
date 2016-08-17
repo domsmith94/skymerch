@@ -84,7 +84,7 @@
 		                        			subtotal = subtotal + n.getOrderLinePrice();
 		                        			%>
 		                            <tr>
-		                                <td><%=n.getProduct().getProdName()%></td>
+		                                <td><%=n.getProduct().getProdName() %></td>
 		                                <td><%=n.getProduct().getPrice()%></td>
 		                                <td><%=n.getQuantity()%></td>
 		                                <td><%=n.getOrderLinePrice()%></td>
@@ -103,7 +103,7 @@
 		                                <b>Total</b>
 		                            </p></td>
 		                        <td><p>
-		                                <b><%=subtotal%></b>
+		                                <b><%=df.format(subtotal) %></b>
 		                            </p>
 		                         	<% 
 		                         		Double shippingCost;
@@ -114,10 +114,10 @@
 		                         		
 		                         	} %>   
 		                            <p>
-		                                <b><%=shippingCost %></b>
+		                                <b><%=df.format(shippingCost) %></b>
 		                            </p>
 		                            <p>
-		                                <b><%=order.getTotalCost()%></b>
+		                                <b><%=df.format(order.getTotalCost())%></b>
 		                            </p></td>
 		                    </tr>
 		                        </tbody>
