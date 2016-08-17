@@ -75,9 +75,8 @@
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="text-right">
                         <div class="top-buffer">
-                            <button type="submit" method="post" action="/skymerch/updateBasket" class="btn btn-info">Update basket</button>
-                       		<span class="glyphicon glyphicon-refresh"></span>
-                        </div>
+                            <button type="submit" method="post" action="/skymerch/updateBasket" class="btn btn-info">Update basket <span class="glyphicon glyphicon-refresh"></span></button>
+                       		</div>
                     </div>
                 </div>
        		

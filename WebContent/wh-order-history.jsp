@@ -77,7 +77,7 @@
 								if (o.getStatus() == Status.ORDERED) {%>danger<%}
 								if (o.getStatus() == Status.PROCESSING || o.getStatus() == Status.DISPATCHED) {%>warning<%}
 								if (o.getStatus() == Status.DELIVERED) {%>success<%}%>
-								success biggerlabel"><%=String.valueOf(o.getStatus())%></span></td>
+								biggerlabel"><%=String.valueOf(o.getStatus())%></span></td>
 							</tr>
 							<% } %>
 							

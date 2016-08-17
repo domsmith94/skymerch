@@ -22,7 +22,7 @@ import skymerch.enums.Category;
 /**
  * Servlet implementation class browse
  */
-@WebServlet({"/stocklevel"})
+@WebServlet({"/wh-stock-level", "/wh-add-stock"})
 public class StockLevelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -48,12 +48,27 @@ public class StockLevelServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		HttpSession session = request.getSession();
 		
+				
 		ServletContext sc = this.getServletContext();
 		ProductDAO pdao = (ProductDAO)sc.getAttribute("product_dao");//new ProductDAO();
+		
+		
+		if (path.equals("/wh-stock-level")) {
 		List<Product> allProducts = pdao.readAll();
 		session.setAttribute("allProducts", allProducts);
 		
-		rd = this.getServletContext().getRequestDispatcher("/stock-level.jsp");
+		rd = this.getServletContext().getRequestDispatcher("/wh-stock-level.jsp");
+		}
+		
+		
+		if (path.equals("/wh-add-stock")) {
+			String idToReorder = request.getParameter("id");
+			String amount = request.getParameter("add-stock");
+			Product prodToReorder = pdao.findById(Integer.parseInt(idToReorder));
+			pdao.addToStock(prodToReorder, Integer.parseInt(amount));
+			
+			rd = this.getServletContext().getRequestDispatcher("/wh-stock-level");
+		}
 		rd.forward(request, response);		
 			
 		

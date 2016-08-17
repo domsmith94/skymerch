@@ -42,7 +42,7 @@
 			</h1>
 		</div>
 		<div class="text-right">
-			<button onclick="myFunction()">Print Order History</button>
+			<button onclick="myFunction()"><span class="glyphicon glyphicon-print"></span> Print Order History</button>
 
 			<script>
 				function myFunction() {

@@ -205,7 +205,7 @@
 			</div>
 			<div class="noprint">
 				<div class="row text-center">
-					<button onclick="myFunction()">Print Shipping Label</button>
+					<button onclick="myFunction()"><span class="glyphicon glyphicon-print"></span> Print Shipping Label</button>
 					<script>
 						function myFunction() {
 							window.print();

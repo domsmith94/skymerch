@@ -44,7 +44,20 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="basket"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Basket</a></li>
+						class="glyphicon glyphicon-shopping-cart"></span> 
+						<%
+		int items = 0;
+		if (session.getAttribute("basket") != null) {
+							
+		Basket basket = (Basket) session.getAttribute("basket");
+		List<BasketLine> linesInBasket = basket.getBasketLines();
+		items = 0;					
+		for (BasketLine item : linesInBasket) {
+			
+			items = items + item.getQuantity();}
+			  }
+								
+				%>Basket<%if (items != 0) {%>(<%=items%>)<%} %></a></li>
 				<%
 					if (!auth) {
 				%>
