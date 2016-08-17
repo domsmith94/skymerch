@@ -3,7 +3,7 @@ package skymerch.servlets;
 
 
 import java.io.IOException;
-
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 
@@ -56,7 +56,7 @@ public class WHOrderHistory extends HttpServlet {
 		if (path.equals("/wh-orders-refined")) {
 			String status = request.getParameter("status");
 			System.out.println(status + "LOOOOOOOOOOOOOOOK");
-			TreeSet<Order> orders = odao.findByStatus(Status.valueOf(status));
+			SortedSet<Order> orders = odao.findByStatus(Status.valueOf(status));
 			session.setAttribute("refinedOrders", orders);
 
 			rd = this.getServletContext().getRequestDispatcher("/wh-orders-refined.jsp");

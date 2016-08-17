@@ -376,8 +376,8 @@ public class OrderDAO {
 
 	}
 	
-	public TreeSet<Order> findByStatus(Status status) {
-		TreeSet<Order> orders = null; 
+	public SortedSet<Order> findByStatus(Status status) {
+		SortedSet<Order> orders = null; 
 		try {
 			Connection con = this.getConnection();
 			Statement stmt = con.createStatement();

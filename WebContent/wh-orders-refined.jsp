@@ -80,11 +80,12 @@
 								TreeSet<Order> refinedOrders = (TreeSet<Order>) session.getAttribute("refinedOrders");
 								DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
 								int num = 1;
+								TreeSet<Order> oldestFirst = (TreeSet<Order>) refinedOrders.descendingSet();
 
-								for (Order print : refinedOrders) {
+								for (Order print : oldestFirst) {
 									System.out.println("Id: " + print.getOrderId());
 								}
-								for (Order o : refinedOrders) {
+								for (Order o : oldestFirst) {
 							%>
 							<tr>
 								<td><%=num%></td>
