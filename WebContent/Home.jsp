@@ -34,7 +34,7 @@
 <body>
 	<!-- Nav Bar -->
 	<%@ include file="navbar.jsp"%>
-	<div class="container col-md-10 col-md-offset-1">
+	<div class="container-fluid col-md-10 col-md-offset-1">
 
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
@@ -78,13 +78,13 @@
 	</div>
 
 	<!-- Page Border Div -->
-	<div class="container col-md-10 col-md-offset-1">
+	<div class="container-fluid col-sm-12 col-md-10 col-md-offset-1">
 
 		<!-- Page Break Line -->
 		<div class="container col-md-12 top-buffer bottom "></div>
 
 		<!-- Categories Container -->
-		<div class="container col-sm-6 col-md-4">
+		<div class="container-fluid col-md-4">
 
 			<!-- Header/Title -->
 			<div class="container col-md-12">
@@ -127,7 +127,7 @@
 
 
 		<!-- Top Rated Products Section -->
-		<div class="container col-sm-12 col-md-8">
+		<div class="container-fluid col-sm-12 col-md-8">
 
 			<!-- Header -->
 			<div class="container col-md-12">
