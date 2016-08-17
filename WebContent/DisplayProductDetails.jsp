@@ -121,7 +121,7 @@ Product product = (Product)session.getAttribute("product");
                                 	<i class="glyphicon glyphicon-star-empty"></i>
                                 	<i class="glyphicon glyphicon-star-empty"></i>                             
                                   
-                                  <% } else if (rating >= 0.8) { %>
+                                  <% } else if (rating <= 0.8) { %>
                                 	<i class="glyphicon glyphicon-star half"></i> 
                                 	<i class="glyphicon glyphicon-star-empty"></i>
                                 	<i class="glyphicon glyphicon-star-empty"></i>
