@@ -83,7 +83,7 @@
 	</div>
 
 	<!-- Page Border Div -->
-	<div class="container-fluid col-sm-12 col-md-10 col-md-offset-1">
+	<div class="container-fluid col-sm-12 col-md-10 col-md-offset-1 sky-font">
 
 		<!-- Page Break Line -->
 		<div class="container col-md-12 top-buffer bottom "></div>
