@@ -79,7 +79,7 @@ public class SignIn extends HttpServlet {
 		boolean admin = false;
 		
 		// here we will have checks for whether their details are okay.
-		
+		try{
 		String email = request.getParameter("email");
 		ServletContext sc = this.getServletContext();
 		CustomerDAO cdao = (CustomerDAO)sc.getAttribute("customer_dao");//new CustomerDAO();
@@ -120,6 +120,14 @@ public class SignIn extends HttpServlet {
 			rd = this.getServletContext().getRequestDispatcher("/sign-up");
 			rd.forward(request, response);
 		}
+		}
+		catch(Exception e){
+
+			// aint no failsafe like an s-club failsafe
+						String url = request.getContextPath() + "/sign-up";
+						response.sendRedirect(url);
+		}
 	}
+		
 
 }

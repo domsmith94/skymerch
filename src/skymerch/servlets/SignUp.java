@@ -64,7 +64,7 @@ public class SignUp extends HttpServlet {
 		boolean registerSuccess = false;
 
 		// here we will have for whether their details are okay.
-
+		try{
 		Customer customer = new Customer();
 		Address addr = new Address();
 
@@ -104,5 +104,12 @@ public class SignUp extends HttpServlet {
 			rd = request.getServletContext().getRequestDispatcher("/sign-up");
 		}
 		rd.forward(request, response);
+		}
+		catch(Exception e){
+
+			// aint no failsafe like an s-club failsafe
+						String url = request.getContextPath() + "/sign-up";
+						response.sendRedirect(url);
+		}
 	}
 }
