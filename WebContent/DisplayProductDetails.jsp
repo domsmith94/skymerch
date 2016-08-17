@@ -139,7 +139,7 @@ Product product = (Product)session.getAttribute("product");
                                   <% }  
                                  
                                  %>
-                                </p><p class = "text-center">Average <%=(product.getRating())%> from <b><%=product.getNumOfRatings() / 2%></b> ratings.</p>
+                                </p><p class = "text-center">Average <%=(product.getRating())%>/5 from <b><%=product.getNumOfRatings()%></b> ratings.</p>
                                </div>
                             </div>
                                 <div class="row top-buffer">
