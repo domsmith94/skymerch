@@ -51,6 +51,8 @@
     border: none;
 }
 
+
+
 .navbar-brand {
   padding: 0px; 
 }
@@ -223,7 +225,7 @@
 }
 
 .glyphicon-star {
-  font-size: 40px;
+  font-size: 20px;
   color: #e67e22;
 }
 .half:after {
