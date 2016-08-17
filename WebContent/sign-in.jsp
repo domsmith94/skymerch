@@ -33,7 +33,7 @@
 <meta charset="UTF-8"/>
 <title>Sign In - Sky Merchandise</title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<link href='https://assets.sky.com/dist/latest/css/fonts.css'
+ <link href='css/fonts.css'
 	rel='stylesheet'>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>

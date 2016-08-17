@@ -34,8 +34,8 @@
 	<title>Sign In - Sky Merchandise</title>
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href='https://assets.sky.com/dist/latest/css/fonts.css'
-		rel='stylesheet'>
+ <link href='css/fonts.css'
+	rel='stylesheet'>
 </head>
 <body>
 	<div class="sky-font">

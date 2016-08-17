@@ -15,7 +15,8 @@ pageEncoding="UTF-8"%>
     <title>Product - Sky Merchandise</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='https://assets.sky.com/dist/latest/css/fonts.css' rel='stylesheet'>
+ <link href='css/fonts.css'
+	rel='stylesheet'>
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
