@@ -40,12 +40,11 @@
 			Customer customer = (Customer) session.getAttribute("customer");
 		%>
 
-		<div class="container col-sm-10 col-sm-offset-1">
+		<div class="container col-sm-10 col-sm-offset-1 noprint">
 			<div class="page-header">
 			
 			<div>
 			<a href="wh-order-history"><button id="btnSubmit" type="submit" class="btn btn-info">
-				<span class="glyphicon glyphicon-chevron-left glyphicon"></span>
 				<span class="glyphicon glyphicon-chevron-left glyphicon"></span>
 				Back to view all orders</button></a>
 				</div>
@@ -116,7 +115,7 @@
 		</div>
 	</div>
 
-	<div class="container col-sm-10 col-sm-offset-1">
+	<div class="container col-sm-10 col-sm-offset-1 noprint sky-font">
 		<div class="page-header">
 			<h3>Order Summary</h3>
 		</div>
@@ -183,7 +182,7 @@
 		</div>
 	</div>
 
-	<div class="container col-sm-10 col-sm-offset-1 bottom-buffer">
+	<div class="container col-sm-10 col-sm-offset-1 bottom-buffer sky-font">
 		<div class="container col-sm-4 col-sm-offset-4">
 			<div class="noprint">
 				<div class="page-header text-centre">
@@ -205,7 +204,7 @@
 
 			</div>
 			<div class="noprint">
-				<div class="row">
+				<div class="row text-center">
 					<button onclick="myFunction()">Print Shipping Label</button>
 					<script>
 						function myFunction() {
@@ -214,6 +213,8 @@
 					</script>
 				</div>
 			</div>
+
+										
 		</div>
 	</div>
 
