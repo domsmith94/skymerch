@@ -139,6 +139,7 @@
 										<div class="col-sm-8">
 											<input type="text" class="form-control" name="postcode"
 												id="postcode" ng-model="postcode" required wiz-val-postcode>
+												<p class="help-block text-center" ng-show="signUpForm.postcode.$invalid && !signUpForm.postcode.$pristine"> We didn't recognise your postcode. It needs to be in the following format 'SE2 9MD' </p>
 										</div>
 									</div>
 								</div>
