@@ -211,7 +211,7 @@
 
 				</div>
 
-				<div class="container col-sm-6 col-sm-offset-">
+				<div class="container col-sm-12 col-md-6 col-sm-offset-">
 
 					<div class="page-header text-center">
 						<h4>
@@ -230,7 +230,7 @@
 
 				</div>
 
-				<div class="container col-sm-6 col-sm-offset-0 sky-font">
+				<div class="container col-sm-12 col-md-6 col-sm-offset-0 sky-font">
 					<div class="page-header text-center">
 						<h4>
 							<b>Card Details</b>
