@@ -54,6 +54,29 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%=customer.getFirstName()%></td>
+						<td><%=customer.getLastName()%></td>
+						<td><%=customer.getEmail()%></td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading col-m-12 col-sm-offset-0">
+			Address
+			</div>
+			
+
+			<table class="table table-hover">
+				<thead>
+
+					<tr>
 						<th>House Name/Number</th>
 						<th>Address Line 1</th>
 						<th>Address Line 2</th>
@@ -63,9 +86,6 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%=customer.getFirstName()%></td>
-						<td><%=customer.getLastName()%></td>
-						<td><%=customer.getEmail()%></td>
 						<td><%=address.getHouseNameNum() %></td>
 						<td><%=address.getAddressLineOne() %></td>
 						<td><% if (address.getAddressLineTwo() != null) {%><%=address.getAddressLineTwo()%><%}%></td>
