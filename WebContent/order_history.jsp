@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat"%>
+	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat, java.time.LocalDateTime, java.time.format.DateTimeFormatter"%>
 <!DOCTYPE html>
 <html>
 
@@ -61,6 +61,7 @@
 				DecimalFormat df = new DecimalFormat();
 				df.setMaximumFractionDigits(2);
 				df.setMinimumFractionDigits(2);
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
 				TreeSet<Order> fullHistory = (TreeSet<Order>) session.getAttribute("orderHistory");
 				TreeSet<Order> openOrders = new TreeSet<Order>();
 				TreeSet<Order> completedOrders = new TreeSet<Order>();
@@ -87,7 +88,7 @@
 			<h3 class="sky-text">Open Orders</h3>
 		</div> 
 		<% if (openOrders.isEmpty()) {
-			%><p>There are no orders to display.</p><%
+			%><p>None to display.</p><%
 		}
 		else {
 			for (Order o : openOrders) {
@@ -98,7 +99,7 @@
 						<em>Order Number: <%=o.getOrderId()%></em>
 					</p>
 					<p>
-						<em>Order Date: <%=o.getOrderTime()%></em>
+						<em>Order Date: <%LocalDateTime in = (LocalDateTime) o.getOrderTime();%><%=in.format(formatter)%></em>
 					</p></th>
 			</div>
 			<div class="panel-heading col-sm-5 col-sm-offset-0">
@@ -133,7 +134,7 @@
 								lineNum++;
 							%></td>
 						<td><%=ol.getProduct().getProdId()%>
-						<td><%=ol.getProduct().getProdName()%></td>
+						<td><a href="product?id=<%=ol.getProduct().getProdId()%>"><%=ol.getProduct().getProdName()%></a></td>
 						<td><%=ol.getQuantity()%></td>
 						<td><%=ol.getItemPrice()%></td>
 					</tr>
@@ -185,12 +186,13 @@
 			
 			
 			
-			<% if (fullHistory != null ){
-			if (completedOrders.isEmpty()) {
-				%><div class="page-header">
+			<% if (fullHistory != null ){ %>
+			<div class="page-header">
 				<h3 class="sky-text">Completed Orders</h3>
-			</div> 
-				<p>There are no orders to display.</p><%
+			</div> <%
+			if (completedOrders.isEmpty()) {
+				%>
+				<p>None to display.</p><%
 			}
 			else {
 				for (Order c : completedOrders) {
@@ -201,7 +203,7 @@
 									<em>Order Number: <%=c.getOrderId()%></em>
 								</p>
 								<p>
-									<em>Order Date: <%=c.getOrderTime()%></em>
+									<em>Order Date: <%LocalDateTime in = (LocalDateTime) c.getOrderTime();%><%=in.format(formatter)%></em>
 								</p></th>
 						</div>
 						<div class="panel-heading col-sm-5 col-sm-offset-0">
@@ -236,7 +238,7 @@
 											lineNum++;
 										%></td>
 									<td><%=ol.getProduct().getProdId()%>
-									<td><%=ol.getProduct().getProdName()%></td>
+									<td><a href="product?id=<%=ol.getProduct().getProdId()%>"><%=ol.getProduct().getProdName()%></a></td>
 									<td><%=ol.getQuantity()%></td>
 									<td><%=ol.getItemPrice()%></td>
 								</tr>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat"%>
+	import="java.util.*,skymerch.entities.*, skymerch.dao.*, skymerch.enums.*, java.text.DecimalFormat, java.time.LocalDateTime, java.time.format.DateTimeFormatter"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +38,7 @@
 			Order orderToDisplay = (Order) session.getAttribute("order");
 			Address address = (Address) session.getAttribute("address");
 			Customer customer = (Customer) session.getAttribute("customer");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
 		%>
 
 		<div class="container col-sm-10 col-sm-offset-1 noprint">
@@ -73,12 +74,18 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="text-center"><%=orderToDisplay.getOrderTime()%></td>
+							<td class="text-center"><%
+							LocalDateTime in = (LocalDateTime) orderToDisplay.getOrderTime();
+							%>
+							
+							
+							<%=in.format(formatter)%></td>
 							<td class="text-center"><%=String.valueOf(orderToDisplay.getShippingType())%></td>
 							<td><div class="text-center">
 									<span
 										class="label label-<%if (orderToDisplay.getStatus() == Status.ORDERED) {%>danger<%}
-			if (orderToDisplay.getStatus() == Status.PROCESSING || orderToDisplay.getStatus() == Status.DISPATCHED) {%>warning<%}
+			if (orderToDisplay.getStatus() == Status.PROCESSING) {%>warning<%}
+			if (orderToDisplay.getStatus() == Status.DISPATCHED) {%>info<%}
 			if (orderToDisplay.getStatus() == Status.DELIVERED) {%>success<%}%>
 								success biggerlabel"><%=String.valueOf(orderToDisplay.getStatus())%>
 									</span>
@@ -126,6 +133,7 @@
 				<thead>
 					<tr>
 						<th>Product Name</th>
+						<th>Warehouse Location</th>
 						<th>Unit Price</th>
 						<th>Quantity</th>
 						<th>Price</th>
@@ -137,6 +145,7 @@
 					%>
 					<tr>
 						<td><%=ol.getProduct().getProdName()%></td>
+						<td><span class="label label-default biggerlabel">A-<%=ol.getProduct().getLocation() %></span></td>
 						<td>£<%=ol.getItemPrice()%></td>
 						<td><%=ol.getQuantity()%></td>
 						<td>£<%=ol.getOrderLinePrice()%></td>

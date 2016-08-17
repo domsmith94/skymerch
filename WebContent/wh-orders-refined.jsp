@@ -36,13 +36,14 @@
 		<form>
 			<div class="page-header">
 				<h1 class="sky-text">
-					<b>Orders</b>
+					<b>Orders</b> refined by current Status    [oldest displayed first]
 				</h1>
 			</div>
 
 			<div></div>
 
 			<div class="container sky-font col-sm-10 col-sm-offset-1">
+
 
 				<div>
 					<a class="btn btn-danger" href="wh-orders-refined?status=ORDERED">
@@ -67,6 +68,7 @@
 						<thead>
 
 							<tr>
+								<th>#</th>
 								<th>Order ID</th>
 								<th>Date Placed</th>
 								<th>Shipping Method</th>
@@ -74,30 +76,36 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% List<Order> allOrders = (List<Order>) session.getAttribute("allOrders");
-						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
-						
-						
-						//for (Order print : allOrders) {
-							//System.out.println("Id: " + print.getOrderId());
-						//}
-						for (Order o : allOrders) { %>
+							<%
+								TreeSet<Order> refinedOrders = (TreeSet<Order>) session.getAttribute("refinedOrders");
+								DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH:mm:ss");
+								int num = 1;
+
+								for (Order print : refinedOrders) {
+									System.out.println("Id: " + print.getOrderId());
+								}
+								for (Order o : refinedOrders) {
+							%>
 							<tr>
+								<td><%=num%></td>
 								<td><a href="wh-order-view?id=<%=o.getOrderId()%>"><%=o.getOrderId()%></a></td>
-								<% LocalDateTime in = (LocalDateTime) o.getOrderTime();
-								
+								<%
+									LocalDateTime in = (LocalDateTime) o.getOrderTime();
 								%>
-								<td><%=in.format(formatter) %></td>
-								<td><%=String.valueOf(o.getShippingType()) %></td>
+								<td><%=in.format(formatter)%></td>
+								<td><%=String.valueOf(o.getShippingType())%></td>
 								<td><span
-									class="label label-<% 
-								if (o.getStatus() == Status.ORDERED) {%>danger<%}
-								if (o.getStatus() == Status.PROCESSING) {%>warning<%}
-								if (o.getStatus() == Status.DISPATCHED) {%>info<%}
-								if (o.getStatus() == Status.DELIVERED) {%>success<%}%>
+									class="label label-<%if (o.getStatus() == Status.ORDERED) {%>danger<%}
+				if (o.getStatus() == Status.PROCESSING) {%>warning<%}
+				if (o.getStatus() == Status.DISPATCHED) {%>info<%}
+				if (o.getStatus() == Status.DELIVERED) {%>success<%}%>
 								biggerlabel"><%=String.valueOf(o.getStatus())%></span></td>
+
 							</tr>
-							<% } %>
+							<%
+								num++;
+								}
+							%>
 
 						</tbody>
 					</table>

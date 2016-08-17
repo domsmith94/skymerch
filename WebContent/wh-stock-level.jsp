@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import = "java.util.*,skymerch.entities.*;" %>
+	import = "java.util.*,skymerch.entities.*"%>
 
 <!DOCTYPE html>
 <html>

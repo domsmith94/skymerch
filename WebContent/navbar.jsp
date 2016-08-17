@@ -57,7 +57,7 @@
 			items = items + item.getQuantity();}
 			  }
 								
-				%>Basket<%if (items != 0) {%>(<%=items%>)<%} %></a></li>
+				%>Basket<%if (items != 0) {%><span class="badge"><%=items%></span><%} %></a></li>
 				<%
 					if (!auth) {
 				%>

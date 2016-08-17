@@ -236,8 +236,6 @@ public class OrderDAO {
 		return null; 
 	}
 
-
-
 	public int addOrder(Order order){
 		try {
 			// this method makes a connection to the database, then runs the SQL stript to add a customer entry to the database
@@ -375,6 +373,30 @@ public class OrderDAO {
 			 */
 		}
 		return orderHistory;
+
+	}
+	
+	public TreeSet<Order> findByStatus(Status status) {
+		TreeSet<Order> orders = null; 
+		try {
+			Connection con = this.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM customer_order WHERE order_status = '" + String.valueOf(status).toLowerCase() + "'");
+			while (rs.next()) {
+				if (orders == null) { orders = new TreeSet<>(); }
+				Order o = this.processOrder(rs);
+				orders.add(o);				
+			} 
+		} catch(Exception e){
+			e.printStackTrace();
+			/*
+			 * add what will happen if a statement in the try block
+			 *(e.g. a username is input incorrectly) fails. 
+			 *TO DO: work on exception strategy
+			 */
+		}
+		for (Order o : orders) {System.out.println("LOOK HERE AT THE REFINED ORDERS" + o.getStatus());}
+		return orders;
 
 	}
 
