@@ -34,14 +34,7 @@
 	<div class="container sky-font">
 
 		<!-- FILTER BANK -->
-		<div class="col-xs-12 panel-group hidden-sm hidden-md hidden-lg">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" href="#collapse1">Filters</a>
-					</h4>
-				</div>
-				<div id="collapse1" class="panel-collapse collapse">
+		<!-- <div class="col-xs-12 panel-group hidden-sm hidden-md hidden-lg">		
 					<div class="container sky-font">
 						<div class="col-xs-12 col-sm-3 col-md-2">
 							<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
@@ -117,13 +110,12 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div> -->
 
-		<div class="col-xs-12 col-sm-3 col-md-2 hidden-xs">
+		<div class="col-xs-12 col-sm-3 col-md-2">
 			<form method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/filtered_results">
 				<h3>Filters</h3>
-				<div class="col-xs-6 col-sm-12">
+				<div class="col-xs-4 col-sm-12">
 					<h4>Category</h4>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="HOUSEHOLD" value="">Household
@@ -146,7 +138,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-6 col-sm-12 pull-right-sm">
+				<div class="col-xs-4 col-sm-12">
 					<h4>Price</h4>
 					<div class="radio">
 						<label> <input type="radio" name="optradio" value="0-5">£0-
@@ -179,12 +171,12 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-2 col-sm-12 text-centre">
+				<div class="col-xs-4 col-sm-12">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
 			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
-				<div class="col-xs-2 col-sm-12">
+				<div class="col-xs-4 col-sm-12">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
 						All</button>
 				</div>

@@ -86,8 +86,8 @@
                             <table class="table borderless">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Item</th>
+                                        <th class="hidden-xs">Product</th>
+                                        <th>Name</th>
                                         <th class="text-center">Unit Price</th>
                                         <th class="text-center">Quantity</th>
                                         <th class="text-center">Total</th>
@@ -96,7 +96,7 @@
                                 <tbody>
                                 <% for (BasketLine bl: linesInBasket){  %>
                                     <tr>
-                                        <td><img src="images/product/product<%= bl.getProduct().getProdId() %>.jpeg" alt="<%= bl.getProduct().getProdName() %> Picture"></td>
+                                        <td class="hidden-xs"><img src="images/product/product<%= bl.getProduct().getProdId() %>.jpeg" alt="<%= bl.getProduct().getProdName() %> Picture"></td>
                                         <td><a href= "product?id=<%= bl.getProduct().getProdId() %>"><%= bl.getProduct().getProdName() %> 	</a> </td>
                                         <td class="text-center">£<%= bl.getProduct().getPrice() %></td>
                                         <td class="text-center">

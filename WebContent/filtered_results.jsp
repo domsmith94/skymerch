@@ -25,19 +25,20 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
- <link href='css/fonts.css'
+<link href='https://assets.sky.com/dist/latest/css/fonts.css'
 	rel='stylesheet'>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
-	<div class="container">
-		<div class="col-md-2">
+	<div class="container sky-font">
+	
+		<div class="col-xs-12 col-sm-3 col-md-2">
 			<form method="POST"
 				action="<%if (request.getRequestURL().toString().contains("localhost")) {%>/skymerch<%}%>/filtered_results">
 				<h3>Filters</h3>
-				<div class="col-xs-12">
+				<div class="col-xs-4 col-sm-12">
 					<h4>Category</h4>
 					<div class="checkbox">
 						<label> <input type="checkbox" name="HOUSEHOLD"
@@ -75,7 +76,7 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-12">
+				<div class="col-xs-4 col-sm-12">
 					<h4>Price</h4>
 					<div class="radio">
 						<label> <%
@@ -121,21 +122,20 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-12 text-center">
+				<div class="col-xs-4 col-sm-12">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
 			<form
 				action="<%if (request.getRequestURL().toString().contains("localhost")) {%>/skymerch<%}%>/browse">
-				<p align="center">
-					<br /> <br />
+				<div class="col-xs-4 col-sm-12">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
 						All</button>
-				</p>
+				</div>
 			</form>
 		</div>
 
-		<div class="col-md-10">
+		<div class="col-sm-9 col-md-10">
 			<div class="page-header">
 				<h1>
 					Products <small>Sold by Sky Merchandise</small>
@@ -151,7 +151,7 @@
 					} else {
 						for (Product p : tiledResults) {
 				%>
-				<div class="col-md-3">
+				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail thumbnail_small shadowfilter">
 						<div class="grow" id="inner">
 							<a href="product?id=<%=p.getProdId()%>"> <img
