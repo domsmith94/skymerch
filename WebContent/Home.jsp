@@ -42,12 +42,17 @@
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
 
 			</ol>
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
+					<img src="images/slide1.PNG" alt="Chania" width="1600" 
+						height="300">
+				</div>
+				<div class="item">
 					<img src="images/banner1.jpeg" alt="Chania" width="1600"
 						height="300">
 				</div>
@@ -98,28 +103,29 @@
 			<!-- Categories -->
 			<div class="container col-md-12 top-buffer">
 				<div class="thumbnail shadowfilter">
-					<a href="browse-for?category=TOYS"> <img src="images/product/test.png" width="540"
-						height="200" alt="...">
+					<a href="browse-for?category=TOYS"> <img
+						src="images/product/test.png" width="540" height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="browse-for?category=CLOTHING"> <img src="images/product/clothing.png" width="540"
-						height="200" alt="...">
+					<a href="browse-for?category=CLOTHING"> <img
+						src="images/product/clothing.png" width="540" height="200"
+						alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="browse-for?category=MEDIA"> <img src="images/media.png" width="540"
-						height="200" alt="...">
+					<a href="browse-for?category=MEDIA"> <img
+						src="images/media.png" width="540" height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="browse-for?category=HOUSEHOLD"> <img src="images/household.png" width="540"
-						height="200" alt="...">
+					<a href="browse-for?category=HOUSEHOLD"> <img
+						src="images/household.png" width="540" height="200" alt="...">
 					</a>
 				</div>
 				<div class="thumbnail shadowfilter">
-					<a href="browse-for?category=ELECTRONICS"> <img src="images/electronics.png" width="540"
-						height="200" alt="...">
+					<a href="browse-for?category=ELECTRONICS"> <img
+						src="images/electronics.png" width="540" height="200" alt="...">
 					</a>
 				</div>
 			</div>
