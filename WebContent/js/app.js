@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp', ['validation.match']);
+var myApp = angular.module('myApp', ['validation.match', 'wiz.validation']);

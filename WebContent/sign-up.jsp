@@ -9,6 +9,7 @@
 <script src="js/angular-validation-match.js"></script>
 <script src="js/app.js"></script>
 <script src="js/registerController.js"></script>
+<script src="js/wizValidation.js"></script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -95,8 +96,10 @@
 										password </label>
 									<div class="col-sm-8">
 										<input type="password" class="form-control"
-											name="confirmPassword" placeholder="Passwords must match" id="confirmPassword" ng-model="confirmPassword" required>
+											name="confirmPassword" placeholder="Passwords must match" id="confirmPassword" ng-model="confirmPassword" required match="password">
+										<p class="help-block text-center" ng-show="signUpForm.confirmPassword.$error.match && !signUpForm.confirmPassword.$pristine"> Password entered does not match </p>
 									</div>
+
 								</div>
 							</div>
 							<!-- Repeat - to be changed -->
@@ -135,7 +138,7 @@
 										<label class="control-label col-sm-4" for="postcode">Postcode</label>
 										<div class="col-sm-8">
 											<input type="text" class="form-control" name="postcode"
-												id="postcode" ng-model="postcode" required>
+												id="postcode" ng-model="postcode" required wiz-val-postcode>
 										</div>
 									</div>
 								</div>
