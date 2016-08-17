@@ -33,7 +33,7 @@
 
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="user_account"><span
+			<li><a href="#"><span
 					class="glyphicon glyphicon-user"></span> <%=name%></a></li>
 
 			<li>
