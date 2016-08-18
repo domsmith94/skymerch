@@ -157,10 +157,9 @@ Product product = (Product)session.getAttribute("product");
                     <form name="productsOrdered" method="POST" action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/addToBasket">
                     <input type="hidden" name="id" value="<%= productId %>">
                         <div class="row top-buffer">
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-6 col-md-offset-3">Quantity:<br />
                                     <select class="form-control" name="quantity" id="quantity">
-                                        <option selected="selected">Select quantity</option>
-                                        <option>1</option>
+                                        <option selected="selected">1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>

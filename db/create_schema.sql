@@ -57,7 +57,7 @@ DROP TABLE order_line;
        
        
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
-     values ('System','Admin', 'Mr', 'admin@skymerch.com', '$2a$10$BJsx8Lf4d5/L09aCy6viKuK8n5GK7Hp2DgmCl3IgaxaH6cuStCUxG', 1, 'Admin Road', 'Admintown', 'ADM 1N');
+     values ('Warehouse','Operative', 'Mr', 'warehouse@skymerch.com', '$2a$10$BJsx8Lf4d5/L09aCy6viKuK8n5GK7Hp2DgmCl3IgaxaH6cuStCUxG', 1, 'Admin Road', 'Admintown', 'ADM 1N');
      
      insert into customer(first_name, last_name, title, email, user_password, house_no, address_line1, town_city, postcode)
      values ('Adam','Morrison', 'Mr', 'adam.morrison@sky.uk', '$2a$10$gpHTQlrd4GIssPPXkTFV3upgkhhv.Vsl4899ofcmhPPfTckyrdV3y', 5, 'brimpsfield close abbeywood', 'london', 'SE2 9LR'); -- passwd Apricot5
@@ -79,7 +79,7 @@ DROP TABLE order_line;
      values('James Bond Top Trumps', 10, 5, 3, 'The name\'s Bond, James Bond. This pack needs no introduction, it\'s simply the Best of Bond. Villains, Henchman, all the Bonds, and a few glamorous women thrown in for good measure, it\'s the greatest adventure ever - so pay attention 007! Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.8, 10, 2.99, 'toys');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Shrek Mug', 1, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 2.9, 8, 3.99, 'household');
+     values('Shrek Mug', 1, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 4.9, 8, 3.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Despicable Me Minion Bag', 8, 4, 8, 'If your little one can\'t get enough of the Minions, they\'ll adore this fun backpack featuring their favourite characters. With a colourful blue and yellow Minions design, this backpack has one large zip pocket for storage with adjustable shoulder straps for comfort!', 3.6, 8, 15.99, 'clothing');
