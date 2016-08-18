@@ -76,10 +76,10 @@ DROP TABLE order_line;
      
        
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('James Bond Top Trumps', 10, 5, 3, 'The names Bond, James Bond. This pack needs no introduction, its simply the Best of Bond. Villains, Henchman all the Bonds and a few glamorous women thrown in for good measure, it\'s the greatest adventure ever, so pay attention 007. Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.8, 10, 2.99, 'toys');
+     values('James Bond Top Trumps', 10, 5, 3, 'The name\'s Bond, James Bond. This pack needs no introduction, it\'s simply the Best of Bond. Villains, Henchman, all the Bonds, and a few glamorous women thrown in for good measure, it\'s the greatest adventure ever - so pay attention 007! Suitable for ages 3 years + Safety Information: Warning. Not suitable for Children under 3 years.', 4.8, 10, 2.99, 'toys');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Shrek Mug', 6, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 2.9, 8, 3.99, 'household');
+     values('Shrek Mug', 1, 3, 16, 'The perfect gift for Shrek fans, your chance to show your love for the film and its sequels! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 2.9, 8, 3.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Despicable Me Minion Bag', 8, 4, 8, 'If your little one can\'t get enough of the Minions, they\'ll adore this fun backpack featuring their favourite characters. With a colourful blue and yellow Minions design, this backpack has one large zip pocket for storage with adjustable shoulder straps for comfort!', 3.6, 8, 15.99, 'clothing');
@@ -88,7 +88,7 @@ DROP TABLE order_line;
      values('Ghostbusters Hat', 3, 3, 4, 'A hat perfect for fans of the iconic Ghostbusters movie. Based on the highly popular film it features a high quality embroidered logo and text design. The cap also features an adjustable fastener and is made using high quality materials ensuring it is comfortable. Ideal for fans of the popular movies.', 2.9, 6, 15.99, 'clothing');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Game of Thrones Pin', 6, 8, 9, 'Become part of the Game Of Thrones story with this awesome Hand of the King pin! Beautifully crafted this Hand of The King Pin is a replica of the one seen within the hit HBO series Game of Thrones. An ideal gift for any fan this Game of thrones Hand Of The king pin measures 3-inches long x 1.1.4 inches wide.', 4.3, 4, 5.99, 'toys');
+     values('Game of Thrones Pin', 6, 8, 9, 'Become part of the Game Of Thrones story with this awesome Hand of the King pin! Beautifully crafted, this Hand of The King Pin is a replica of the one seen within the hit HBO series Game of Thrones. An ideal gift for any fan this Game of thrones Hand Of The king pin measures 3-inches long x 1.1.4 inches wide.', 4.3, 4, 5.99, 'toys');
 
 	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Game of Thrones Babygrow', 4, 4, 5, 'This funny and unique Game of Thrones baby grow would make the perfect gift. It has an envelope neck opening with narrow self-bound neck and sleeve ends. the Game of Thrones print is on high quality cotton, the quirky design makes for an funny, adorable little baby outfit.', 1.7, 7, 22.99, 'clothing'); 
@@ -124,13 +124,13 @@ DROP TABLE order_line;
      values('Ant-Man Figure', 12, 5, 13, 'Marvel funko pop vinyl figure Ant-Man from the 2015 Ant Man movie following Dr Hank Pyms successor Scott Lang. Not suitable for children under the age of 3 years due to small parts which could cause a choking hazard.', 3.2, 7, 12.99, 'toys');
 
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Ant-Man Mug', 8, 7, 17, 'The perfect gift for Ant-Man fans! Your chance to show your love for your favourite superhero!High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 3.1, 6, 3.99, 'household');
+     values('Ant-Man Mug', 8, 7, 17, 'The perfect gift for Ant-Man fans! Your chance to show your love for your favourite superhero! High quality ceramic photo coffee mug, dimensions approx. 4x3 inches, dishwasher and microwave safe.', 3.1, 6, 3.99, 'household');
 
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Good Dinosaur Colouring Set', 8, 7, 18, 'The Good Dinosaur Deluxe Stationery Set is perfect for the new school year. Contains a notebook, 8 colouring sheets, 2 pencils, 6 colouring pencils and 20 re-usable stickers.', 4.7, 12, 8.99, 'toys');
 
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Dragon Z T-Shirt', 3, 2, 19, 'A must have for all Dragonball Z fans! A high quality T Shirt with a Training To Go Super Saiyan print. Short sleeve crew neck T-Shirt with double stitched sleeves and bottom hems.', 8.1, 4, 14.99, 'clothing');
+     values('Dragonball Z T-Shirt', 3, 2, 19, 'A must have for all Dragonball Z fans! A high quality T Shirt with a Training To Go Super Saiyan print. Short sleeve crew neck T-Shirt with double stitched sleeves and bottom hems.', 8.1, 4, 14.99, 'clothing');
 
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
      values('Monsters Inc LED Nightlights', 11, 5, 20, 'A nightlight or a favourite soft toy are the perfect comforters at bedtime and now we have combined the two! Soft, squashy and as bright green as we expect him to be, Mike is filled with LED lights. Stand him on his charging base and he becomes a fun, colourful childrens lamp, or remove him from the base and he is the perfect cuddly nightlight to snuggle up with for a soothing nights sleep.', 3.8, 9, 29.99, 'electronics');
@@ -166,7 +166,7 @@ DROP TABLE order_line;
      values('Disney Frozen Cushion', 18, 8, 47, 'Add a touch of Frozen magic to your child/s bedroom or playroom with this charming cushion. Featuring a beautiful print of Disney sisters Anna and Elsa on an icy blue background, this soft and snuggly cushion is made from 100% polyester and is wipe clean only.', 3.3, 4, 16.99, 'household');
      
      insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-     values('Star Wars Klontrooper Cushion', 7, 3, 30, 'Decorate your bedroom with this brilliant Star Wars Klontrooper cushion. The image print is of the finest quality and the cover can be removed for washing machine cleaning.',  4.3, 3, 14.99, 'household');
+     values('Star Wars Clone Trooper Cushion', 7, 3, 30, 'Decorate your bedroom with this brilliant Star Wars Clone Trooper cushion. The image print is of the finest quality and the cover can be removed for washing machine cleaning.',  4.3, 3, 14.99, 'household');
   
 	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
 	   values('Casino Royale Card Set and Soundtrack', 4, 1, 31, 'A perfect gift for a James Bond fan. Enjoy a card game with the official Casino Royale Card Set and really create an atmosphere with the Casino Royale soundtrack', 2.7, 12, 34.99, 'media');
@@ -181,7 +181,7 @@ DROP TABLE order_line;
 	   values('Spectre DVD', 50, 30, 34, 'A cryptic message from the past sends James Bond on a rogue mission to Mexico City and eventually Rome, where he meets Lucia Sciarra (Monica Bellucci), the beautiful and forbidden widow of an infamous criminal.', 3, 45, 9.99, 'media');
 	
 	   insert into product(product_name, stock_level, stock_reorder_level, warehouse_location, product_description, product_rating, rating_count, product_price, product_category)
-	   values('Monsters Inc University Cushion', 10, 7, 35, 'Designed in the UK and manufactured by Character World. Character World is the UK/s number 1 manufacturer of officially licensed beds, bedding and bedroom accessories. Other items to complete your bedroom makeover are widely available.', 4.5, 12, 9.99, 'household');	     
+	   values('Monsters University Cushion', 10, 7, 35, 'Designed in the UK and manufactured by Character World. Character World is the UK/s number 1 manufacturer of officially licensed beds, bedding and bedroom accessories. Other items to complete your bedroom makeover are widely available.', 4.5, 12, 9.99, 'household');	     
       
 
      insert into customer_order(customer_id, order_date, delivery_type, order_status, total_price, house_no, address_line1, town_city, postcode)
