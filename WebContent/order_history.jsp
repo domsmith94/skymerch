@@ -32,6 +32,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>
+	<div class="container sky-font">
 	<%	
 		Customer currentCust = (Customer) session.getAttribute("signedInUser");
 	%>
@@ -289,7 +290,7 @@
 		
 		
 		
-		
+</div>		
 </div>
 </body>
 </html>
