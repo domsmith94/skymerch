@@ -171,12 +171,12 @@
 						</label>
 					</div>
 				</div>
-				<div class="col-xs-4 col-sm-12">
+				<div class="col-xs-4 col-sm-12 text-center">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Filter</button>
 				</div>
 			</form>
 			<form action="<% 	if (request.getRequestURL().toString().contains("localhost")) { %>/skymerch<% }%>/browse">
-				<div class="col-xs-4 col-sm-12">
+				<div class="col-xs-4 col-sm-12 text-center top-buffer">
 					<button id="btnSubmit" type="submit" class="btn btn-default">Clear
 						All</button>
 				</div>
