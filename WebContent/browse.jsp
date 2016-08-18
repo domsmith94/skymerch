@@ -184,7 +184,7 @@
 		</div>
 
 		<!-- MAIN BODY -->
-		<div class="col-sm-9 col-md-10">
+		<div class=" col-xs-12 col-sm-9 col-md-10">
 			<div class="page-header">
 				<h1>
 					Products <small>Sold by Sky Merchandise</small>
